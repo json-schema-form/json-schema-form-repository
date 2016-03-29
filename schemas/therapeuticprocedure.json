@@ -1,0 +1,119 @@
+{
+  "description": "A medical procedure intended primarily for therapeutic purposes, aimed at improving a health condition.",
+  "title": "TherapeuticProcedure",
+  "version": "2.2",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "procedureType": {
+      "description": "The type of procedure, for example Surgical, Noninvasive, or Percutaneous.",
+      "$ref": "file://medicalproceduretype.json#properties"
+    },
+    "code": {
+      "description": "A medical code for the entity, taken from a controlled vocabulary or ontology such as ICD-9, DiseasesDB, MeSH, SNOMED-CT, RxNorm, etc.",
+      "$ref": "file://medicalcode.json#properties"
+    },
+    "sameAs": {
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "$ref": "file://url.json#properties"
+    },
+    "image": {
+      "anyOf": [
+        {
+          "$ref": "file://imageobject.json#properties"
+        },
+        {
+          "$ref": "file://url.json#properties"
+        }
+      ],
+      "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
+    },
+    "adverseOutcome": {
+      "description": "A possible complication and/or side effect of this therapy. If it is known that an adverse outcome is serious (resulting in death, disability, or permanent damage; requiring hospitalization; or is otherwise life-threatening or requires immediate medical attention), tag it as a seriouseAdverseOutcome instead.",
+      "$ref": "file://medicalentity.json#properties"
+    },
+    "recognizingAuthority": {
+      "description": "If applicable, the organization that officially recognizes this entity as part of its endorsed system of medicine.",
+      "$ref": "file://organization.json#properties"
+    },
+    "additionalType": {
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "$ref": "file://url.json#properties"
+    },
+    "contraindication": {
+      "description": "A contraindication for this therapy.",
+      "$ref": "file://medicalcontraindication.json#properties"
+    },
+    "relevantSpecialty": {
+      "description": "If applicable, a medical specialty in which this entity is relevant.",
+      "$ref": "file://medicalspecialty.json#properties"
+    },
+    "seriousAdverseOutcome": {
+      "description": "A possible serious complication and/or serious side effect of this therapy. Serious adverse outcomes include those that are life-threatening; result in death, disability, or permanent damage; require hospitalization or prolong existing hospitalization; cause congenital anomalies or birth defects; or jeopardize the patient and may require medical or surgical intervention to prevent one of the outcomes in this definition.",
+      "$ref": "file://medicalentity.json#properties"
+    },
+    "howPerformed": {
+      "type": "string",
+      "description": "How the procedure is performed."
+    },
+    "guideline": {
+      "description": "A medical guideline related to this entity.",
+      "$ref": "file://medicalguideline.json#properties"
+    },
+    "mainEntityOfPage": {
+      "anyOf": [
+        {
+          "$ref": "file://url.json#properties"
+        },
+        {
+          "$ref": "file://creativework.json#properties"
+        }
+      ],
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
+    },
+    "followup": {
+      "type": "string",
+      "description": "Typical or recommended followup care after the procedure is performed."
+    },
+    "description": {
+      "type": "string",
+      "description": "A short description of the item."
+    },
+    "duplicateTherapy": {
+      "description": "A therapy that duplicates or overlaps this one.",
+      "$ref": "file://medicaltherapy.json#properties"
+    },
+    "alternateName": {
+      "type": "string",
+      "description": "An alias for the item."
+    },
+    "potentialAction": {
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
+      "$ref": "file://action.json#properties"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the item."
+    },
+    "url": {
+      "description": "URL of the item.",
+      "$ref": "file://url.json#properties"
+    },
+    "study": {
+      "description": "A medical study or trial related to this entity.",
+      "$ref": "file://medicalstudy.json#properties"
+    },
+    "preparation": {
+      "type": "string",
+      "description": "Typical preparation that a patient must undergo before having the procedure performed."
+    },
+    "indication": {
+      "description": "A factor that indicates use of this therapy for treatment and/or prevention of a condition, symptom, etc. For therapies such as drugs, indications can include both officially-approved indications as well as off-label uses. These can be distinguished by using the ApprovedIndication subtype of MedicalIndication.",
+      "$ref": "file://medicalindication.json#properties"
+    },
+    "medicineSystem": {
+      "description": "The system of medicine that includes this MedicalEntity, for example 'evidence-based', 'homeopathic', 'chiropractic', etc.",
+      "$ref": "file://medicinesystem.json#properties"
+    }
+  }
+}

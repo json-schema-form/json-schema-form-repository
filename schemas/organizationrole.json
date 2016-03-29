@@ -1,0 +1,93 @@
+{
+  "description": "A subclass of Role used to describe roles within organizations.",
+  "title": "OrganizationRole",
+  "version": "2.2",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "startDate": {
+      "type": "string",
+      "description": "The start date and time of the item (in <a href='http://en.wikipedia.org/wiki/ISO_8601'>ISO 8601 date format</a>)."
+    },
+    "potentialAction": {
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
+      "$ref": "file://action.json#properties"
+    },
+    "endDate": {
+      "type": "string",
+      "description": "The end date and time of the item (in <a href='http://en.wikipedia.org/wiki/ISO_8601'>ISO 8601 date format</a>)."
+    },
+    "description": {
+      "type": "string",
+      "description": "A short description of the item."
+    },
+    "sameAs": {
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "$ref": "file://url.json#properties"
+    },
+    "image": {
+      "anyOf": [
+        {
+          "$ref": "file://imageobject.json#properties"
+        },
+        {
+          "$ref": "file://url.json#properties"
+        }
+      ],
+      "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
+    },
+    "additionalType": {
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "$ref": "file://url.json#properties"
+    },
+    "url": {
+      "description": "URL of the item.",
+      "$ref": "file://url.json#properties"
+    },
+    "namedPosition": {
+      "anyOf": [
+        {
+          "$ref": "file://url.json#properties"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "description": "A position played, performed or filled by a person or organization, as part of an organization. For example, an athlete in a SportsTeam might play in the position named 'Quarterback'."
+    },
+    "numberedPosition": {
+      "type": "number",
+      "description": "A number associated with a role in an organization, for example, the number on an athlete's jersey."
+    },
+    "mainEntityOfPage": {
+      "anyOf": [
+        {
+          "$ref": "file://url.json#properties"
+        },
+        {
+          "$ref": "file://creativework.json#properties"
+        }
+      ],
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
+    },
+    "roleName": {
+      "anyOf": [
+        {
+          "$ref": "file://url.json#properties"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "description": "A role played, performed or filled by a person or organization. For example, the team of creators for a comic book might fill the roles named 'inker', 'penciller', and 'letterer'; or an athlete in a SportsTeam might play in the position named 'Quarterback'."
+    },
+    "alternateName": {
+      "type": "string",
+      "description": "An alias for the item."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the item."
+    }
+  }
+}

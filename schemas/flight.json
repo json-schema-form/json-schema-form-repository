@@ -1,0 +1,166 @@
+{
+  "description": "An airline flight.",
+  "title": "Flight",
+  "version": "2.2",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "flightDistance": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "file://distance.json#properties"
+        }
+      ],
+      "description": "The distance of the flight."
+    },
+    "sameAs": {
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "$ref": "file://url.json#properties"
+    },
+    "image": {
+      "anyOf": [
+        {
+          "$ref": "file://imageobject.json#properties"
+        },
+        {
+          "$ref": "file://url.json#properties"
+        }
+      ],
+      "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
+    },
+    "departureGate": {
+      "type": "string",
+      "description": "Identifier of the flight's departure gate."
+    },
+    "additionalType": {
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "$ref": "file://url.json#properties"
+    },
+    "arrivalAirport": {
+      "description": "The airport where the flight terminates.",
+      "$ref": "file://airport.json#properties"
+    },
+    "departureAirport": {
+      "description": "The airport where the flight originates.",
+      "$ref": "file://airport.json#properties"
+    },
+    "seller": {
+      "anyOf": [
+        {
+          "$ref": "file://organization.json#properties"
+        },
+        {
+          "$ref": "file://person.json#properties"
+        }
+      ],
+      "description": "An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider."
+    },
+    "boardingPolicy": {
+      "description": "The type of boarding policy used by the airline (e.g. zone-based or group-based).",
+      "$ref": "file://boardingpolicytype.json#properties"
+    },
+    "provider": {
+      "anyOf": [
+        {
+          "$ref": "file://person.json#properties"
+        },
+        {
+          "$ref": "file://organization.json#properties"
+        }
+      ],
+      "description": "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller."
+    },
+    "mainEntityOfPage": {
+      "anyOf": [
+        {
+          "$ref": "file://url.json#properties"
+        },
+        {
+          "$ref": "file://creativework.json#properties"
+        }
+      ],
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
+    },
+    "arrivalTerminal": {
+      "type": "string",
+      "description": "Identifier of the flight's arrival terminal."
+    },
+    "description": {
+      "type": "string",
+      "description": "A short description of the item."
+    },
+    "aircraft": {
+      "anyOf": [
+        {
+          "$ref": "file://vehicle.json#properties"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "description": "The kind of aircraft (e.g., \"Boeing 747\")."
+    },
+    "estimatedFlightDuration": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "file://duration.json#properties"
+        }
+      ],
+      "description": "The estimated time the flight will take."
+    },
+    "departureTerminal": {
+      "type": "string",
+      "description": "Identifier of the flight's departure terminal."
+    },
+    "arrivalTime": {
+      "type": "string",
+      "description": "The expected arrival time."
+    },
+    "alternateName": {
+      "type": "string",
+      "description": "An alias for the item."
+    },
+    "webCheckinTime": {
+      "type": "string",
+      "description": "The time when a passenger can check into the flight online."
+    },
+    "departureTime": {
+      "type": "string",
+      "description": "The expected departure time."
+    },
+    "potentialAction": {
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
+      "$ref": "file://action.json#properties"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the item."
+    },
+    "url": {
+      "description": "URL of the item.",
+      "$ref": "file://url.json#properties"
+    },
+    "flightNumber": {
+      "type": "string",
+      "description": "The unique identifier for a flight including the airline IATA code. For example, if describing United flight 110, where the IATA code for United is 'UA', the flightNumber is 'UA110'."
+    },
+    "mealService": {
+      "type": "string",
+      "description": "Description of the meals that will be provided or available for purchase."
+    },
+    "carrier": {
+      "description": "'carrier' is an out-dated term indicating the 'provider' for parcel delivery and flights.",
+      "$ref": "file://organization.json#properties"
+    },
+    "arrivalGate": {
+      "type": "string",
+      "description": "Identifier of the flight's arrival gate."
+    }
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "description": "An infectious disease is a clinically evident human disease resulting from the presence of pathogenic microbial agents, like pathogenic viruses, pathogenic bacteria, fungi, protozoa, multicellular parasites, and prions. To be considered an infectious disease, such pathogens are known to be able to cause this disease.",
+  "title": "InfectiousDisease",
+  "version": "2.2",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "code": {
+      "description": "A medical code for the entity, taken from a controlled vocabulary or ontology such as ICD-9, DiseasesDB, MeSH, SNOMED-CT, RxNorm, etc.",
+      "$ref": "file://medicalcode.json#properties"
+    },
+    "sameAs": {
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "$ref": "file://url.json#properties"
+    },
+    "image": {
+      "anyOf": [
+        {
+          "$ref": "file://imageobject.json#properties"
+        },
+        {
+          "$ref": "file://url.json#properties"
+        }
+      ],
+      "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
+    },
+    "possibleTreatment": {
+      "description": "A possible treatment to address this condition, sign or symptom.",
+      "$ref": "file://medicaltherapy.json#properties"
+    },
+    "primaryPrevention": {
+      "description": "A preventative therapy used to prevent an initial occurrence of the medical condition, such as vaccination.",
+      "$ref": "file://medicaltherapy.json#properties"
+    },
+    "recognizingAuthority": {
+      "description": "If applicable, the organization that officially recognizes this entity as part of its endorsed system of medicine.",
+      "$ref": "file://organization.json#properties"
+    },
+    "transmissionMethod": {
+      "type": "string",
+      "description": "How the disease spreads, either as a route or vector, for example 'direct contact', 'Aedes aegypti', etc."
+    },
+    "associatedAnatomy": {
+      "anyOf": [
+        {
+          "$ref": "file://superficialanatomy.json#properties"
+        },
+        {
+          "$ref": "file://anatomicalsystem.json#properties"
+        },
+        {
+          "$ref": "file://anatomicalstructure.json#properties"
+        }
+      ],
+      "description": "The anatomy of the underlying organ system or structures associated with this entity."
+    },
+    "additionalType": {
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "$ref": "file://url.json#properties"
+    },
+    "guideline": {
+      "description": "A medical guideline related to this entity.",
+      "$ref": "file://medicalguideline.json#properties"
+    },
+    "infectiousAgentClass": {
+      "description": "The class of infectious agent (bacteria, prion, etc.) that causes the disease.",
+      "$ref": "file://infectiousagentclass.json#properties"
+    },
+    "relevantSpecialty": {
+      "description": "If applicable, a medical specialty in which this entity is relevant.",
+      "$ref": "file://medicalspecialty.json#properties"
+    },
+    "signOrSymptom": {
+      "description": "A sign or symptom of this condition. Signs are objective or physically observable manifestations of the medical condition while symptoms are the subjective experience of the medical condition.",
+      "$ref": "file://medicalsignorsymptom.json#properties"
+    },
+    "differentialDiagnosis": {
+      "description": "One of a set of differential diagnoses for the condition. Specifically, a closely-related or competing diagnosis typically considered later in the cognitive process whereby this medical condition is distinguished from others most likely responsible for a similar collection of signs and symptoms to reach the most parsimonious diagnosis or diagnoses in a patient.",
+      "$ref": "file://ddxelement.json#properties"
+    },
+    "mainEntityOfPage": {
+      "anyOf": [
+        {
+          "$ref": "file://url.json#properties"
+        },
+        {
+          "$ref": "file://creativework.json#properties"
+        }
+      ],
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
+    },
+    "stage": {
+      "description": "The stage of the condition, if applicable.",
+      "$ref": "file://medicalconditionstage.json#properties"
+    },
+    "cause": {
+      "description": "An underlying cause. More specifically, one of the causative agent(s) that are most directly responsible for the pathophysiologic process that eventually results in the occurrence.",
+      "$ref": "file://medicalcause.json#properties"
+    },
+    "riskFactor": {
+      "description": "A modifiable or non-modifiable factor that increases the risk of a patient contracting this condition, e.g. age,  coexisting condition.",
+      "$ref": "file://medicalriskfactor.json#properties"
+    },
+    "typicalTest": {
+      "description": "A medical test typically performed given this condition.",
+      "$ref": "file://medicaltest.json#properties"
+    },
+    "description": {
+      "type": "string",
+      "description": "A short description of the item."
+    },
+    "infectiousAgent": {
+      "type": "string",
+      "description": "The actual infectious agent, such as a specific bacterium."
+    },
+    "pathophysiology": {
+      "type": "string",
+      "description": "Changes in the normal mechanical, physical, and biochemical functions that are associated with this activity or condition."
+    },
+    "epidemiology": {
+      "type": "string",
+      "description": "The characteristics of associated patients, such as age, gender, race etc."
+    },
+    "alternateName": {
+      "type": "string",
+      "description": "An alias for the item."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the item."
+    },
+    "potentialAction": {
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
+      "$ref": "file://action.json#properties"
+    },
+    "secondaryPrevention": {
+      "description": "A preventative therapy used to prevent reoccurrence of the medical condition after an initial episode of the condition.",
+      "$ref": "file://medicaltherapy.json#properties"
+    },
+    "naturalProgression": {
+      "type": "string",
+      "description": "The expected progression of the condition if it is not treated and allowed to progress naturally."
+    },
+    "url": {
+      "description": "URL of the item.",
+      "$ref": "file://url.json#properties"
+    },
+    "study": {
+      "description": "A medical study or trial related to this entity.",
+      "$ref": "file://medicalstudy.json#properties"
+    },
+    "subtype": {
+      "type": "string",
+      "description": "A more specific type of the condition, where applicable, for example 'Type 1 Diabetes', 'Type 2 Diabetes', or 'Gestational Diabetes' for Diabetes."
+    },
+    "medicineSystem": {
+      "description": "The system of medicine that includes this MedicalEntity, for example 'evidence-based', 'homeopathic', 'chiropractic', etc.",
+      "$ref": "file://medicinesystem.json#properties"
+    },
+    "possibleComplication": {
+      "type": "string",
+      "description": "A possible unexpected and unfavorable evolution of a medical condition. Complications may include worsening of the signs or symptoms of the disease, extension of the condition to other organ systems, etc."
+    },
+    "expectedPrognosis": {
+      "type": "string",
+      "description": "The likely outcome in either the short term or long term of the medical condition."
+    }
+  }
+}

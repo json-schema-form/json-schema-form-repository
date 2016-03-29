@@ -1,0 +1,71 @@
+{
+  "description": "An EducationalAudience.",
+  "title": "EducationalAudience",
+  "version": "2.2",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "potentialAction": {
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
+      "$ref": "file://action.json#properties"
+    },
+    "description": {
+      "type": "string",
+      "description": "A short description of the item."
+    },
+    "sameAs": {
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "$ref": "file://url.json#properties"
+    },
+    "image": {
+      "anyOf": [
+        {
+          "$ref": "file://imageobject.json#properties"
+        },
+        {
+          "$ref": "file://url.json#properties"
+        }
+      ],
+      "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
+    },
+    "url": {
+      "description": "URL of the item.",
+      "$ref": "file://url.json#properties"
+    },
+    "geographicArea": {
+      "description": "The geographic area associated with the audience.",
+      "$ref": "file://administrativearea.json#properties"
+    },
+    "audienceType": {
+      "type": "string",
+      "description": "The target group associated with a given audience (e.g. veterans, car owners, musicians, etc.)."
+    },
+    "mainEntityOfPage": {
+      "anyOf": [
+        {
+          "$ref": "file://url.json#properties"
+        },
+        {
+          "$ref": "file://creativework.json#properties"
+        }
+      ],
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
+    },
+    "additionalType": {
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "$ref": "file://url.json#properties"
+    },
+    "alternateName": {
+      "type": "string",
+      "description": "An alias for the item."
+    },
+    "educationalRole": {
+      "type": "string",
+      "description": "An educationalRole of an EducationalAudience."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the item."
+    }
+  }
+}

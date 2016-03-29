@@ -1,0 +1,107 @@
+{
+  "description": "A medical study is an umbrella type covering all kinds of research studies relating to human medicine or health, including observational studies and interventional trials and registries, randomized, controlled or not. When the specific type of study is known, use one of the extensions of this type, such as MedicalTrial or MedicalObservationalStudy. Also, note that this type should be used to mark up data that describes the study itself; to tag an article that publishes the results of a study, use MedicalScholarlyArticle. Note: use the code property of MedicalEntity to store study IDs, e.g. clinicaltrials.gov ID.",
+  "title": "MedicalStudy",
+  "version": "2.2",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "status": {
+      "description": "The status of the study (enumerated).",
+      "$ref": "file://medicalstudystatus.json#properties"
+    },
+    "studySubject": {
+      "description": "A subject of the study, i.e. one of the medical conditions, therapies, devices, drugs, etc. investigated by the study.",
+      "$ref": "file://medicalentity.json#properties"
+    },
+    "potentialAction": {
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
+      "$ref": "file://action.json#properties"
+    },
+    "description": {
+      "type": "string",
+      "description": "A short description of the item."
+    },
+    "relevantSpecialty": {
+      "description": "If applicable, a medical specialty in which this entity is relevant.",
+      "$ref": "file://medicalspecialty.json#properties"
+    },
+    "medicineSystem": {
+      "description": "The system of medicine that includes this MedicalEntity, for example 'evidence-based', 'homeopathic', 'chiropractic', etc.",
+      "$ref": "file://medicinesystem.json#properties"
+    },
+    "url": {
+      "description": "URL of the item.",
+      "$ref": "file://url.json#properties"
+    },
+    "study": {
+      "description": "A medical study or trial related to this entity.",
+      "$ref": "file://medicalstudy.json#properties"
+    },
+    "outcome": {
+      "type": "string",
+      "description": "Expected or actual outcomes of the study."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the item."
+    },
+    "sameAs": {
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "$ref": "file://url.json#properties"
+    },
+    "code": {
+      "description": "A medical code for the entity, taken from a controlled vocabulary or ontology such as ICD-9, DiseasesDB, MeSH, SNOMED-CT, RxNorm, etc.",
+      "$ref": "file://medicalcode.json#properties"
+    },
+    "recognizingAuthority": {
+      "description": "If applicable, the organization that officially recognizes this entity as part of its endorsed system of medicine.",
+      "$ref": "file://organization.json#properties"
+    },
+    "sponsor": {
+      "description": "Sponsor of the study.",
+      "$ref": "file://organization.json#properties"
+    },
+    "studyLocation": {
+      "description": "The location in which the study is taking/took place.",
+      "$ref": "file://administrativearea.json#properties"
+    },
+    "mainEntityOfPage": {
+      "anyOf": [
+        {
+          "$ref": "file://url.json#properties"
+        },
+        {
+          "$ref": "file://creativework.json#properties"
+        }
+      ],
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
+    },
+    "additionalType": {
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "$ref": "file://url.json#properties"
+    },
+    "alternateName": {
+      "type": "string",
+      "description": "An alias for the item."
+    },
+    "guideline": {
+      "description": "A medical guideline related to this entity.",
+      "$ref": "file://medicalguideline.json#properties"
+    },
+    "image": {
+      "anyOf": [
+        {
+          "$ref": "file://imageobject.json#properties"
+        },
+        {
+          "$ref": "file://url.json#properties"
+        }
+      ],
+      "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
+    },
+    "population": {
+      "type": "string",
+      "description": "Any characteristics of the population used in the study, e.g. 'males under 65'."
+    }
+  }
+}

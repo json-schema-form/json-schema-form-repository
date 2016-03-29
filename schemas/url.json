@@ -1,0 +1,8 @@
+{
+  "description": "Data type: URL.",
+  "title": "URL",
+  "version": "2.2",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {}
+}

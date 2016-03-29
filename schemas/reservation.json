@@ -1,0 +1,149 @@
+{
+  "description": "Describes a reservation for travel, dining or an event. Some reservations require tickets.Note: This type is for information about actual reservations, e.g. in confirmation emails or HTML pages with individual confirmations of reservations. For offers of tickets, restaurant reservations, flights, or rental cars, use http://schema.org/Offer.",
+  "title": "Reservation",
+  "version": "2.2",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "totalPrice": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "file://pricespecification.json#properties"
+        }
+      ],
+      "description": "The total price for the reservation or ticket, including applicable taxes, shipping, etc."
+    },
+    "sameAs": {
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "$ref": "file://url.json#properties"
+    },
+    "image": {
+      "anyOf": [
+        {
+          "$ref": "file://imageobject.json#properties"
+        },
+        {
+          "$ref": "file://url.json#properties"
+        }
+      ],
+      "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
+    },
+    "reservedTicket": {
+      "description": "A ticket associated with the reservation.",
+      "$ref": "file://ticket.json#properties"
+    },
+    "reservationId": {
+      "type": "string",
+      "description": "A unique identifier for the reservation."
+    },
+    "additionalType": {
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "$ref": "file://url.json#properties"
+    },
+    "reservationStatus": {
+      "description": "The current status of the reservation.",
+      "$ref": "file://reservationstatustype.json#properties"
+    },
+    "underName": {
+      "anyOf": [
+        {
+          "$ref": "file://organization.json#properties"
+        },
+        {
+          "$ref": "file://person.json#properties"
+        }
+      ],
+      "description": "The person or organization the reservation or ticket is for."
+    },
+    "provider": {
+      "anyOf": [
+        {
+          "$ref": "file://person.json#properties"
+        },
+        {
+          "$ref": "file://organization.json#properties"
+        }
+      ],
+      "description": "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller."
+    },
+    "mainEntityOfPage": {
+      "anyOf": [
+        {
+          "$ref": "file://url.json#properties"
+        },
+        {
+          "$ref": "file://creativework.json#properties"
+        }
+      ],
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
+    },
+    "reservationFor": {
+      "description": "The thing -- flight, event, restaurant,etc. being reserved.",
+      "$ref": "file://thing.json#properties"
+    },
+    "description": {
+      "type": "string",
+      "description": "A short description of the item."
+    },
+    "modifiedTime": {
+      "type": "string",
+      "description": "The date and time the reservation was modified."
+    },
+    "broker": {
+      "anyOf": [
+        {
+          "$ref": "file://person.json#properties"
+        },
+        {
+          "$ref": "file://organization.json#properties"
+        }
+      ],
+      "description": "An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred."
+    },
+    "alternateName": {
+      "type": "string",
+      "description": "An alias for the item."
+    },
+    "bookingTime": {
+      "type": "string",
+      "description": "The date and time the reservation was booked."
+    },
+    "potentialAction": {
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
+      "$ref": "file://action.json#properties"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the item."
+    },
+    "priceCurrency": {
+      "type": "string",
+      "description": "The currency (in 3-letter ISO 4217 format) of the price or a price component, when attached to PriceSpecification and its subtypes."
+    },
+    "url": {
+      "description": "URL of the item.",
+      "$ref": "file://url.json#properties"
+    },
+    "programMembershipUsed": {
+      "description": "Any membership in a frequent flyer, hotel loyalty program, etc. being applied to the reservation.",
+      "$ref": "file://programmembership.json#properties"
+    },
+    "bookingAgent": {
+      "anyOf": [
+        {
+          "$ref": "file://person.json#properties"
+        },
+        {
+          "$ref": "file://organization.json#properties"
+        }
+      ],
+      "description": "'bookingAgent' is an out-dated term indicating a 'broker' that serves as a booking agent."
+    }
+  }
+}

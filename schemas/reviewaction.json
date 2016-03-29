@@ -1,0 +1,131 @@
+{
+  "description": "The act of producing a balanced opinion about the object for an audience. An agent reviews an object with participants resulting in a review.",
+  "title": "ReviewAction",
+  "version": "2.2",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "potentialAction": {
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
+      "$ref": "file://action.json#properties"
+    },
+    "participant": {
+      "anyOf": [
+        {
+          "$ref": "file://person.json#properties"
+        },
+        {
+          "$ref": "file://organization.json#properties"
+        }
+      ],
+      "description": "Other co-agents that participated in the action indirectly. e.g. John wrote a book with *Steve*."
+    },
+    "description": {
+      "type": "string",
+      "description": "A short description of the item."
+    },
+    "sameAs": {
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "$ref": "file://url.json#properties"
+    },
+    "image": {
+      "anyOf": [
+        {
+          "$ref": "file://imageobject.json#properties"
+        },
+        {
+          "$ref": "file://url.json#properties"
+        }
+      ],
+      "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
+    },
+    "object": {
+      "description": "The object upon the action is carried out, whose state is kept intact or changed. Also known as the semantic roles patient, affected or undergoer (which change their state) or theme (which doesn't). e.g. John read *a book*.",
+      "$ref": "file://thing.json#properties"
+    },
+    "agent": {
+      "anyOf": [
+        {
+          "$ref": "file://organization.json#properties"
+        },
+        {
+          "$ref": "file://person.json#properties"
+        }
+      ],
+      "description": "The direct performer or driver of the action (animate or inanimate). e.g. *John* wrote a book."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the item."
+    },
+    "actionStatus": {
+      "description": "Indicates the current disposition of the Action.",
+      "$ref": "file://actionstatustype.json#properties"
+    },
+    "instrument": {
+      "description": "The object that helped the agent perform the action. e.g. John wrote a book with *a pen*.",
+      "$ref": "file://thing.json#properties"
+    },
+    "url": {
+      "description": "URL of the item.",
+      "$ref": "file://url.json#properties"
+    },
+    "target": {
+      "description": "Indicates a target EntryPoint for an Action.",
+      "$ref": "file://entrypoint.json#properties"
+    },
+    "result": {
+      "description": "The result produced in the action. e.g. John wrote *a book*.",
+      "$ref": "file://thing.json#properties"
+    },
+    "startTime": {
+      "type": "string",
+      "description": "The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to start. For actions that span a period of time, when the action was performed. e.g. John wrote a book from *January* to December.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions."
+    },
+    "error": {
+      "description": "For failed actions, more information on the cause of the failure.",
+      "$ref": "file://thing.json#properties"
+    },
+    "mainEntityOfPage": {
+      "anyOf": [
+        {
+          "$ref": "file://url.json#properties"
+        },
+        {
+          "$ref": "file://creativework.json#properties"
+        }
+      ],
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
+    },
+    "additionalType": {
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "$ref": "file://url.json#properties"
+    },
+    "alternateName": {
+      "type": "string",
+      "description": "An alias for the item."
+    },
+    "endTime": {
+      "type": "string",
+      "description": "The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performed. e.g. John wrote a book from January to *December*.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions."
+    },
+    "resultReview": {
+      "description": "A sub property of result. The review that resulted in the performing of the action.",
+      "$ref": "file://review.json#properties"
+    },
+    "location": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "file://place.json#properties"
+        },
+        {
+          "$ref": "file://postaladdress.json#properties"
+        }
+      ],
+      "description": "The location of for example where the event is happening, an organization is located, or where an action takes place."
+    }
+  }
+}

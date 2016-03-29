@@ -1,0 +1,8 @@
+{
+  "description": "Data type: Floating number.",
+  "title": "Float",
+  "version": "2.2",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {}
+}

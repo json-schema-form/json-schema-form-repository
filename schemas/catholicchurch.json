@@ -1,0 +1,197 @@
+{
+  "description": "A Catholic church.",
+  "title": "CatholicChurch",
+  "version": "2.2",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "openingHoursSpecification": {
+      "description": "The opening hours of a certain place.",
+      "$ref": "file://openinghoursspecification.json#properties"
+    },
+    "sameAs": {
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "$ref": "file://url.json#properties"
+    },
+    "photo": {
+      "anyOf": [
+        {
+          "$ref": "file://photograph.json#properties"
+        },
+        {
+          "$ref": "file://imageobject.json#properties"
+        }
+      ],
+      "description": "A photograph of this place."
+    },
+    "image": {
+      "anyOf": [
+        {
+          "$ref": "file://imageobject.json#properties"
+        },
+        {
+          "$ref": "file://url.json#properties"
+        }
+      ],
+      "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
+    },
+    "telephone": {
+      "type": "string",
+      "description": "The telephone number."
+    },
+    "faxNumber": {
+      "type": "string",
+      "description": "The fax number."
+    },
+    "aggregateRating": {
+      "description": "The overall rating, based on a collection of reviews or ratings, of the item.",
+      "$ref": "file://aggregaterating.json#properties"
+    },
+    "containsPlace": {
+      "description": "The basic containment relation between a place and another that it contains.",
+      "$ref": "file://place.json#properties"
+    },
+    "additionalType": {
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "$ref": "file://url.json#properties"
+    },
+    "logo": {
+      "anyOf": [
+        {
+          "$ref": "file://imageobject.json#properties"
+        },
+        {
+          "$ref": "file://url.json#properties"
+        }
+      ],
+      "description": "An associated logo."
+    },
+    "event": {
+      "description": "Upcoming or past event associated with this place, organization, or action.",
+      "$ref": "file://event.json#properties"
+    },
+    "isicV4": {
+      "type": "string",
+      "description": "The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place."
+    },
+    "geo": {
+      "anyOf": [
+        {
+          "$ref": "file://geoshape.json#properties"
+        },
+        {
+          "$ref": "file://geocoordinates.json#properties"
+        }
+      ],
+      "description": "The geo coordinates of the place."
+    },
+    "review": {
+      "description": "A review of the item.",
+      "$ref": "file://review.json#properties"
+    },
+    "maps": {
+      "description": "A URL to a map of the place.",
+      "$ref": "file://url.json#properties"
+    },
+    "additionalProperty": {
+      "description": "A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org. <br /><br />\n\nNote: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.\n",
+      "$ref": "file://propertyvalue.json#properties"
+    },
+    "mainEntityOfPage": {
+      "anyOf": [
+        {
+          "$ref": "file://url.json#properties"
+        },
+        {
+          "$ref": "file://creativework.json#properties"
+        }
+      ],
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
+    },
+    "events": {
+      "description": "Upcoming or past events associated with this place or organization.",
+      "$ref": "file://event.json#properties"
+    },
+    "map": {
+      "description": "A URL to a map of the place.",
+      "$ref": "file://url.json#properties"
+    },
+    "description": {
+      "type": "string",
+      "description": "A short description of the item."
+    },
+    "containedIn": {
+      "description": "The basic containment relation between a place and one that contains it.",
+      "$ref": "file://place.json#properties"
+    },
+    "containedInPlace": {
+      "description": "The basic containment relation between a place and one that contains it.",
+      "$ref": "file://place.json#properties"
+    },
+    "photos": {
+      "anyOf": [
+        {
+          "$ref": "file://photograph.json#properties"
+        },
+        {
+          "$ref": "file://imageobject.json#properties"
+        }
+      ],
+      "description": "Photographs of this place."
+    },
+    "address": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "file://postaladdress.json#properties"
+        }
+      ],
+      "description": "Physical address of the item."
+    },
+    "alternateName": {
+      "type": "string",
+      "description": "An alias for the item."
+    },
+    "hasMap": {
+      "anyOf": [
+        {
+          "$ref": "file://url.json#properties"
+        },
+        {
+          "$ref": "file://map.json#properties"
+        }
+      ],
+      "description": "A URL to a map of the place."
+    },
+    "branchCode": {
+      "type": "string",
+      "description": "A short textual code (also called \"store code\") that uniquely identifies a place of business. The code is typically assigned by the parentOrganization and used in structured URLs.\n<br /><br /> For example, in the URL http://www.starbucks.co.uk/store-locator/etc/detail/3047 the code \"3047\" is a branchCode for a particular branch.\n      "
+    },
+    "potentialAction": {
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
+      "$ref": "file://action.json#properties"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the item."
+    },
+    "url": {
+      "description": "URL of the item.",
+      "$ref": "file://url.json#properties"
+    },
+    "reviews": {
+      "description": "Review of the item.",
+      "$ref": "file://review.json#properties"
+    },
+    "openingHours": {
+      "type": "string",
+      "description": "The opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'.<br />- Days are specified using the following two-letter combinations: <code>Mo</code>, <code>Tu</code>, <code>We</code>, <code>Th</code>, <code>Fr</code>, <code>Sa</code>, <code>Su</code>.<br />- Times are specified using 24:00 time. For example, 3pm is specified as <code>15:00</code>. <br />- Here is an example: <code>&lt;time itemprop=&quot;openingHours&quot; datetime=&quot;Tu,Th 16:00-20:00&quot;&gt;Tuesdays and Thursdays 4-8pm&lt;/time&gt;</code>. <br />- If a business is open 7 days a week, then it can be specified as <code>&lt;time itemprop=&quot;openingHours&quot; datetime=&quot;Mo-Su&quot;&gt;Monday through Sunday, all day&lt;/time&gt;</code>."
+    },
+    "globalLocationNumber": {
+      "type": "string",
+      "description": "The <a href=\"http://www.gs1.org/gln\">Global Location Number</a> (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations."
+    }
+  }
+}

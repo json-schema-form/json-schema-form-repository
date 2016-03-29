@@ -1,0 +1,247 @@
+{
+  "description": "A single, identifiable product instance (e.g. a laptop with a particular serial number).",
+  "title": "IndividualProduct",
+  "version": "2.2",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "isConsumableFor": {
+      "description": "A pointer to another product (or multiple products) for which this product is a consumable.",
+      "$ref": "file://product.json#properties"
+    },
+    "weight": {
+      "description": "The weight of the product or person.",
+      "$ref": "file://quantitativevalue.json#properties"
+    },
+    "isAccessoryOrSparePartFor": {
+      "description": "A pointer to another product (or multiple products) for which this product is an accessory or spare part.",
+      "$ref": "file://product.json#properties"
+    },
+    "sameAs": {
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "$ref": "file://url.json#properties"
+    },
+    "purchaseDate": {
+      "type": "string",
+      "description": "The date the item e.g. vehicle was purchased by the current owner."
+    },
+    "image": {
+      "anyOf": [
+        {
+          "$ref": "file://imageobject.json#properties"
+        },
+        {
+          "$ref": "file://url.json#properties"
+        }
+      ],
+      "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
+    },
+    "gtin8": {
+      "type": "string",
+      "description": "The <a href=\"http://apps.gs1.org/GDD/glossary/Pages/GTIN-8.aspx\">GTIN-8</a> code of the product, or the product to which the offer refers. This code is also known as EAN/UCC-8 or 8-digit EAN. See <a href=\"http://www.gs1.org/barcodes/technical/idkeys/gtin\">GS1 GTIN Summary</a> for more details."
+    },
+    "height": {
+      "anyOf": [
+        {
+          "$ref": "file://quantitativevalue.json#properties"
+        },
+        {
+          "$ref": "file://distance.json#properties"
+        }
+      ],
+      "description": "The height of the item."
+    },
+    "releaseDate": {
+      "type": "string",
+      "description": "The release date of a product or product model. This can be used to distinguish the exact variant of a product."
+    },
+    "isRelatedTo": {
+      "description": "A pointer to another, somehow related product (or multiple products).",
+      "$ref": "file://product.json#properties"
+    },
+    "additionalType": {
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "$ref": "file://url.json#properties"
+    },
+    "logo": {
+      "anyOf": [
+        {
+          "$ref": "file://imageobject.json#properties"
+        },
+        {
+          "$ref": "file://url.json#properties"
+        }
+      ],
+      "description": "An associated logo."
+    },
+    "productID": {
+      "type": "string",
+      "description": "The product identifier, such as ISBN. For example: <code>&lt;meta itemprop='productID' content='isbn:123-456-789'/&gt;</code>."
+    },
+    "category": {
+      "anyOf": [
+        {
+          "$ref": "file://physicalactivitycategory.json#properties"
+        },
+        {
+          "$ref": "file://thing.json#properties"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "description": "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy."
+    },
+    "isSimilarTo": {
+      "description": "A pointer to another, functionally similar product (or multiple products).",
+      "$ref": "file://product.json#properties"
+    },
+    "width": {
+      "anyOf": [
+        {
+          "$ref": "file://distance.json#properties"
+        },
+        {
+          "$ref": "file://quantitativevalue.json#properties"
+        }
+      ],
+      "description": "The width of the item."
+    },
+    "review": {
+      "description": "A review of the item.",
+      "$ref": "file://review.json#properties"
+    },
+    "audience": {
+      "description": "An intended audience, i.e. a group for whom something was created.",
+      "$ref": "file://audience.json#properties"
+    },
+    "color": {
+      "type": "string",
+      "description": "The color of the product."
+    },
+    "additionalProperty": {
+      "description": "A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org. <br /><br />\n\nNote: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.\n",
+      "$ref": "file://propertyvalue.json#properties"
+    },
+    "offers": {
+      "description": "An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event.",
+      "$ref": "file://offer.json#properties"
+    },
+    "mainEntityOfPage": {
+      "anyOf": [
+        {
+          "$ref": "file://url.json#properties"
+        },
+        {
+          "$ref": "file://creativework.json#properties"
+        }
+      ],
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
+    },
+    "productionDate": {
+      "type": "string",
+      "description": "The date of production of the item, e.g. vehicle."
+    },
+    "sku": {
+      "type": "string",
+      "description": "The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers."
+    },
+    "description": {
+      "type": "string",
+      "description": "A short description of the item."
+    },
+    "mpn": {
+      "type": "string",
+      "description": "The Manufacturer Part Number (MPN) of the product, or the product to which the offer refers."
+    },
+    "brand": {
+      "anyOf": [
+        {
+          "$ref": "file://organization.json#properties"
+        },
+        {
+          "$ref": "file://brand.json#properties"
+        }
+      ],
+      "description": "The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person."
+    },
+    "award": {
+      "type": "string",
+      "description": "An award won by or for this item."
+    },
+    "awards": {
+      "type": "string",
+      "description": "Awards won by or for this item."
+    },
+    "itemCondition": {
+      "description": "A predefined value from OfferItemCondition or a textual description of the condition of the product or service, or the products or services included in the offer.",
+      "$ref": "file://offeritemcondition.json#properties"
+    },
+    "alternateName": {
+      "type": "string",
+      "description": "An alias for the item."
+    },
+    "manufacturer": {
+      "description": "The manufacturer of the product.",
+      "$ref": "file://organization.json#properties"
+    },
+    "potentialAction": {
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
+      "$ref": "file://action.json#properties"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the item."
+    },
+    "aggregateRating": {
+      "description": "The overall rating, based on a collection of reviews or ratings, of the item.",
+      "$ref": "file://aggregaterating.json#properties"
+    },
+    "url": {
+      "description": "URL of the item.",
+      "$ref": "file://url.json#properties"
+    },
+    "serialNumber": {
+      "type": "string",
+      "description": "The serial number or any alphanumeric identifier of a particular product. When attached to an offer, it is a shortcut for the serial number of the product included in the offer."
+    },
+    "reviews": {
+      "description": "Review of the item.",
+      "$ref": "file://review.json#properties"
+    },
+    "gtin14": {
+      "type": "string",
+      "description": "The <a href=\"http://apps.gs1.org/GDD/glossary/Pages/GTIN-14.aspx\">GTIN-14</a> code of the product, or the product to which the offer refers. See <a href=\"http://www.gs1.org/barcodes/technical/idkeys/gtin\">GS1 GTIN Summary</a> for more details."
+    },
+    "depth": {
+      "anyOf": [
+        {
+          "$ref": "file://distance.json#properties"
+        },
+        {
+          "$ref": "file://quantitativevalue.json#properties"
+        }
+      ],
+      "description": "The depth of the item."
+    },
+    "gtin13": {
+      "type": "string",
+      "description": "The <a href=\"http://apps.gs1.org/GDD/glossary/Pages/GTIN-13.aspx\">GTIN-13</a> code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceeding zero. See <a href=\"http://www.gs1.org/barcodes/technical/idkeys/gtin\">GS1 GTIN Summary</a> for more details."
+    },
+    "gtin12": {
+      "type": "string",
+      "description": "The <a href=\"http://apps.gs1.org/GDD/glossary/Pages/GTIN-12.aspx\">GTIN-12</a> code of the product, or the product to which the offer refers. The GTIN-12 is the 12-digit GS1 Identification Key composed of a U.P.C. Company Prefix, Item Reference, and Check Digit used to identify trade items. See <a href=\"http://www.gs1.org/barcodes/technical/idkeys/gtin\">GS1 GTIN Summary</a> for more details."
+    },
+    "model": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "file://productmodel.json#properties"
+        }
+      ],
+      "description": "The model of the product. Use with the URL of a ProductModel or a textual representation of the model identifier. The URL of the ProductModel can be from an external source. It is recommended to additionally provide strong product identifiers via the gtin8/gtin13/gtin14 and mpn properties."
+    }
+  }
+}

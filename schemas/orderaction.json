@@ -1,0 +1,146 @@
+{
+  "description": "An agent orders an object/product/service to be delivered/sent.",
+  "title": "OrderAction",
+  "version": "2.2",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "sameAs": {
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "$ref": "file://url.json#properties"
+    },
+    "image": {
+      "anyOf": [
+        {
+          "$ref": "file://imageobject.json#properties"
+        },
+        {
+          "$ref": "file://url.json#properties"
+        }
+      ],
+      "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
+    },
+    "agent": {
+      "anyOf": [
+        {
+          "$ref": "file://organization.json#properties"
+        },
+        {
+          "$ref": "file://person.json#properties"
+        }
+      ],
+      "description": "The direct performer or driver of the action (animate or inanimate). e.g. *John* wrote a book."
+    },
+    "result": {
+      "description": "The result produced in the action. e.g. John wrote *a book*.",
+      "$ref": "file://thing.json#properties"
+    },
+    "additionalType": {
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "$ref": "file://url.json#properties"
+    },
+    "participant": {
+      "anyOf": [
+        {
+          "$ref": "file://person.json#properties"
+        },
+        {
+          "$ref": "file://organization.json#properties"
+        }
+      ],
+      "description": "Other co-agents that participated in the action indirectly. e.g. John wrote a book with *Steve*."
+    },
+    "instrument": {
+      "description": "The object that helped the agent perform the action. e.g. John wrote a book with *a pen*.",
+      "$ref": "file://thing.json#properties"
+    },
+    "location": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "file://place.json#properties"
+        },
+        {
+          "$ref": "file://postaladdress.json#properties"
+        }
+      ],
+      "description": "The location of for example where the event is happening, an organization is located, or where an action takes place."
+    },
+    "mainEntityOfPage": {
+      "anyOf": [
+        {
+          "$ref": "file://url.json#properties"
+        },
+        {
+          "$ref": "file://creativework.json#properties"
+        }
+      ],
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
+    },
+    "description": {
+      "type": "string",
+      "description": "A short description of the item."
+    },
+    "price": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        }
+      ],
+      "description": "The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.\n<br />\n<br />\n      Usage guidelines:\n<br />\n<ul>\n<li>Use the <a href=\"/priceCurrency\">priceCurrency</a> property (with <a href=\"http://en.wikipedia.org/wiki/ISO_4217#Active_codes\">ISO 4217 codes</a> e.g. \"USD\") instead of\n      including <a href=\"http://en.wikipedia.org/wiki/Dollar_sign#Currencies_that_use_the_dollar_or_peso_sign\">ambiguous symbols</a> such as '$' in the value.\n</li>\n<li>\n      Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.\n</li>\n<li>\n      Note that both <a href=\"http://www.w3.org/TR/xhtml-rdfa-primer/#using-the-content-attribute\">RDFa</a> and Microdata syntax allow the use of a \"content=\" attribute for publishing simple machine-readable values\n      alongside more human-friendly formatting.\n</li>\n<li>\n      Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.\n</li>\n</ul>\n      "
+    },
+    "object": {
+      "description": "The object upon the action is carried out, whose state is kept intact or changed. Also known as the semantic roles patient, affected or undergoer (which change their state) or theme (which doesn't). e.g. John read *a book*.",
+      "$ref": "file://thing.json#properties"
+    },
+    "priceSpecification": {
+      "description": "One or more detailed price specifications, indicating the unit price and delivery or payment charges.",
+      "$ref": "file://pricespecification.json#properties"
+    },
+    "deliveryMethod": {
+      "description": "A sub property of instrument. The method of delivery.",
+      "$ref": "file://deliverymethod.json#properties"
+    },
+    "startTime": {
+      "type": "string",
+      "description": "The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to start. For actions that span a period of time, when the action was performed. e.g. John wrote a book from *January* to December.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions."
+    },
+    "alternateName": {
+      "type": "string",
+      "description": "An alias for the item."
+    },
+    "target": {
+      "description": "Indicates a target EntryPoint for an Action.",
+      "$ref": "file://entrypoint.json#properties"
+    },
+    "potentialAction": {
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
+      "$ref": "file://action.json#properties"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the item."
+    },
+    "url": {
+      "description": "URL of the item.",
+      "$ref": "file://url.json#properties"
+    },
+    "actionStatus": {
+      "description": "Indicates the current disposition of the Action.",
+      "$ref": "file://actionstatustype.json#properties"
+    },
+    "error": {
+      "description": "For failed actions, more information on the cause of the failure.",
+      "$ref": "file://thing.json#properties"
+    },
+    "endTime": {
+      "type": "string",
+      "description": "The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performed. e.g. John wrote a book from January to *December*.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions."
+    }
+  }
+}

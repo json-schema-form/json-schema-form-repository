@@ -1,0 +1,110 @@
+{
+  "description": "Anatomical features that can be observed by sight (without dissection), including the form and proportions of the human body as well as surface landmarks that correspond to deeper subcutaneous structures. Superficial anatomy plays an important role in sports medicine, phlebotomy, and other medical specialties as underlying anatomical structures can be identified through surface palpation. For example, during back surgery, superficial anatomy can be used to palpate and count vertebrae to find the site of incision. Or in phlebotomy, superficial anatomy can be used to locate an underlying vein; for example, the median cubital vein can be located by palpating the borders of the cubital fossa (such as the epicondyles of the humerus) and then looking for the superficial signs of the vein, such as size, prominence, ability to refill after depression, and feel of surrounding tissue support. As another example, in a subluxation (dislocation) of the glenohumeral joint, the bony structure becomes pronounced with the deltoid muscle failing to cover the glenohumeral joint allowing the edges of the scapula to be superficially visible. Here, the superficial anatomy is the visible edges of the scapula, implying the underlying dislocation of the joint (the related anatomical structure).",
+  "title": "SuperficialAnatomy",
+  "version": "2.2",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "recognizingAuthority": {
+      "description": "If applicable, the organization that officially recognizes this entity as part of its endorsed system of medicine.",
+      "$ref": "file://organization.json#properties"
+    },
+    "potentialAction": {
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
+      "$ref": "file://action.json#properties"
+    },
+    "associatedPathophysiology": {
+      "type": "string",
+      "description": "If applicable, a description of the pathophysiology associated with the anatomical system, including potential abnormal changes in the mechanical, physical, and biochemical functions of the system."
+    },
+    "description": {
+      "type": "string",
+      "description": "A short description of the item."
+    },
+    "study": {
+      "description": "A medical study or trial related to this entity.",
+      "$ref": "file://medicalstudy.json#properties"
+    },
+    "sameAs": {
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "$ref": "file://url.json#properties"
+    },
+    "image": {
+      "anyOf": [
+        {
+          "$ref": "file://imageobject.json#properties"
+        },
+        {
+          "$ref": "file://url.json#properties"
+        }
+      ],
+      "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
+    },
+    "url": {
+      "description": "URL of the item.",
+      "$ref": "file://url.json#properties"
+    },
+    "relatedAnatomy": {
+      "anyOf": [
+        {
+          "$ref": "file://anatomicalsystem.json#properties"
+        },
+        {
+          "$ref": "file://anatomicalstructure.json#properties"
+        }
+      ],
+      "description": "Anatomical systems or structures that relate to the superficial anatomy."
+    },
+    "guideline": {
+      "description": "A medical guideline related to this entity.",
+      "$ref": "file://medicalguideline.json#properties"
+    },
+    "relevantSpecialty": {
+      "description": "If applicable, a medical specialty in which this entity is relevant.",
+      "$ref": "file://medicalspecialty.json#properties"
+    },
+    "code": {
+      "description": "A medical code for the entity, taken from a controlled vocabulary or ontology such as ICD-9, DiseasesDB, MeSH, SNOMED-CT, RxNorm, etc.",
+      "$ref": "file://medicalcode.json#properties"
+    },
+    "relatedCondition": {
+      "description": "A medical condition associated with this anatomy.",
+      "$ref": "file://medicalcondition.json#properties"
+    },
+    "medicineSystem": {
+      "description": "The system of medicine that includes this MedicalEntity, for example 'evidence-based', 'homeopathic', 'chiropractic', etc.",
+      "$ref": "file://medicinesystem.json#properties"
+    },
+    "significance": {
+      "type": "string",
+      "description": "The significance associated with the superficial anatomy; as an example, how characteristics of the superficial anatomy can suggest underlying medical conditions or courses of treatment."
+    },
+    "mainEntityOfPage": {
+      "anyOf": [
+        {
+          "$ref": "file://url.json#properties"
+        },
+        {
+          "$ref": "file://creativework.json#properties"
+        }
+      ],
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
+    },
+    "additionalType": {
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "$ref": "file://url.json#properties"
+    },
+    "alternateName": {
+      "type": "string",
+      "description": "An alias for the item."
+    },
+    "relatedTherapy": {
+      "description": "A medical therapy related to this anatomy.",
+      "$ref": "file://medicaltherapy.json#properties"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the item."
+    }
+  }
+}

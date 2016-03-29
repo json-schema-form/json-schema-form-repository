@@ -1,0 +1,189 @@
+{
+  "description": "An order is a confirmation of a transaction (a receipt), which can contain multiple line items, each represented by an Offer that has been accepted by the customer.",
+  "title": "Order",
+  "version": "2.2",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "orderDelivery": {
+      "description": "The delivery of the parcel related to this order or order item.",
+      "$ref": "file://parceldelivery.json#properties"
+    },
+    "sameAs": {
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "$ref": "file://url.json#properties"
+    },
+    "image": {
+      "anyOf": [
+        {
+          "$ref": "file://imageobject.json#properties"
+        },
+        {
+          "$ref": "file://url.json#properties"
+        }
+      ],
+      "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
+    },
+    "orderedItem": {
+      "anyOf": [
+        {
+          "$ref": "file://orderitem.json#properties"
+        },
+        {
+          "$ref": "file://product.json#properties"
+        }
+      ],
+      "description": "The item ordered."
+    },
+    "partOfInvoice": {
+      "description": "The order is being paid as part of the referenced Invoice.",
+      "$ref": "file://invoice.json#properties"
+    },
+    "orderStatus": {
+      "description": "The current status of the order.",
+      "$ref": "file://orderstatus.json#properties"
+    },
+    "discountCurrency": {
+      "type": "string",
+      "description": "The currency (in 3-letter ISO 4217 format) of the discount."
+    },
+    "additionalType": {
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "$ref": "file://url.json#properties"
+    },
+    "acceptedOffer": {
+      "description": "The offer(s) -- e.g., product, quantity and price combinations -- included in the order.",
+      "$ref": "file://offer.json#properties"
+    },
+    "isGift": {
+      "type": "boolean",
+      "description": "Was the offer accepted as a gift for someone other than the buyer."
+    },
+    "confirmationNumber": {
+      "type": "string",
+      "description": "A number that confirms the given order or payment has been received."
+    },
+    "paymentMethodId": {
+      "type": "string",
+      "description": "An identifier for the method of payment used (e.g. the last 4 digits of the credit card)."
+    },
+    "paymentDue": {
+      "type": "string",
+      "description": "The date that payment is due."
+    },
+    "seller": {
+      "anyOf": [
+        {
+          "$ref": "file://organization.json#properties"
+        },
+        {
+          "$ref": "file://person.json#properties"
+        }
+      ],
+      "description": "An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider."
+    },
+    "orderNumber": {
+      "type": "string",
+      "description": "The identifier of the transaction."
+    },
+    "mainEntityOfPage": {
+      "anyOf": [
+        {
+          "$ref": "file://url.json#properties"
+        },
+        {
+          "$ref": "file://creativework.json#properties"
+        }
+      ],
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
+    },
+    "paymentMethod": {
+      "description": "The name of the credit card or other method of payment for the order.",
+      "$ref": "file://paymentmethod.json#properties"
+    },
+    "merchant": {
+      "anyOf": [
+        {
+          "$ref": "file://person.json#properties"
+        },
+        {
+          "$ref": "file://organization.json#properties"
+        }
+      ],
+      "description": "'merchant' is an out-dated term for 'seller'."
+    },
+    "description": {
+      "type": "string",
+      "description": "A short description of the item."
+    },
+    "broker": {
+      "anyOf": [
+        {
+          "$ref": "file://person.json#properties"
+        },
+        {
+          "$ref": "file://organization.json#properties"
+        }
+      ],
+      "description": "An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred."
+    },
+    "paymentUrl": {
+      "description": "The URL for sending a payment.",
+      "$ref": "file://url.json#properties"
+    },
+    "discount": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "description": "Any discount applied (to an Order)."
+    },
+    "billingAddress": {
+      "description": "The billing address for the order.",
+      "$ref": "file://postaladdress.json#properties"
+    },
+    "paymentDueDate": {
+      "type": "string",
+      "description": "The date that payment is due."
+    },
+    "alternateName": {
+      "type": "string",
+      "description": "An alias for the item."
+    },
+    "customer": {
+      "anyOf": [
+        {
+          "$ref": "file://organization.json#properties"
+        },
+        {
+          "$ref": "file://person.json#properties"
+        }
+      ],
+      "description": "Party placing the order or paying the invoice."
+    },
+    "potentialAction": {
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
+      "$ref": "file://action.json#properties"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the item."
+    },
+    "url": {
+      "description": "URL of the item.",
+      "$ref": "file://url.json#properties"
+    },
+    "discountCode": {
+      "type": "string",
+      "description": "Code used to redeem a discount."
+    },
+    "orderDate": {
+      "type": "string",
+      "description": "Date order was placed."
+    }
+  }
+}

@@ -1,0 +1,327 @@
+{
+  "description": "A person (alive, dead, undead, or fictional).",
+  "title": "Person",
+  "version": "2.2",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "sibling": {
+      "description": "A sibling of the person.",
+      "$ref": "file://person.json#properties"
+    },
+    "honorificPrefix": {
+      "type": "string",
+      "description": "An honorific prefix preceding a Person's name such as Dr/Mrs/Mr."
+    },
+    "weight": {
+      "description": "The weight of the product or person.",
+      "$ref": "file://quantitativevalue.json#properties"
+    },
+    "sameAs": {
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "$ref": "file://url.json#properties"
+    },
+    "image": {
+      "anyOf": [
+        {
+          "$ref": "file://imageobject.json#properties"
+        },
+        {
+          "$ref": "file://url.json#properties"
+        }
+      ],
+      "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
+    },
+    "relatedTo": {
+      "description": "The most generic familial relation.",
+      "$ref": "file://person.json#properties"
+    },
+    "telephone": {
+      "type": "string",
+      "description": "The telephone number."
+    },
+    "birthDate": {
+      "type": "string",
+      "description": "Date of birth."
+    },
+    "height": {
+      "anyOf": [
+        {
+          "$ref": "file://quantitativevalue.json#properties"
+        },
+        {
+          "$ref": "file://distance.json#properties"
+        }
+      ],
+      "description": "The height of the item."
+    },
+    "affiliation": {
+      "description": "An organization that this person is affiliated with. For example, a school/university, a club, or a team.",
+      "$ref": "file://organization.json#properties"
+    },
+    "additionalName": {
+      "type": "string",
+      "description": "An additional name for a Person, can be used for a middle name."
+    },
+    "workLocation": {
+      "anyOf": [
+        {
+          "$ref": "file://place.json#properties"
+        },
+        {
+          "$ref": "file://contactpoint.json#properties"
+        }
+      ],
+      "description": "A contact location for a person's place of work."
+    },
+    "gender": {
+      "type": "string",
+      "description": "Gender of the person."
+    },
+    "hasOfferCatalog": {
+      "description": "Indicates an OfferCatalog listing for this Organization, Person, or Service.",
+      "$ref": "file://offercatalog.json#properties"
+    },
+    "additionalType": {
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "$ref": "file://url.json#properties"
+    },
+    "contactPoint": {
+      "description": "A contact point for a person or organization.",
+      "$ref": "file://contactpoint.json#properties"
+    },
+    "knows": {
+      "description": "The most generic bi-directional social/work relation.",
+      "$ref": "file://person.json#properties"
+    },
+    "performerIn": {
+      "description": "Event that this person is a performer or participant in.",
+      "$ref": "file://event.json#properties"
+    },
+    "spouse": {
+      "description": "The person's spouse.",
+      "$ref": "file://person.json#properties"
+    },
+    "worksFor": {
+      "description": "Organizations that the person works for.",
+      "$ref": "file://organization.json#properties"
+    },
+    "taxID": {
+      "type": "string",
+      "description": "The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in Spain."
+    },
+    "children": {
+      "description": "A child of the person.",
+      "$ref": "file://person.json#properties"
+    },
+    "parents": {
+      "description": "A parents of the person.",
+      "$ref": "file://person.json#properties"
+    },
+    "faxNumber": {
+      "type": "string",
+      "description": "The fax number."
+    },
+    "netWorth": {
+      "description": "The total financial value of the person as calculated by subtracting assets from liabilities.",
+      "$ref": "file://pricespecification.json#properties"
+    },
+    "mainEntityOfPage": {
+      "anyOf": [
+        {
+          "$ref": "file://url.json#properties"
+        },
+        {
+          "$ref": "file://creativework.json#properties"
+        }
+      ],
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
+    },
+    "siblings": {
+      "description": "A sibling of the person.",
+      "$ref": "file://person.json#properties"
+    },
+    "homeLocation": {
+      "anyOf": [
+        {
+          "$ref": "file://place.json#properties"
+        },
+        {
+          "$ref": "file://contactpoint.json#properties"
+        }
+      ],
+      "description": "A contact location for a person's residence."
+    },
+    "email": {
+      "type": "string",
+      "description": "Email address."
+    },
+    "seeks": {
+      "description": "A pointer to products or services sought by the organization or person (demand).",
+      "$ref": "file://demand.json#properties"
+    },
+    "colleague": {
+      "description": "A colleague of the person.",
+      "$ref": "file://person.json#properties"
+    },
+    "isicV4": {
+      "type": "string",
+      "description": "The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place."
+    },
+    "birthPlace": {
+      "description": "The place where the person was born.",
+      "$ref": "file://place.json#properties"
+    },
+    "description": {
+      "type": "string",
+      "description": "A short description of the item."
+    },
+    "parent": {
+      "description": "A parent of this person.",
+      "$ref": "file://person.json#properties"
+    },
+    "memberOf": {
+      "anyOf": [
+        {
+          "$ref": "file://organization.json#properties"
+        },
+        {
+          "$ref": "file://programmembership.json#properties"
+        }
+      ],
+      "description": "An Organization (or ProgramMembership) to which this Person or Organization belongs."
+    },
+    "jobTitle": {
+      "type": "string",
+      "description": "The job title of the person (for example, Financial Manager)."
+    },
+    "brand": {
+      "anyOf": [
+        {
+          "$ref": "file://organization.json#properties"
+        },
+        {
+          "$ref": "file://brand.json#properties"
+        }
+      ],
+      "description": "The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person."
+    },
+    "familyName": {
+      "type": "string",
+      "description": "Family name. In the U.S., the last name of an Person. This can be used along with givenName instead of the name property."
+    },
+    "award": {
+      "type": "string",
+      "description": "An award won by or for this item."
+    },
+    "awards": {
+      "type": "string",
+      "description": "Awards won by or for this item."
+    },
+    "address": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "file://postaladdress.json#properties"
+        }
+      ],
+      "description": "Physical address of the item."
+    },
+    "duns": {
+      "type": "string",
+      "description": "The Dun & Bradstreet DUNS number for identifying an organization or business person."
+    },
+    "nationality": {
+      "description": "Nationality of the person.",
+      "$ref": "file://country.json#properties"
+    },
+    "alternateName": {
+      "type": "string",
+      "description": "An alias for the item."
+    },
+    "deathDate": {
+      "type": "string",
+      "description": "Date of death."
+    },
+    "makesOffer": {
+      "description": "A pointer to products or services offered by the organization or person.",
+      "$ref": "file://offer.json#properties"
+    },
+    "hasPOS": {
+      "description": "Points-of-Sales operated by the organization or person.",
+      "$ref": "file://place.json#properties"
+    },
+    "colleagues": {
+      "description": "A colleague of the person.",
+      "$ref": "file://person.json#properties"
+    },
+    "potentialAction": {
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
+      "$ref": "file://action.json#properties"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the item."
+    },
+    "naics": {
+      "type": "string",
+      "description": "The North American Industry Classification System (NAICS) code for a particular organization or business person."
+    },
+    "url": {
+      "description": "URL of the item.",
+      "$ref": "file://url.json#properties"
+    },
+    "follows": {
+      "description": "The most generic uni-directional social relation.",
+      "$ref": "file://person.json#properties"
+    },
+    "vatID": {
+      "type": "string",
+      "description": "The Value-added Tax ID of the organization or person."
+    },
+    "honorificSuffix": {
+      "type": "string",
+      "description": "An honorific suffix preceding a Person's name such as M.D. /PhD/MSCSW."
+    },
+    "deathPlace": {
+      "description": "The place where the person died.",
+      "$ref": "file://place.json#properties"
+    },
+    "owns": {
+      "anyOf": [
+        {
+          "$ref": "file://ownershipinfo.json#properties"
+        },
+        {
+          "$ref": "file://product.json#properties"
+        }
+      ],
+      "description": "Products owned by the organization or person."
+    },
+    "givenName": {
+      "type": "string",
+      "description": "Given name. In the U.S., the first name of a Person. This can be used along with familyName instead of the name property."
+    },
+    "contactPoints": {
+      "description": "A contact point for a person or organization.",
+      "$ref": "file://contactpoint.json#properties"
+    },
+    "alumniOf": {
+      "anyOf": [
+        {
+          "$ref": "file://organization.json#properties"
+        },
+        {
+          "$ref": "file://educationalorganization.json#properties"
+        }
+      ],
+      "description": "An organization that the person is an alumni of."
+    },
+    "globalLocationNumber": {
+      "type": "string",
+      "description": "The <a href=\"http://www.gs1.org/gln\">Global Location Number</a> (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations."
+    }
+  }
+}

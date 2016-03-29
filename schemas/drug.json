@@ -1,0 +1,218 @@
+{
+  "description": "A chemical or biologic substance, used as a medical therapy, that has a physiological effect on an organism.",
+  "title": "Drug",
+  "version": "2.2",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "code": {
+      "description": "A medical code for the entity, taken from a controlled vocabulary or ontology such as ICD-9, DiseasesDB, MeSH, SNOMED-CT, RxNorm, etc.",
+      "$ref": "file://medicalcode.json#properties"
+    },
+    "cost": {
+      "description": "Cost per unit of the drug, as reported by the source being tagged.",
+      "$ref": "file://drugcost.json#properties"
+    },
+    "sameAs": {
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "$ref": "file://url.json#properties"
+    },
+    "image": {
+      "anyOf": [
+        {
+          "$ref": "file://imageobject.json#properties"
+        },
+        {
+          "$ref": "file://url.json#properties"
+        }
+      ],
+      "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
+    },
+    "adverseOutcome": {
+      "description": "A possible complication and/or side effect of this therapy. If it is known that an adverse outcome is serious (resulting in death, disability, or permanent damage; requiring hospitalization; or is otherwise life-threatening or requires immediate medical attention), tag it as a seriouseAdverseOutcome instead.",
+      "$ref": "file://medicalentity.json#properties"
+    },
+    "additionalType": {
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "$ref": "file://url.json#properties"
+    },
+    "drugClass": {
+      "description": "The class of drug this belongs to (e.g., statins).",
+      "$ref": "file://drugclass.json#properties"
+    },
+    "recognizingAuthority": {
+      "description": "If applicable, the organization that officially recognizes this entity as part of its endorsed system of medicine.",
+      "$ref": "file://organization.json#properties"
+    },
+    "pregnancyWarning": {
+      "type": "string",
+      "description": "Any precaution, guidance, contraindication, etc. related to this drug's use during pregnancy."
+    },
+    "relatedDrug": {
+      "description": "Any other drug related to this one, for example commonly-prescribed alternatives.",
+      "$ref": "file://drug.json#properties"
+    },
+    "legalStatus": {
+      "description": "The drug or supplement's legal status, including any controlled substance schedules that apply.",
+      "$ref": "file://druglegalstatus.json#properties"
+    },
+    "doseSchedule": {
+      "description": "A dosing schedule for the drug for a given population, either observed, recommended, or maximum dose based on the type used.",
+      "$ref": "file://doseschedule.json#properties"
+    },
+    "interactingDrug": {
+      "description": "Another drug that is known to interact with this drug in a way that impacts the effect of this drug or causes a risk to the patient. Note: disease interactions are typically captured as contraindications.",
+      "$ref": "file://drug.json#properties"
+    },
+    "contraindication": {
+      "description": "A contraindication for this therapy.",
+      "$ref": "file://medicalcontraindication.json#properties"
+    },
+    "potentialAction": {
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
+      "$ref": "file://action.json#properties"
+    },
+    "mechanismOfAction": {
+      "type": "string",
+      "description": "The specific biochemical interaction through which this drug or supplement produces its pharmacological effect."
+    },
+    "relevantSpecialty": {
+      "description": "If applicable, a medical specialty in which this entity is relevant.",
+      "$ref": "file://medicalspecialty.json#properties"
+    },
+    "seriousAdverseOutcome": {
+      "description": "A possible serious complication and/or serious side effect of this therapy. Serious adverse outcomes include those that are life-threatening; result in death, disability, or permanent damage; require hospitalization or prolong existing hospitalization; cause congenital anomalies or birth defects; or jeopardize the patient and may require medical or surgical intervention to prevent one of the outcomes in this definition.",
+      "$ref": "file://medicalentity.json#properties"
+    },
+    "guideline": {
+      "description": "A medical guideline related to this entity.",
+      "$ref": "file://medicalguideline.json#properties"
+    },
+    "isAvailableGenerically": {
+      "type": "boolean",
+      "description": "True if the drug is available in a generic form (regardless of name)."
+    },
+    "mainEntityOfPage": {
+      "anyOf": [
+        {
+          "$ref": "file://url.json#properties"
+        },
+        {
+          "$ref": "file://creativework.json#properties"
+        }
+      ],
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
+    },
+    "activeIngredient": {
+      "type": "string",
+      "description": "An active ingredient, typically chemical compounds and/or biologic substances."
+    },
+    "prescriptionStatus": {
+      "description": "Indicates whether this drug is available by prescription or over-the-counter.",
+      "$ref": "file://drugprescriptionstatus.json#properties"
+    },
+    "medicineSystem": {
+      "description": "The system of medicine that includes this MedicalEntity, for example 'evidence-based', 'homeopathic', 'chiropractic', etc.",
+      "$ref": "file://medicinesystem.json#properties"
+    },
+    "alcoholWarning": {
+      "type": "string",
+      "description": "Any precaution, guidance, contraindication, etc. related to consumption of alcohol while taking this drug."
+    },
+    "description": {
+      "type": "string",
+      "description": "A short description of the item."
+    },
+    "duplicateTherapy": {
+      "description": "A therapy that duplicates or overlaps this one.",
+      "$ref": "file://medicaltherapy.json#properties"
+    },
+    "pregnancyCategory": {
+      "description": "Pregnancy category of this drug.",
+      "$ref": "file://drugpregnancycategory.json#properties"
+    },
+    "prescribingInfo": {
+      "description": "Link to prescribing information for the drug.",
+      "$ref": "file://url.json#properties"
+    },
+    "clincalPharmacology": {
+      "type": "string",
+      "description": "Description of the absorption and elimination of drugs, including their concentration (pharmacokinetics, pK) and biological effects (pharmacodynamics, pD)."
+    },
+    "alternateName": {
+      "type": "string",
+      "description": "An alias for the item."
+    },
+    "availableStrength": {
+      "description": "An available dosage strength for the drug.",
+      "$ref": "file://drugstrength.json#properties"
+    },
+    "manufacturer": {
+      "description": "The manufacturer of the product.",
+      "$ref": "file://organization.json#properties"
+    },
+    "labelDetails": {
+      "description": "Link to the drug's label details.",
+      "$ref": "file://url.json#properties"
+    },
+    "dosageForm": {
+      "type": "string",
+      "description": "A dosage form in which this drug/supplement is available, e.g. 'tablet', 'suspension', 'injection'."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the item."
+    },
+    "administrationRoute": {
+      "type": "string",
+      "description": "A route by which this drug may be administered, e.g. 'oral'."
+    },
+    "nonProprietaryName": {
+      "type": "string",
+      "description": "The generic name of this drug or supplement."
+    },
+    "url": {
+      "description": "URL of the item.",
+      "$ref": "file://url.json#properties"
+    },
+    "study": {
+      "description": "A medical study or trial related to this entity.",
+      "$ref": "file://medicalstudy.json#properties"
+    },
+    "overdosage": {
+      "type": "string",
+      "description": "Any information related to overdose on a drug, including signs or symptoms, treatments, contact information for emergency response."
+    },
+    "foodWarning": {
+      "type": "string",
+      "description": "Any precaution, guidance, contraindication, etc. related to consumption of specific foods while taking this drug."
+    },
+    "indication": {
+      "description": "A factor that indicates use of this therapy for treatment and/or prevention of a condition, symptom, etc. For therapies such as drugs, indications can include both officially-approved indications as well as off-label uses. These can be distinguished by using the ApprovedIndication subtype of MedicalIndication.",
+      "$ref": "file://medicalindication.json#properties"
+    },
+    "clinicalPharmacology": {
+      "type": "string",
+      "description": "Description of the absorption and elimination of drugs, including their concentration (pharmacokinetics, pK) and biological effects (pharmacodynamics, pD)."
+    },
+    "isProprietary": {
+      "type": "boolean",
+      "description": "True if this item's name is a proprietary/brand name (vs. generic name)."
+    },
+    "breastfeedingWarning": {
+      "type": "string",
+      "description": "Any precaution, guidance, contraindication, etc. related to this drug's use by breastfeeding mothers."
+    },
+    "warning": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "file://url.json#properties"
+        }
+      ],
+      "description": "Any FDA or other warnings about the drug (text or URL)."
+    }
+  }
+}

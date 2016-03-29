@@ -1,0 +1,95 @@
+{
+  "description": "A set of characteristics belonging to people, e.g. who compose an item's target audience.",
+  "title": "PeopleAudience",
+  "version": "2.2",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "suggestedMinAge": {
+      "type": "number",
+      "description": "Minimal age recommended for viewing content."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the item."
+    },
+    "requiredMinAge": {
+      "description": "Audiences defined by a person's minimum age.",
+      "$ref": "file://integer.json#properties"
+    },
+    "suggestedGender": {
+      "type": "string",
+      "description": "The gender of the person or audience."
+    },
+    "image": {
+      "anyOf": [
+        {
+          "$ref": "file://imageobject.json#properties"
+        },
+        {
+          "$ref": "file://url.json#properties"
+        }
+      ],
+      "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
+    },
+    "healthCondition": {
+      "description": "Expectations for health conditions of target audience.",
+      "$ref": "file://medicalcondition.json#properties"
+    },
+    "sameAs": {
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "$ref": "file://url.json#properties"
+    },
+    "requiredMaxAge": {
+      "description": "Audiences defined by a person's maximum age.",
+      "$ref": "file://integer.json#properties"
+    },
+    "potentialAction": {
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
+      "$ref": "file://action.json#properties"
+    },
+    "geographicArea": {
+      "description": "The geographic area associated with the audience.",
+      "$ref": "file://administrativearea.json#properties"
+    },
+    "url": {
+      "description": "URL of the item.",
+      "$ref": "file://url.json#properties"
+    },
+    "audienceType": {
+      "type": "string",
+      "description": "The target group associated with a given audience (e.g. veterans, car owners, musicians, etc.)."
+    },
+    "suggestedMaxAge": {
+      "type": "number",
+      "description": "Maximal age recommended for viewing content."
+    },
+    "mainEntityOfPage": {
+      "anyOf": [
+        {
+          "$ref": "file://url.json#properties"
+        },
+        {
+          "$ref": "file://creativework.json#properties"
+        }
+      ],
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
+    },
+    "additionalType": {
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "$ref": "file://url.json#properties"
+    },
+    "alternateName": {
+      "type": "string",
+      "description": "An alias for the item."
+    },
+    "requiredGender": {
+      "type": "string",
+      "description": "Audiences defined by a person's gender."
+    },
+    "description": {
+      "type": "string",
+      "description": "A short description of the item."
+    }
+  }
+}

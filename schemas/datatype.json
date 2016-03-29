@@ -1,0 +1,8 @@
+{
+  "description": "The basic data types such as Integers, Strings, etc.",
+  "title": "DataType",
+  "version": "2.2",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {}
+}

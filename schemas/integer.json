@@ -1,0 +1,8 @@
+{
+  "description": "Data type: Integer.",
+  "title": "Integer",
+  "version": "2.2",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {}
+}

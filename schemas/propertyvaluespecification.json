@@ -1,0 +1,110 @@
+{
+  "description": "A Property value specification.",
+  "title": "PropertyValueSpecification",
+  "version": "2.2",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "stepValue": {
+      "type": "number",
+      "description": "The stepValue attribute indicates the granularity that is expected (and required) of the value in a PropertyValueSpecification."
+    },
+    "multipleValues": {
+      "type": "boolean",
+      "description": "Whether multiple values are allowed for the property.  Default is false."
+    },
+    "potentialAction": {
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
+      "$ref": "file://action.json#properties"
+    },
+    "description": {
+      "type": "string",
+      "description": "A short description of the item."
+    },
+    "url": {
+      "description": "URL of the item.",
+      "$ref": "file://url.json#properties"
+    },
+    "valueMaxLength": {
+      "type": "number",
+      "description": "Specifies the allowed range for number of characters in a literal value."
+    },
+    "image": {
+      "anyOf": [
+        {
+          "$ref": "file://imageobject.json#properties"
+        },
+        {
+          "$ref": "file://url.json#properties"
+        }
+      ],
+      "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
+    },
+    "maxValue": {
+      "type": "number",
+      "description": "The upper value of some characteristic or property."
+    },
+    "mainEntityOfPage": {
+      "anyOf": [
+        {
+          "$ref": "file://url.json#properties"
+        },
+        {
+          "$ref": "file://creativework.json#properties"
+        }
+      ],
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the item."
+    },
+    "additionalType": {
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "$ref": "file://url.json#properties"
+    },
+    "sameAs": {
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "$ref": "file://url.json#properties"
+    },
+    "valuePattern": {
+      "type": "string",
+      "description": "Specifies a regular expression for testing literal values according to the HTML spec."
+    },
+    "valueName": {
+      "type": "string",
+      "description": "Indicates the name of the PropertyValueSpecification to be used in URL templates and form encoding in a manner analogous to HTML's input@name."
+    },
+    "readonlyValue": {
+      "type": "boolean",
+      "description": "Whether or not a property is mutable.  Default is false. Specifying this for a property that also has a value makes it act similar to a \"hidden\" input in an HTML form."
+    },
+    "valueRequired": {
+      "type": "boolean",
+      "description": "Whether the property must be filled in to complete the action.  Default is false."
+    },
+    "alternateName": {
+      "type": "string",
+      "description": "An alias for the item."
+    },
+    "minValue": {
+      "type": "number",
+      "description": "The lower value of some characteristic or property."
+    },
+    "defaultValue": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "file://thing.json#properties"
+        }
+      ],
+      "description": "The default value of the input.  For properties that expect a literal, the default is a literal value, for properties that expect an object, it's an ID reference to one of the current values."
+    },
+    "valueMinLength": {
+      "type": "number",
+      "description": "Specifies the minimum allowed range for number of characters in a literal value."
+    }
+  }
+}

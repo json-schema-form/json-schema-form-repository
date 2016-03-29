@@ -1,0 +1,523 @@
+{
+  "description": "A QAPage is a WebPage focussed on a specific Question and its Answer(s), e.g. in a question answering site or documenting Frequently Asked Questions (FAQs).",
+  "title": "QAPage",
+  "version": "2.2",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "educationalUse": {
+      "type": "string",
+      "description": "The purpose of a work in the context of education; for example, 'assignment', 'group work'."
+    },
+    "producer": {
+      "anyOf": [
+        {
+          "$ref": "file://organization.json#properties"
+        },
+        {
+          "$ref": "file://person.json#properties"
+        }
+      ],
+      "description": "The person or organization who produced the work (e.g. music album, movie, tv/radio series etc.)."
+    },
+    "text": {
+      "type": "string",
+      "description": "The textual content of this CreativeWork."
+    },
+    "datePublished": {
+      "type": "string",
+      "description": "Date of first broadcast/publication."
+    },
+    "alternativeHeadline": {
+      "type": "string",
+      "description": "A secondary title of the CreativeWork."
+    },
+    "accountablePerson": {
+      "description": "Specifies the Person that is legally accountable for the CreativeWork.",
+      "$ref": "file://person.json#properties"
+    },
+    "keywords": {
+      "type": "string",
+      "description": "Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas."
+    },
+    "headline": {
+      "type": "string",
+      "description": "Headline of the article."
+    },
+    "character": {
+      "description": "Fictional person connected with a creative work.",
+      "$ref": "file://person.json#properties"
+    },
+    "contentRating": {
+      "type": "string",
+      "description": "Official rating of a piece of content&#x2014;for example,'MPAA PG-13'."
+    },
+    "exampleOfWork": {
+      "description": "A creative work that this work is an example/instance/realization/derivation of.",
+      "$ref": "file://creativework.json#properties"
+    },
+    "publishingPrinciples": {
+      "description": "Link to page describing the editorial principles of the organization primarily responsible for the creation of the CreativeWork.",
+      "$ref": "file://url.json#properties"
+    },
+    "mainContentOfPage": {
+      "description": "Indicates if this web page element is the main subject of the page.",
+      "$ref": "file://webpageelement.json#properties"
+    },
+    "dateCreated": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "description": "The date on which the CreativeWork was created or the item was added to a DataFeed."
+    },
+    "publisherImprint": {
+      "description": "The publishing division which published the comic.",
+      "$ref": "file://organization.json#properties"
+    },
+    "potentialAction": {
+      "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
+      "$ref": "file://action.json#properties"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the item."
+    },
+    "associatedMedia": {
+      "description": "A media object that encodes this CreativeWork. This property is a synonym for encoding.",
+      "$ref": "file://mediaobject.json#properties"
+    },
+    "audience": {
+      "description": "An intended audience, i.e. a group for whom something was created.",
+      "$ref": "file://audience.json#properties"
+    },
+    "accessibilityControl": {
+      "type": "string",
+      "description": "Identifies input methods that are sufficient to fully control the described resource (<a href=\"http://www.w3.org/wiki/WebSchemas/Accessibility\">WebSchemas wiki lists possible values</a>)."
+    },
+    "translationOfWork": {
+      "description": "The work that this work has been translated from. e.g. \u7269\u79cd\u8d77\u6e90 is a translationOf \u201cOn the Origin of Species\u201d",
+      "$ref": "file://creativework.json#properties"
+    },
+    "copyrightYear": {
+      "type": "number",
+      "description": "The year during which the claimed copyright for the CreativeWork was first asserted."
+    },
+    "creator": {
+      "anyOf": [
+        {
+          "$ref": "file://organization.json#properties"
+        },
+        {
+          "$ref": "file://person.json#properties"
+        }
+      ],
+      "description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork."
+    },
+    "lastReviewed": {
+      "type": "string",
+      "description": "Date on which the content on this web page was last reviewed for accuracy and/or completeness."
+    },
+    "commentCount": {
+      "description": "The number of comments this CreativeWork (e.g. Article, Question or Answer) has received. This is most applicable to works published in Web sites with commenting system; additional comments may exist elsewhere.",
+      "$ref": "file://integer.json#properties"
+    },
+    "video": {
+      "description": "An embedded video object.",
+      "$ref": "file://videoobject.json#properties"
+    },
+    "typicalAgeRange": {
+      "type": "string",
+      "description": "The typical expected age range, e.g. '7-9', '11-'."
+    },
+    "fileFormat": {
+      "type": "string",
+      "description": "Media type (aka MIME format, see <a href=\"http://www.iana.org/assignments/media-types/media-types.xhtml\">IANA site</a>) of the content e.g. application/zip of a SoftwareApplication binary. In cases where a CreativeWork has several media type representations, 'encoding' can be used to indicate each MediaObject alongside particular fileFormat information."
+    },
+    "discussionUrl": {
+      "description": "A link to the page containing the comments of the CreativeWork.",
+      "$ref": "file://url.json#properties"
+    },
+    "review": {
+      "description": "A review of the item.",
+      "$ref": "file://review.json#properties"
+    },
+    "isFamilyFriendly": {
+      "type": "boolean",
+      "description": "Indicates whether this content is family friendly."
+    },
+    "significantLinks": {
+      "description": "The most significant URLs on the page. Typically, these are the non-navigation links that are clicked on the most.",
+      "$ref": "file://url.json#properties"
+    },
+    "version": {
+      "type": "number",
+      "description": "The version of the CreativeWork embodied by a specified resource."
+    },
+    "locationCreated": {
+      "description": "The location where the CreativeWork was created, which may not be the same as the location depicted in the CreativeWork.",
+      "$ref": "file://place.json#properties"
+    },
+    "relatedLink": {
+      "description": "A link related to this web page, for example to other related web pages.",
+      "$ref": "file://url.json#properties"
+    },
+    "provider": {
+      "anyOf": [
+        {
+          "$ref": "file://person.json#properties"
+        },
+        {
+          "$ref": "file://organization.json#properties"
+        }
+      ],
+      "description": "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller."
+    },
+    "isPartOf": {
+      "description": "Indicates a CreativeWork that this CreativeWork is (in some sense) part of.",
+      "$ref": "file://creativework.json#properties"
+    },
+    "accessibilityHazard": {
+      "type": "string",
+      "description": "A characteristic of the described resource that is physiologically dangerous to some users. Related to WCAG 2.0 guideline 2.3 (<a href=\"http://www.w3.org/wiki/WebSchemas/Accessibility\">WebSchemas wiki lists possible values</a>)."
+    },
+    "primaryImageOfPage": {
+      "description": "Indicates the main image on the page.",
+      "$ref": "file://imageobject.json#properties"
+    },
+    "educationalAlignment": {
+      "description": "An alignment to an established educational framework.",
+      "$ref": "file://alignmentobject.json#properties"
+    },
+    "awards": {
+      "type": "string",
+      "description": "Awards won by or for this item."
+    },
+    "genre": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "file://url.json#properties"
+        }
+      ],
+      "description": "Genre of the creative work or group."
+    },
+    "publisher": {
+      "anyOf": [
+        {
+          "$ref": "file://organization.json#properties"
+        },
+        {
+          "$ref": "file://person.json#properties"
+        }
+      ],
+      "description": "The publisher of the creative work."
+    },
+    "about": {
+      "description": "The subject matter of the content.",
+      "$ref": "file://thing.json#properties"
+    },
+    "license": {
+      "anyOf": [
+        {
+          "$ref": "file://creativework.json#properties"
+        },
+        {
+          "$ref": "file://url.json#properties"
+        }
+      ],
+      "description": "A license document that applies to this content, typically indicated by URL."
+    },
+    "workExample": {
+      "description": "Example/instance/realization/derivation of the concept of this creative work. eg. The paperback edition, first edition, or eBook.",
+      "$ref": "file://creativework.json#properties"
+    },
+    "reviewedBy": {
+      "anyOf": [
+        {
+          "$ref": "file://person.json#properties"
+        },
+        {
+          "$ref": "file://organization.json#properties"
+        }
+      ],
+      "description": "People or organizations that have reviewed the content on this web page for accuracy and/or completeness."
+    },
+    "mentions": {
+      "description": "Indicates that the CreativeWork contains a reference to, but is not necessarily about a concept.",
+      "$ref": "file://thing.json#properties"
+    },
+    "comment": {
+      "description": "Comments, typically from users.",
+      "$ref": "file://comment.json#properties"
+    },
+    "isBasedOnUrl": {
+      "description": "A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, http://example.com/great-multiplication-intro.html.",
+      "$ref": "file://url.json#properties"
+    },
+    "encoding": {
+      "description": "A media object that encodes this CreativeWork. This property is a synonym for associatedMedia.",
+      "$ref": "file://mediaobject.json#properties"
+    },
+    "sameAs": {
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "$ref": "file://url.json#properties"
+    },
+    "image": {
+      "anyOf": [
+        {
+          "$ref": "file://imageobject.json#properties"
+        },
+        {
+          "$ref": "file://url.json#properties"
+        }
+      ],
+      "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
+    },
+    "aggregateRating": {
+      "description": "The overall rating, based on a collection of reviews or ratings, of the item.",
+      "$ref": "file://aggregaterating.json#properties"
+    },
+    "contributor": {
+      "anyOf": [
+        {
+          "$ref": "file://person.json#properties"
+        },
+        {
+          "$ref": "file://organization.json#properties"
+        }
+      ],
+      "description": "A secondary contributor to the CreativeWork."
+    },
+    "thumbnailUrl": {
+      "description": "A thumbnail image relevant to the Thing.",
+      "$ref": "file://url.json#properties"
+    },
+    "mainEntity": {
+      "description": "Indicates the primary entity described in some page or other CreativeWork.",
+      "$ref": "file://thing.json#properties"
+    },
+    "schemaVersion": {
+      "anyOf": [
+        {
+          "$ref": "file://url.json#properties"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "description": "Indicates (by URL or string) a particular version of a schema used in some CreativeWork. For example, a document could declare a schemaVersion using a URL such as http://schema.org/version/2.0/ if precise indication of schema version was required by some application. "
+    },
+    "accessibilityFeature": {
+      "type": "string",
+      "description": "Content features of the resource, such as accessible media, alternatives and supported enhancements for accessibility (<a href=\"http://www.w3.org/wiki/WebSchemas/Accessibility\">WebSchemas wiki lists possible values</a>)."
+    },
+    "interactivityType": {
+      "type": "string",
+      "description": "The predominant mode of learning supported by the learning resource. Acceptable values are 'active', 'expositive', or 'mixed'."
+    },
+    "publication": {
+      "description": "A publication event associated with the item.",
+      "$ref": "file://publicationevent.json#properties"
+    },
+    "offers": {
+      "description": "An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event.",
+      "$ref": "file://offer.json#properties"
+    },
+    "editor": {
+      "description": "Specifies the Person who edited the CreativeWork.",
+      "$ref": "file://person.json#properties"
+    },
+    "mainEntityOfPage": {
+      "anyOf": [
+        {
+          "$ref": "file://url.json#properties"
+        },
+        {
+          "$ref": "file://creativework.json#properties"
+        }
+      ],
+      "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
+    },
+    "recordedAt": {
+      "description": "The Event where the CreativeWork was recorded. The CreativeWork may capture all or part of the event.",
+      "$ref": "file://event.json#properties"
+    },
+    "citation": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "file://creativework.json#properties"
+        }
+      ],
+      "description": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc."
+    },
+    "hasPart": {
+      "description": "Indicates a CreativeWork that is (in some sense) a part of this CreativeWork.",
+      "$ref": "file://creativework.json#properties"
+    },
+    "specialty": {
+      "description": "One of the domain specialities to which this web page's content applies.",
+      "$ref": "file://specialty.json#properties"
+    },
+    "award": {
+      "type": "string",
+      "description": "An award won by or for this item."
+    },
+    "copyrightHolder": {
+      "anyOf": [
+        {
+          "$ref": "file://organization.json#properties"
+        },
+        {
+          "$ref": "file://person.json#properties"
+        }
+      ],
+      "description": "The party holding the legal copyright to the CreativeWork."
+    },
+    "accessibilityAPI": {
+      "type": "string",
+      "description": "Indicates that the resource is compatible with the referenced accessibility API (<a href=\"http://www.w3.org/wiki/WebSchemas/Accessibility\">WebSchemas wiki lists possible values</a>)."
+    },
+    "reviews": {
+      "description": "Review of the item.",
+      "$ref": "file://review.json#properties"
+    },
+    "learningResourceType": {
+      "type": "string",
+      "description": "The predominant type or kind characterizing the learning resource. For example, 'presentation', 'handout'."
+    },
+    "significantLink": {
+      "description": "One of the more significant URLs on the page. Typically, these are the non-navigation links that are clicked on the most.",
+      "$ref": "file://url.json#properties"
+    },
+    "sourceOrganization": {
+      "description": "The Organization on whose behalf the creator was working.",
+      "$ref": "file://organization.json#properties"
+    },
+    "inLanguage": {
+      "anyOf": [
+        {
+          "$ref": "file://language.json#properties"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "description": "The language of the content or performance or used in an action. Please use one of the language codes from the <a href='http://tools.ietf.org/html/bcp47'>IETF BCP 47 standard</a>."
+    },
+    "encodings": {
+      "description": "A media object that encodes this CreativeWork.",
+      "$ref": "file://mediaobject.json#properties"
+    },
+    "additionalType": {
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "$ref": "file://url.json#properties"
+    },
+    "author": {
+      "anyOf": [
+        {
+          "$ref": "file://organization.json#properties"
+        },
+        {
+          "$ref": "file://person.json#properties"
+        }
+      ],
+      "description": "The author of this content. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably."
+    },
+    "dateModified": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "description": "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed."
+    },
+    "interactionStatistic": {
+      "description": "The number of interactions for the CreativeWork using the WebSite or SoftwareApplication. The most specific child type of InteractionCounter should be used.",
+      "$ref": "file://interactioncounter.json#properties"
+    },
+    "description": {
+      "type": "string",
+      "description": "A short description of the item."
+    },
+    "releasedEvent": {
+      "description": "The place and time the release was issued, expressed as a PublicationEvent.",
+      "$ref": "file://publicationevent.json#properties"
+    },
+    "translator": {
+      "anyOf": [
+        {
+          "$ref": "file://person.json#properties"
+        },
+        {
+          "$ref": "file://organization.json#properties"
+        },
+        {
+          "$ref": "file://person.json#properties"
+        },
+        {
+          "$ref": "file://organization.json#properties"
+        }
+      ],
+      "description": "An agent responsible for rendering a translated work from a source work"
+    },
+    "breadcrumb": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "file://breadcrumblist.json#properties"
+        }
+      ],
+      "description": "A set of links that can help a user understand and navigate a website hierarchy."
+    },
+    "alternateName": {
+      "type": "string",
+      "description": "An alias for the item."
+    },
+    "contentLocation": {
+      "description": "The location depicted or described in the content. For example, the location in a photograph or painting.",
+      "$ref": "file://place.json#properties"
+    },
+    "timeRequired": {
+      "description": "Approximate or typical time it takes to work with or through this learning resource for the typical intended target audience, e.g. 'P30M', 'P1H25M'.",
+      "$ref": "file://duration.json#properties"
+    },
+    "workTranslation": {
+      "description": "A work that is a translation of the content of this work. e.g. \u897f\u904a\u8a18 has an English workTranslation \u201cJourney to the West\u201d,a German workTranslation \u201cMonkeys Pilgerfahrt\u201d and a Vietnamese  translation T\u00e2y du k\u00fd b\u00ecnh kh\u1ea3o.",
+      "$ref": "file://creativework.json#properties"
+    },
+    "url": {
+      "description": "URL of the item.",
+      "$ref": "file://url.json#properties"
+    },
+    "position": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "file://integer.json#properties"
+        }
+      ],
+      "description": "The position of an item in a series or sequence of items."
+    },
+    "audio": {
+      "description": "An embedded audio object.",
+      "$ref": "file://audioobject.json#properties"
+    }
+  }
+}
