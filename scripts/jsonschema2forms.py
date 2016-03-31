@@ -133,6 +133,11 @@ def resolveSchema( _schema, _resolver):
 
 def property2form(_property_name, _property):
 
+    def oneOf(_prefix = ""):
+        return {"key": _prefix + _property_name, "type": "text",
+                "description": "Set to a plain text input as oneOf isn't currently implemented in the standard."
+                               " Description: " + _description}
+
     if isinstance(_property, dict):
 
         if "description" not in _property:
@@ -154,7 +159,10 @@ def property2form(_property_name, _property):
                 _curr_key["type"] = "checkbox"
             elif _curr_type in ["array"]:
                 _curr_key["type"] = "array"
-                _curr_key["items"] = properties2form(_property["items"], _property_name + "[].")
+                if "oneOf" in _property["items"]:
+                    _curr_key["items"] = oneOf()
+                else:
+                    _curr_key["items"] = properties2form(_property["items"], _property_name + "[].")
             elif _curr_type in ["object"]:
                 _curr_key["type"] = "fieldset"
                 _curr_key["items"] = properties2form(_property["properties"], _property_name + ".")
@@ -163,9 +171,7 @@ def property2form(_property_name, _property):
 
         elif "oneOf" in _property:
 
-            return {"key": _property_name, "type": "text",
-                          "description": "Set to a plain text input as oneOf isn't currently implemented in the standard."
-                                         " Description: " + _description}
+            return oneOf()
 
         elif "$ref" in _property:
             return {"key": _property_name, "type": "text",
