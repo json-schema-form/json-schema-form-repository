@@ -9,9 +9,9 @@
       "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
       "$ref": "file://action.json"
     },
-    "name": {
+    "description": {
       "type": "string",
-      "description": "The name of the item."
+      "description": "A short description of the item."
     },
     "servicePhone": {
       "description": "The phone number to use to access the service.",
@@ -21,13 +21,24 @@
       "type": "string",
       "description": "URL of the item."
     },
-    "description": {
-      "type": "string",
-      "description": "A short description of the item."
+    "image": {
+      "oneOf": [
+        {
+          "$ref": "file://imageobject.json"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
     },
     "providesService": {
       "description": "The service provided by this channel.",
       "$ref": "file://service.json"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the item."
     },
     "processingTime": {
       "description": "Estimated processing time for the service using this channel.",
@@ -50,12 +61,12 @@
       "description": "The website to access the service."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -67,17 +78,6 @@
     "alternateName": {
       "type": "string",
       "description": "An alias for the item."
-    },
-    "image": {
-      "anyOf": [
-        {
-          "$ref": "file://imageobject.json"
-        },
-        {
-          "type": "string"
-        }
-      ],
-      "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
     },
     "availableLanguage": {
       "description": "A language someone may use with the item.",

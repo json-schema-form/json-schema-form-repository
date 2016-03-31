@@ -10,7 +10,7 @@
       "description": "The purpose of a work in the context of education; for example, 'assignment', 'group work'."
     },
     "producer": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -69,7 +69,7 @@
       "description": "A URL pointing to a player for a specific video. In general, this is the information in the <code>src</code> element of an <code>embed</code> tag and should not be the same as the content of the <code>loc</code> tag."
     },
     "dateCreated": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -120,7 +120,7 @@
       "$ref": "file://creativework.json"
     },
     "creator": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -131,12 +131,12 @@
       "description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork."
     },
     "musicBy": {
-      "anyOf": [
-        {
-          "$ref": "file://person.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://musicgroup.json"
+        },
+        {
+          "$ref": "file://person.json"
         }
       ],
       "description": "The composer of the soundtrack."
@@ -186,12 +186,12 @@
       "$ref": "file://place.json"
     },
     "provider": {
-      "anyOf": [
-        {
-          "$ref": "file://person.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://organization.json"
+        },
+        {
+          "$ref": "file://person.json"
         }
       ],
       "description": "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller."
@@ -225,7 +225,7 @@
       "description": "Awards won by or for this item."
     },
     "genre": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -240,7 +240,7 @@
       "description": "The bitrate of the media object."
     },
     "translator": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -261,12 +261,12 @@
       "$ref": "file://thing.json"
     },
     "license": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "A license document that applies to this content, typically indicated by URL."
@@ -304,7 +304,7 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -315,7 +315,7 @@
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
     },
     "height": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://quantitativevalue.json"
         },
@@ -330,7 +330,7 @@
       "$ref": "file://aggregaterating.json"
     },
     "contributor": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -365,12 +365,12 @@
       "$ref": "file://publicationevent.json"
     },
     "width": {
-      "anyOf": [
-        {
-          "$ref": "file://quantitativevalue.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://distance.json"
+        },
+        {
+          "$ref": "file://quantitativevalue.json"
         }
       ],
       "description": "The width of the item."
@@ -384,12 +384,12 @@
       "$ref": "file://person.json"
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -399,23 +399,23 @@
       "$ref": "file://event.json"
     },
     "citation": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc."
     },
     "publisher": {
-      "anyOf": [
-        {
-          "$ref": "file://person.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://organization.json"
+        },
+        {
+          "$ref": "file://person.json"
         }
       ],
       "description": "The publisher of the creative work."
@@ -433,7 +433,7 @@
       "$ref": "file://offer.json"
     },
     "copyrightHolder": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -468,7 +468,7 @@
       "$ref": "file://place.json"
     },
     "inLanguage": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -487,7 +487,7 @@
       "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "author": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -506,7 +506,7 @@
       "$ref": "file://person.json"
     },
     "dateModified": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -541,7 +541,7 @@
       "description": "Date when this media object was uploaded to this site."
     },
     "schemaVersion": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -580,12 +580,12 @@
       "$ref": "file://person.json"
     },
     "position": {
-      "anyOf": [
-        {
-          "type": "number"
-        },
+      "oneOf": [
         {
           "type": "string"
+        },
+        {
+          "type": "number"
         }
       ],
       "description": "The position of an item in a series or sequence of items."

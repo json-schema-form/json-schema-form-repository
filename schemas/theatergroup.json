@@ -18,7 +18,7 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -49,11 +49,24 @@
       "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "hasOfferCatalog": {
-      "description": "Indicates an OfferCatalog listing for this Organization, Person, or Service.",
-      "$ref": "file://offercatalog.json"
+      "items": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "$ref": "file://listitem.json"
+          },
+          {
+            "$ref": "file://thing.json"
+          }
+        ]
+      },
+      "type": "array",
+      "description": "This is a generated, and simplified, variant of https://schema.org/OfferCatalog. I has been interpreted as a plain array, this behaviour is hard-coded to the itemList types and should be improved."
     },
     "logo": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -92,12 +105,12 @@
       "description": "The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in Spain."
     },
     "member": {
-      "anyOf": [
-        {
-          "$ref": "file://organization.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://person.json"
+        },
+        {
+          "$ref": "file://organization.json"
         }
       ],
       "description": "A member of an Organization or a ProgramMembership. Organizations can be members of organizations; ProgramMembership is typically for individuals."
@@ -107,7 +120,7 @@
       "$ref": "file://place.json"
     },
     "location": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://postaladdress.json"
         },
@@ -145,7 +158,7 @@
       "$ref": "file://quantitativevalue.json"
     },
     "brand": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -164,12 +177,12 @@
       "description": "An award won by or for this item."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -183,7 +196,7 @@
       "description": "Awards won by or for this item."
     },
     "members": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -194,12 +207,12 @@
       "description": "A member of this organization."
     },
     "address": {
-      "anyOf": [
-        {
-          "$ref": "file://postaladdress.json"
-        },
+      "oneOf": [
         {
           "type": "string"
+        },
+        {
+          "$ref": "file://postaladdress.json"
         }
       ],
       "description": "Physical address of the item."
@@ -221,15 +234,15 @@
       "$ref": "file://place.json"
     },
     "serviceArea": {
-      "anyOf": [
-        {
-          "$ref": "file://place.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://geoshape.json"
         },
         {
           "$ref": "file://administrativearea.json"
+        },
+        {
+          "$ref": "file://place.json"
         }
       ],
       "description": "The geographic area where the service is provided."
@@ -251,12 +264,12 @@
       "description": "URL of the item."
     },
     "memberOf": {
-      "anyOf": [
-        {
-          "$ref": "file://organization.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://programmembership.json"
+        },
+        {
+          "$ref": "file://organization.json"
         }
       ],
       "description": "An Organization (or ProgramMembership) to which this Person or Organization belongs."
@@ -278,9 +291,9 @@
       "$ref": "file://review.json"
     },
     "areaServed": {
-      "anyOf": [
+      "oneOf": [
         {
-          "$ref": "file://place.json"
+          "$ref": "file://geoshape.json"
         },
         {
           "type": "string"
@@ -289,18 +302,18 @@
           "$ref": "file://administrativearea.json"
         },
         {
-          "$ref": "file://geoshape.json"
+          "$ref": "file://place.json"
         }
       ],
       "description": "The geographic area where a service or offered item is provided."
     },
     "owns": {
-      "anyOf": [
-        {
-          "$ref": "file://ownershipinfo.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://product.json"
+        },
+        {
+          "$ref": "file://ownershipinfo.json"
         }
       ],
       "description": "Products owned by the organization or person."

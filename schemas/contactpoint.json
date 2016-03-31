@@ -6,15 +6,15 @@
   "type": "object",
   "properties": {
     "serviceArea": {
-      "anyOf": [
-        {
-          "$ref": "file://place.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://geoshape.json"
         },
         {
           "$ref": "file://administrativearea.json"
+        },
+        {
+          "$ref": "file://place.json"
         }
       ],
       "description": "The geographic area where the service is provided."
@@ -32,7 +32,7 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "productSupported": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://product.json"
         },
@@ -43,7 +43,7 @@
       "description": "The product or service this support contact point is related to (such as product support for a particular product line). This can be a specific product or product line (e.g. \"iPhone\") or a general category of products or services (e.g. \"smartphones\")."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -74,9 +74,9 @@
       "$ref": "file://openinghoursspecification.json"
     },
     "areaServed": {
-      "anyOf": [
+      "oneOf": [
         {
-          "$ref": "file://place.json"
+          "$ref": "file://geoshape.json"
         },
         {
           "type": "string"
@@ -85,7 +85,7 @@
           "$ref": "file://administrativearea.json"
         },
         {
-          "$ref": "file://geoshape.json"
+          "$ref": "file://place.json"
         }
       ],
       "description": "The geographic area where a service or offered item is provided."
@@ -95,12 +95,12 @@
       "description": "A person or organization can have different contact points, for different purposes. For example, a sales contact point, a PR contact point and so on. This property is used to specify the kind of contact point."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "

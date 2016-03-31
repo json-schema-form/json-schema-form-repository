@@ -14,7 +14,7 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -25,12 +25,12 @@
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
     },
     "orderedItem": {
-      "anyOf": [
-        {
-          "$ref": "file://product.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://orderitem.json"
+        },
+        {
+          "$ref": "file://product.json"
         }
       ],
       "description": "The item ordered."
@@ -72,7 +72,7 @@
       "description": "The date that payment is due."
     },
     "seller": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -87,12 +87,12 @@
       "description": "The identifier of the transaction."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -102,12 +102,12 @@
       "$ref": "file://paymentmethod.json"
     },
     "merchant": {
-      "anyOf": [
-        {
-          "$ref": "file://organization.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://person.json"
+        },
+        {
+          "$ref": "file://organization.json"
         }
       ],
       "description": "'merchant' is an out-dated term for 'seller'."
@@ -117,12 +117,12 @@
       "description": "A short description of the item."
     },
     "broker": {
-      "anyOf": [
-        {
-          "$ref": "file://organization.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://person.json"
+        },
+        {
+          "$ref": "file://organization.json"
         }
       ],
       "description": "An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred."
@@ -132,7 +132,7 @@
       "description": "The URL for sending a payment."
     },
     "discount": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -155,12 +155,12 @@
       "description": "An alias for the item."
     },
     "customer": {
-      "anyOf": [
-        {
-          "$ref": "file://person.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://organization.json"
+        },
+        {
+          "$ref": "file://person.json"
         }
       ],
       "description": "Party placing the order or paying the invoice."

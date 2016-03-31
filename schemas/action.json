@@ -10,7 +10,7 @@
       "$ref": "file://action.json"
     },
     "participant": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -37,7 +37,7 @@
       "$ref": "file://thing.json"
     },
     "agent": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -60,7 +60,7 @@
       "description": "URL of the item."
     },
     "location": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://postaladdress.json"
         },
@@ -82,12 +82,12 @@
       "$ref": "file://entrypoint.json"
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -109,7 +109,7 @@
       "$ref": "file://thing.json"
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },

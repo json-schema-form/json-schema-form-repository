@@ -18,7 +18,7 @@
       "description": "The version of the CreativeWork embodied by a specified resource."
     },
     "producer": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -41,7 +41,7 @@
       "description": "The textual content of this CreativeWork."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -52,12 +52,12 @@
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
     },
     "citation": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc."
@@ -95,7 +95,7 @@
       "description": "The typical expected age range, e.g. '7-9', '11-'."
     },
     "contributor": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -150,7 +150,7 @@
       "$ref": "file://review.json"
     },
     "creator": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -172,9 +172,9 @@
       "type": "string",
       "description": "Media type (aka MIME format, see <a href=\"http://www.iana.org/assignments/media-types/media-types.xhtml\">IANA site</a>) of the content e.g. application/zip of a SoftwareApplication binary. In cases where a CreativeWork has several media type representations, 'encoding' can be used to indicate each MediaObject alongside particular fileFormat information."
     },
-    "hasPart": {
-      "description": "Indicates a CreativeWork that is (in some sense) a part of this CreativeWork.",
-      "$ref": "file://creativework.json"
+    "educationalAlignment": {
+      "description": "An alignment to an established educational framework.",
+      "$ref": "file://alignmentobject.json"
     },
     "exampleOfWork": {
       "description": "A creative work that this work is an example/instance/realization/derivation of.",
@@ -189,23 +189,23 @@
       "$ref": "file://person.json"
     },
     "provider": {
-      "anyOf": [
-        {
-          "$ref": "file://person.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://organization.json"
+        },
+        {
+          "$ref": "file://person.json"
         }
       ],
       "description": "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -219,7 +219,7 @@
       "description": "A characteristic of the described resource that is physiologically dangerous to some users. Related to WCAG 2.0 guideline 2.3 (<a href=\"http://www.w3.org/wiki/WebSchemas/Accessibility\">WebSchemas wiki lists possible values</a>)."
     },
     "dateModified": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -245,16 +245,16 @@
       "type": "string",
       "description": "A short description of the item."
     },
-    "educationalAlignment": {
-      "description": "An alignment to an established educational framework.",
-      "$ref": "file://alignmentobject.json"
+    "hasPart": {
+      "description": "Indicates a CreativeWork that is (in some sense) a part of this CreativeWork.",
+      "$ref": "file://creativework.json"
     },
     "releasedEvent": {
       "description": "The place and time the release was issued, expressed as a PublicationEvent.",
       "$ref": "file://publicationevent.json"
     },
     "dateCreated": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -265,7 +265,7 @@
       "description": "The date on which the CreativeWork was created or the item was added to a DataFeed."
     },
     "translator": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -286,7 +286,7 @@
       "$ref": "file://offer.json"
     },
     "copyrightHolder": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -309,18 +309,18 @@
       "description": "An award won by or for this item."
     },
     "position": {
-      "anyOf": [
-        {
-          "type": "number"
-        },
+      "oneOf": [
         {
           "type": "string"
+        },
+        {
+          "type": "number"
         }
       ],
       "description": "The position of an item in a series or sequence of items."
     },
     "genre": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -331,7 +331,7 @@
       "description": "Genre of the creative work or group."
     },
     "schemaVersion": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -362,12 +362,12 @@
       "description": "Indicates that the resource is compatible with the referenced accessibility API (<a href=\"http://www.w3.org/wiki/WebSchemas/Accessibility\">WebSchemas wiki lists possible values</a>)."
     },
     "publisher": {
-      "anyOf": [
-        {
-          "$ref": "file://person.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://organization.json"
+        },
+        {
+          "$ref": "file://person.json"
         }
       ],
       "description": "The publisher of the creative work."
@@ -389,12 +389,12 @@
       "description": "The name of the item."
     },
     "license": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "A license document that applies to this content, typically indicated by URL."
@@ -403,12 +403,12 @@
       "description": "A media object that encodes this CreativeWork. This property is a synonym for encoding.",
       "$ref": "file://mediaobject.json"
     },
-    "url": {
-      "type": "string",
-      "description": "URL of the item."
+    "workExample": {
+      "description": "Example/instance/realization/derivation of the concept of this creative work. eg. The paperback edition, first edition, or eBook.",
+      "$ref": "file://creativework.json"
     },
     "author": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -419,7 +419,7 @@
       "description": "The author of this content. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably."
     },
     "inLanguage": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -433,9 +433,9 @@
       "description": "Review of the item.",
       "$ref": "file://review.json"
     },
-    "workExample": {
-      "description": "Example/instance/realization/derivation of the concept of this creative work. eg. The paperback edition, first edition, or eBook.",
-      "$ref": "file://creativework.json"
+    "url": {
+      "type": "string",
+      "description": "URL of the item."
     },
     "learningResourceType": {
       "type": "string",

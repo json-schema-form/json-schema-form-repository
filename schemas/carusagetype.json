@@ -10,9 +10,12 @@
       "$ref": "file://action.json"
     },
     "valueReference": {
-      "anyOf": [
+      "oneOf": [
         {
-          "$ref": "file://propertyvalue.json"
+          "$ref": "file://structuredvalue.json"
+        },
+        {
+          "$ref": "file://qualitativevalue.json"
         },
         {
           "$ref": "file://enumeration.json"
@@ -21,10 +24,7 @@
           "$ref": "file://quantitativevalue.json"
         },
         {
-          "$ref": "file://qualitativevalue.json"
-        },
-        {
-          "$ref": "file://structuredvalue.json"
+          "$ref": "file://propertyvalue.json"
         }
       ],
       "description": "A pointer to a secondary value that provides additional information on the original value, e.g. a reference temperature."
@@ -38,7 +38,7 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -69,15 +69,15 @@
       "$ref": "file://propertyvalue.json"
     },
     "supersededBy": {
-      "anyOf": [
+      "oneOf": [
+        {
+          "$ref": "file://enumeration.json"
+        },
         {
           "$ref": "file://class.json"
         },
         {
           "$ref": "file://property.json"
-        },
-        {
-          "$ref": "file://enumeration.json"
         }
       ],
       "description": "Relates a term (i.e. a property, class or enumeration) to one that supersedes it."
@@ -87,12 +87,12 @@
       "$ref": "file://qualitativevalue.json"
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "

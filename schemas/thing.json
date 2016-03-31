@@ -18,7 +18,7 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -33,7 +33,10 @@
       "description": "URL of the item."
     },
     "mainEntityOfPage": {
-      "anyOf": [
+      "oneOf": [
+        {
+          "$ref": "file://creativework.json"
+        },
         {
           "type": "string"
         }

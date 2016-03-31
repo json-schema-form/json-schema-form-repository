@@ -14,7 +14,7 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -25,15 +25,15 @@
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
     },
     "supersededBy": {
-      "anyOf": [
+      "oneOf": [
+        {
+          "$ref": "file://enumeration.json"
+        },
         {
           "$ref": "file://class.json"
         },
         {
           "$ref": "file://property.json"
-        },
-        {
-          "$ref": "file://enumeration.json"
         }
       ],
       "description": "Relates a term (i.e. a property, class or enumeration) to one that supersedes it."
@@ -42,13 +42,13 @@
       "description": "If applicable, the organization that officially recognizes this entity as part of its endorsed system of medicine.",
       "$ref": "file://organization.json"
     },
-    "suggestedMaxAge": {
-      "type": "number",
-      "description": "Maximal age recommended for viewing content."
-    },
     "additionalType": {
       "type": "string",
       "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
+    },
+    "suggestedMaxAge": {
+      "type": "number",
+      "description": "Maximal age recommended for viewing content."
     },
     "relevantSpecialty": {
       "description": "If applicable, a medical specialty in which this entity is relevant.",
@@ -67,12 +67,12 @@
       "description": "The target group associated with a given audience (e.g. veterans, car owners, musicians, etc.)."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "

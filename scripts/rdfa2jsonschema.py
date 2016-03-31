@@ -113,14 +113,30 @@ if __name__ == '__main__':
                     _new_types.append({
                         "type": "number"
                     })
-
+                elif _parsed_type in ["ItemList", "BreadcrumbList", "OfferCatalog"]:
+                    _new_types.append({
+                        "type": "array",
+                        "description": "This is a generated, and simplified, variant of https://schema.org/" + _parsed_type + ". I has been interpreted as a plain array, this behaviour is hard-coded to the itemList types and should be improved.",
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "$ref": "file://listitem.json"
+                                },
+                                {
+                                    "$ref": "file://thing.json"
+                                }
+                            ]
+                        }})
                 else:
                     _new_types.append({
                         "$ref": "file://" + _parsed_type.lower() + ".json"
                     })
             _new_property = {"description" : _curr_property["description"]}
             if len(_new_types) > 1:
-                _new_property["anyOf"] = _new_types
+                _new_property["oneOf"] = _new_types
             elif len(_new_types) == 1:
                 _new_property.update(_new_types[0])
             else:

@@ -26,7 +26,7 @@
       "description": "The date the item e.g. vehicle was purchased by the current owner."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -41,7 +41,7 @@
       "description": "The <a href=\"http://apps.gs1.org/GDD/glossary/Pages/GTIN-8.aspx\">GTIN-8</a> code of the product, or the product to which the offer refers. This code is also known as EAN/UCC-8 or 8-digit EAN. See <a href=\"http://www.gs1.org/barcodes/technical/idkeys/gtin\">GS1 GTIN Summary</a> for more details."
     },
     "height": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://quantitativevalue.json"
         },
@@ -64,7 +64,7 @@
       "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "logo": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -79,15 +79,15 @@
       "description": "The product identifier, such as ISBN. For example: <code>&lt;meta itemprop='productID' content='isbn:123-456-789'/&gt;</code>."
     },
     "category": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://physicalactivitycategory.json"
         },
         {
-          "type": "string"
+          "$ref": "file://thing.json"
         },
         {
-          "$ref": "file://thing.json"
+          "type": "string"
         }
       ],
       "description": "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy."
@@ -101,12 +101,12 @@
       "$ref": "file://product.json"
     },
     "width": {
-      "anyOf": [
-        {
-          "$ref": "file://quantitativevalue.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://distance.json"
+        },
+        {
+          "$ref": "file://quantitativevalue.json"
         }
       ],
       "description": "The width of the item."
@@ -132,12 +132,12 @@
       "$ref": "file://offer.json"
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -163,7 +163,7 @@
       "description": "The Manufacturer Part Number (MPN) of the product, or the product to which the offer refers."
     },
     "brand": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -218,12 +218,12 @@
       "description": "The <a href=\"http://apps.gs1.org/GDD/glossary/Pages/GTIN-14.aspx\">GTIN-14</a> code of the product, or the product to which the offer refers. See <a href=\"http://www.gs1.org/barcodes/technical/idkeys/gtin\">GS1 GTIN Summary</a> for more details."
     },
     "depth": {
-      "anyOf": [
-        {
-          "$ref": "file://distance.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://quantitativevalue.json"
+        },
+        {
+          "$ref": "file://distance.json"
         }
       ],
       "description": "The depth of the item."
@@ -241,12 +241,12 @@
       "description": "The date of production of the item, e.g. vehicle."
     },
     "model": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://productmodel.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "The model of the product. Use with the URL of a ProductModel or a textual representation of the model identifier. The URL of the ProductModel can be from an external source. It is recommended to additionally provide strong product identifiers via the gtin8/gtin13/gtin14 and mpn properties."

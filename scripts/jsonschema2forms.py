@@ -65,11 +65,13 @@ def resolveSchema( _schema, _resolver):
                 if _curr_ref[0] == "#":
                     return
 
-                # Do not resolve cyclical references
+                # Do not resolve circular references
                 if _curr_ref in _ref_history:
                     print(_indent + " Cyclical remote reference, will not resolve: " + str(_curr_ref) + ":  Formers " + str(_ref_history))
                     return
 
+                # Cannot cache resolutions as we need circular reference checks every time
+                # TODO: Could a deepcopy make caching work?
                 #if _curr_ref in resolve_cache:
                 #    print(_indent  + ": Using cached " + _curr_ref)
                 #    _obj.update(resolve_cache[_curr_ref])
@@ -92,9 +94,10 @@ def resolveSchema( _schema, _resolver):
                     if isinstance(_value, dict):
                         if "$ref" in _value or _key == "properties":
                             local_resolve(_value, _ref_history, _level + 1)
-                        elif "anyOf" in _value:
-                            #print("parsing an anyOf : " + _key + "=" + str(_value["anyOf"]))
-                            for _item in _value["anyOf"]:
+                        elif "oneOf" in _value:
+                            # TODO: Will there ever be anyOf in schema.org?
+                            # print("parsing an anyOf : " + _key + "=" + str(_value["anyOf"]))
+                            for _item in _value["oneOf"]:
                                 if "$ref" in _item:
                                     #print("Resolving anyOf item : " + str(_item))
                                     local_resolve(_item, _ref_history, _level + 1)
@@ -105,7 +108,7 @@ def resolveSchema( _schema, _resolver):
     except Exception as e:
         raise Exception("schemaTools.resolveSchema: Error resolving schema:" + str(e) + "Schema " + json.dumps(_schema, indent=4))
 
-    with open(os.path.join(script_dir, "..", "schemas", "resolved", _result["title"] + ".json"), "w") as _f:
+    with open(os.path.join(script_dir, "..", "schemas", "resolved", _result["title"].lower() + ".json"), "w") as _f:
         json.dump(_result, _f)
 
     # Make top allOf into properties
@@ -121,12 +124,24 @@ def resolveSchema( _schema, _resolver):
 
 
     try:
-        #jsonschema.validators.Draft4Validator({}, resolver=_resolver).check_schema(_result)
+        jsonschema.validators.Draft4Validator({}, resolver=_resolver).check_schema(_result)
         pass
     except Exception as e:
         raise Exception("schemaTools.resolveSchema: error validating resolved schema:" + str(e) + "Schema " + json.dumps(_result, indent=4))
 
     return _result
+
+
+
+def schema2form(_schema):
+    for _curr_property in _schema:
+        if "type" in _curr_property:
+            _curr_type = _curr_property["type"]
+
+            if _curr_type in ["Tec"]:
+                pass
+        if "properties" in _curr_property:
+            pass
 
 
 
@@ -143,7 +158,13 @@ if __name__ == '__main__':
         if os.path.splitext(_curr_file)[1] == ".json":
             with open(os.path.join(_schema_dir, _curr_file)) as _f_def:
                 _curr_schema = json.load(_f_def)
+
             _resolved_schema = resolveSchema(_curr_schema, _resolver)
+            #_new_form = schema2form(_resolved_schema)
+            #with open(os.path.join(script_dir, "..", "schemas", "resolved", "forms", _resolved_schema["title"].lower() + "-form.json"),
+            #          "w") as _f:
+            #    json.dump(_new_form, _f)
+
             print(_curr_schema["title"] + " checked out ok.")
             #_form = []
             #for _curr_property in _curr_schema:

@@ -14,7 +14,7 @@
       "description": "The supported content type(s) for an EntryPoint response."
     },
     "actionPlatform": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -53,12 +53,12 @@
       "description": "A url template (RFC6570) that will be used to construct the target of the execution of the action."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -76,7 +76,7 @@
       "description": "The supported encoding type(s) for an EntryPoint request."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },

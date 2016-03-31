@@ -14,18 +14,18 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "photo": {
-      "anyOf": [
-        {
-          "$ref": "file://photograph.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
+        },
+        {
+          "$ref": "file://photograph.json"
         }
       ],
       "description": "A photograph of this place."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -56,7 +56,7 @@
       "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "logo": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -75,12 +75,12 @@
       "description": "The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place."
     },
     "geo": {
-      "anyOf": [
-        {
-          "$ref": "file://geocoordinates.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://geoshape.json"
+        },
+        {
+          "$ref": "file://geocoordinates.json"
         }
       ],
       "description": "The geo coordinates of the place."
@@ -98,12 +98,12 @@
       "$ref": "file://propertyvalue.json"
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -129,7 +129,7 @@
       "$ref": "file://place.json"
     },
     "photos": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://photograph.json"
         },
@@ -140,12 +140,12 @@
       "description": "Photographs of this place."
     },
     "address": {
-      "anyOf": [
-        {
-          "$ref": "file://postaladdress.json"
-        },
+      "oneOf": [
         {
           "type": "string"
+        },
+        {
+          "$ref": "file://postaladdress.json"
         }
       ],
       "description": "Physical address of the item."
@@ -155,7 +155,7 @@
       "description": "An alias for the item."
     },
     "hasMap": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://map.json"
         },

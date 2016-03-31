@@ -10,7 +10,7 @@
       "$ref": "file://quantitativevalue.json"
     },
     "numberOfDoors": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "number"
         },
@@ -45,7 +45,7 @@
       "description": "The date the item e.g. vehicle was purchased by the current owner."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -56,7 +56,7 @@
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
     },
     "meetsEmissionStandard": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -74,12 +74,12 @@
       "description": "The <a href=\"http://apps.gs1.org/GDD/glossary/Pages/GTIN-8.aspx\">GTIN-8</a> code of the product, or the product to which the offer refers. This code is also known as EAN/UCC-8 or 8-digit EAN. See <a href=\"http://www.gs1.org/barcodes/technical/idkeys/gtin\">GS1 GTIN Summary</a> for more details."
     },
     "vehicleSeatingCapacity": {
-      "anyOf": [
-        {
-          "$ref": "file://quantitativevalue.json"
-        },
+      "oneOf": [
         {
           "type": "number"
+        },
+        {
+          "$ref": "file://quantitativevalue.json"
         }
       ],
       "description": "The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.<br />\nTypical unit code(s): C62 for persons "
@@ -105,7 +105,7 @@
       "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "logo": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -116,12 +116,12 @@
       "description": "An associated logo."
     },
     "driveWheelConfiguration": {
-      "anyOf": [
-        {
-          "$ref": "file://drivewheelconfigurationvalue.json"
-        },
+      "oneOf": [
         {
           "type": "string"
+        },
+        {
+          "$ref": "file://drivewheelconfigurationvalue.json"
         }
       ],
       "description": "The drive wheel configuration, i.e. which roadwheels will receive torque from the vehicle's engine via the drivetrain."
@@ -131,12 +131,12 @@
       "$ref": "file://enginespecification.json"
     },
     "fuelType": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://qualitativevalue.json"
+        },
+        {
+          "type": "string"
         },
         {
           "type": "string"
@@ -165,12 +165,12 @@
       "$ref": "file://product.json"
     },
     "width": {
-      "anyOf": [
-        {
-          "$ref": "file://quantitativevalue.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://distance.json"
+        },
+        {
+          "$ref": "file://quantitativevalue.json"
         }
       ],
       "description": "The width of the item."
@@ -180,37 +180,37 @@
       "$ref": "file://quantitativevalue.json"
     },
     "numberOfAirbags": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "type": "number"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "The number or type of airbags in the vehicle."
     },
     "vehicleTransmission": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "type": "string"
         },
         {
           "$ref": "file://qualitativevalue.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "The type of component used for transmitting the power from a rotating power source to the wheels or other relevant component(s) (\"gearbox\" for cars)."
     },
     "depth": {
-      "anyOf": [
-        {
-          "$ref": "file://distance.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://quantitativevalue.json"
+        },
+        {
+          "$ref": "file://distance.json"
         }
       ],
       "description": "The depth of the item."
@@ -232,12 +232,12 @@
       "description": "The date of the first registration of the vehicle with the respective public authorities."
     },
     "numberOfPreviousOwners": {
-      "anyOf": [
-        {
-          "$ref": "file://quantitativevalue.json"
-        },
+      "oneOf": [
         {
           "type": "number"
+        },
+        {
+          "$ref": "file://quantitativevalue.json"
         }
       ],
       "description": "The number of owners of the vehicle, including the current one.<br />\nTypical unit code(s): C62"
@@ -247,12 +247,12 @@
       "$ref": "file://product.json"
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -266,29 +266,29 @@
       "$ref": "file://quantitativevalue.json"
     },
     "category": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://physicalactivitycategory.json"
         },
         {
-          "type": "string"
+          "$ref": "file://thing.json"
         },
         {
-          "$ref": "file://thing.json"
+          "type": "string"
         }
       ],
       "description": "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy."
     },
     "bodyType": {
-      "anyOf": [
+      "oneOf": [
+        {
+          "type": "string"
+        },
         {
           "type": "string"
         },
         {
           "$ref": "file://qualitativevalue.json"
-        },
-        {
-          "type": "string"
         }
       ],
       "description": "Indicates the design and body style of the vehicle (e.g. station wagon, hatchback, etc.)."
@@ -298,12 +298,12 @@
       "description": "A short description of the item."
     },
     "seatingCapacity": {
-      "anyOf": [
-        {
-          "type": "number"
-        },
+      "oneOf": [
         {
           "$ref": "file://quantitativevalue.json"
+        },
+        {
+          "type": "number"
         }
       ],
       "description": "The number of persons that can be seated (e.g. in a vehicle), both in terms of the physical space available, and in terms of limitations set by law.<br />\n    Typical unit code(s): C62 for persons "
@@ -317,7 +317,7 @@
       "description": "A textual description of known damages, both repaired and unrepaired."
     },
     "brand": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -332,7 +332,7 @@
       "description": "An award won by or for this item."
     },
     "specialUsage": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -347,12 +347,12 @@
       "description": "Awards won by or for this item."
     },
     "numberOfForwardGears": {
-      "anyOf": [
-        {
-          "type": "number"
-        },
+      "oneOf": [
         {
           "$ref": "file://quantitativevalue.json"
+        },
+        {
+          "type": "number"
         }
       ],
       "description": "The total number of forward gears available for the transmission system of the vehicle.<br />\nTypical unit code(s): C62"
@@ -370,7 +370,7 @@
       "description": "An alias for the item."
     },
     "height": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://quantitativevalue.json"
         },
@@ -429,7 +429,7 @@
       "$ref": "file://audience.json"
     },
     "numberOfAxles": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://quantitativevalue.json"
         },
@@ -460,12 +460,12 @@
       "$ref": "file://steeringpositionvalue.json"
     },
     "model": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://productmodel.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "The model of the product. Use with the URL of a ProductModel or a textual representation of the model identifier. The URL of the ProductModel can be from an external source. It is recommended to additionally provide strong product identifiers via the gtin8/gtin13/gtin14 and mpn properties."

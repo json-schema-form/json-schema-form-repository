@@ -10,7 +10,7 @@
       "description": "The purpose of a work in the context of education; for example, 'assignment', 'group work'."
     },
     "producer": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -65,7 +65,7 @@
       "description": "Link to page describing the editorial principles of the organization primarily responsible for the creation of the CreativeWork."
     },
     "dateCreated": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -108,7 +108,7 @@
       "description": "The year during which the claimed copyright for the CreativeWork was first asserted."
     },
     "creator": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -159,12 +159,12 @@
       "$ref": "file://place.json"
     },
     "provider": {
-      "anyOf": [
-        {
-          "$ref": "file://person.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://organization.json"
+        },
+        {
+          "$ref": "file://person.json"
         }
       ],
       "description": "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller."
@@ -186,12 +186,26 @@
       "description": "The method of cooking, such as Frying, Steaming, ..."
     },
     "recipeInstructions": {
-      "anyOf": [
+      "oneOf": [
         {
-          "type": "string"
+          "items": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "file://listitem.json"
+              },
+              {
+                "$ref": "file://thing.json"
+              }
+            ]
+          },
+          "type": "array",
+          "description": "This is a generated, and simplified, variant of https://schema.org/ItemList. I has been interpreted as a plain array, this behaviour is hard-coded to the itemList types and should be improved."
         },
         {
-          "$ref": "file://itemlist.json"
+          "type": "string"
         }
       ],
       "description": "A step or instruction involved in making the recipe."
@@ -201,7 +215,7 @@
       "description": "Awards won by or for this item."
     },
     "genre": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -216,12 +230,12 @@
       "$ref": "file://duration.json"
     },
     "publisher": {
-      "anyOf": [
-        {
-          "$ref": "file://person.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://organization.json"
+        },
+        {
+          "$ref": "file://person.json"
         }
       ],
       "description": "The publisher of the creative work."
@@ -231,12 +245,12 @@
       "$ref": "file://thing.json"
     },
     "license": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "A license document that applies to this content, typically indicated by URL."
@@ -274,7 +288,7 @@
       "$ref": "file://person.json"
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -289,7 +303,7 @@
       "$ref": "file://aggregaterating.json"
     },
     "contributor": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -308,7 +322,7 @@
       "$ref": "file://thing.json"
     },
     "schemaVersion": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -339,12 +353,12 @@
       "$ref": "file://person.json"
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -366,7 +380,7 @@
       "description": "An award won by or for this item."
     },
     "copyrightHolder": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -393,7 +407,7 @@
       "$ref": "file://organization.json"
     },
     "inLanguage": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -404,12 +418,12 @@
       "description": "The language of the content or performance or used in an action. Please use one of the language codes from the <a href='http://tools.ietf.org/html/bcp47'>IETF BCP 47 standard</a>."
     },
     "citation": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc."
@@ -427,7 +441,7 @@
       "description": "A single ingredient used in the recipe, e.g. sugar, flour or garlic."
     },
     "dateModified": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -454,7 +468,7 @@
       "$ref": "file://publicationevent.json"
     },
     "translator": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -491,7 +505,7 @@
       "description": "URL of the item."
     },
     "author": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -506,12 +520,12 @@
       "description": "Indicates whether this content is family friendly."
     },
     "position": {
-      "anyOf": [
-        {
-          "type": "number"
-        },
+      "oneOf": [
         {
           "type": "string"
+        },
+        {
+          "type": "number"
         }
       ],
       "description": "The position of an item in a series or sequence of items."

@@ -10,12 +10,12 @@
       "$ref": "file://warrantypromise.json"
     },
     "ineligibleRegion": {
-      "anyOf": [
-        {
-          "$ref": "file://geoshape.json"
-        },
+      "oneOf": [
         {
           "type": "string"
+        },
+        {
+          "$ref": "file://geoshape.json"
         },
         {
           "$ref": "file://place.json"
@@ -32,21 +32,21 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "eligibleRegion": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://place.json"
         },
         {
-          "type": "string"
+          "$ref": "file://geoshape.json"
         },
         {
-          "$ref": "file://geoshape.json"
+          "type": "string"
         }
       ],
       "description": "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid.\n      <br><br> See also <a href=\"/ineligibleRegion\">ineligibleRegion</a>.\n    "
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -77,12 +77,12 @@
       "$ref": "file://itemavailability.json"
     },
     "offeredBy": {
-      "anyOf": [
-        {
-          "$ref": "file://organization.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://person.json"
+        },
+        {
+          "$ref": "file://organization.json"
         }
       ],
       "description": "A pointer to the organization or person making the offer."
@@ -103,12 +103,8 @@
       "description": "A review of the item.",
       "$ref": "file://review.json"
     },
-    "addOn": {
-      "description": "An additional offer that can only be obtained in combination with the first base offer (e.g. supplements and extensions that are available for a surcharge).",
-      "$ref": "file://offer.json"
-    },
     "seller": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -127,12 +123,12 @@
       "$ref": "file://quantitativevalue.json"
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -146,15 +142,15 @@
       "$ref": "file://quantitativevalue.json"
     },
     "category": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://physicalactivitycategory.json"
         },
         {
-          "type": "string"
+          "$ref": "file://thing.json"
         },
         {
-          "$ref": "file://thing.json"
+          "type": "string"
         }
       ],
       "description": "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy."
@@ -172,7 +168,7 @@
       "description": "The Manufacturer Part Number (MPN) of the product, or the product to which the offer refers."
     },
     "price": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -222,6 +218,10 @@
       "type": "string",
       "description": "An alias for the item."
     },
+    "validFrom": {
+      "type": "string",
+      "description": "The date when the item becomes valid."
+    },
     "potentialAction": {
       "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
       "$ref": "file://action.json"
@@ -251,7 +251,7 @@
       "description": "The <a href=\"http://apps.gs1.org/GDD/glossary/Pages/GTIN-14.aspx\">GTIN-14</a> code of the product, or the product to which the offer refers. See <a href=\"http://www.gs1.org/barcodes/technical/idkeys/gtin\">GS1 GTIN Summary</a> for more details."
     },
     "itemOffered": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://product.json"
         },
@@ -262,9 +262,9 @@
       "description": "The item being offered."
     },
     "areaServed": {
-      "anyOf": [
+      "oneOf": [
         {
-          "$ref": "file://place.json"
+          "$ref": "file://geoshape.json"
         },
         {
           "type": "string"
@@ -273,7 +273,7 @@
           "$ref": "file://administrativearea.json"
         },
         {
-          "$ref": "file://geoshape.json"
+          "$ref": "file://place.json"
         }
       ],
       "description": "The geographic area where a service or offered item is provided."
@@ -282,9 +282,9 @@
       "type": "string",
       "description": "The <a href=\"http://apps.gs1.org/GDD/glossary/Pages/GTIN-12.aspx\">GTIN-12</a> code of the product, or the product to which the offer refers. The GTIN-12 is the 12-digit GS1 Identification Key composed of a U.P.C. Company Prefix, Item Reference, and Check Digit used to identify trade items. See <a href=\"http://www.gs1.org/barcodes/technical/idkeys/gtin\">GS1 GTIN Summary</a> for more details."
     },
-    "validFrom": {
-      "type": "string",
-      "description": "The date when the item becomes valid."
+    "addOn": {
+      "description": "An additional offer that can only be obtained in combination with the first base offer (e.g. supplements and extensions that are available for a surcharge).",
+      "$ref": "file://offer.json"
     },
     "itemCondition": {
       "description": "A predefined value from OfferItemCondition or a textual description of the condition of the product or service, or the products or services included in the offer.",

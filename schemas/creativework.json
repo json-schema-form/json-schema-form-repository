@@ -10,7 +10,7 @@
       "$ref": "file://comment.json"
     },
     "inLanguage": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -25,7 +25,7 @@
       "description": "The version of the CreativeWork embodied by a specified resource."
     },
     "producer": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -48,7 +48,7 @@
       "description": "The textual content of this CreativeWork."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -59,18 +59,18 @@
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
     },
     "citation": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc."
     },
     "contributor": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -145,7 +145,7 @@
       "description": "A link to the page containing the comments of the CreativeWork."
     },
     "author": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -196,12 +196,12 @@
       "$ref": "file://person.json"
     },
     "provider": {
-      "anyOf": [
-        {
-          "$ref": "file://person.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://organization.json"
+        },
+        {
+          "$ref": "file://person.json"
         }
       ],
       "description": "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller."
@@ -219,7 +219,7 @@
       "description": "A characteristic of the described resource that is physiologically dangerous to some users. Related to WCAG 2.0 guideline 2.3 (<a href=\"http://www.w3.org/wiki/WebSchemas/Accessibility\">WebSchemas wiki lists possible values</a>)."
     },
     "dateModified": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -230,12 +230,12 @@
       "description": "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -265,7 +265,7 @@
       "$ref": "file://publicationevent.json"
     },
     "dateCreated": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -276,7 +276,7 @@
       "description": "The date on which the CreativeWork was created or the item was added to a DataFeed."
     },
     "translator": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -297,7 +297,7 @@
       "$ref": "file://creativework.json"
     },
     "copyrightHolder": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -320,7 +320,7 @@
       "description": "An award won by or for this item."
     },
     "creator": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -331,18 +331,18 @@
       "description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork."
     },
     "position": {
-      "anyOf": [
-        {
-          "type": "number"
-        },
+      "oneOf": [
         {
           "type": "string"
+        },
+        {
+          "type": "number"
         }
       ],
       "description": "The position of an item in a series or sequence of items."
     },
     "genre": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -353,7 +353,7 @@
       "description": "Genre of the creative work or group."
     },
     "schemaVersion": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -380,12 +380,12 @@
       "description": "Indicates that the resource is compatible with the referenced accessibility API (<a href=\"http://www.w3.org/wiki/WebSchemas/Accessibility\">WebSchemas wiki lists possible values</a>)."
     },
     "publisher": {
-      "anyOf": [
-        {
-          "$ref": "file://person.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://organization.json"
+        },
+        {
+          "$ref": "file://person.json"
         }
       ],
       "description": "The publisher of the creative work."
@@ -407,12 +407,12 @@
       "description": "The name of the item."
     },
     "license": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "A license document that applies to this content, typically indicated by URL."

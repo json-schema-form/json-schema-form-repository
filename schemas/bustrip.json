@@ -26,7 +26,7 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -41,12 +41,12 @@
       "description": "The expected arrival time."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -56,23 +56,23 @@
       "description": "URL of the item."
     },
     "departureBusStop": {
-      "anyOf": [
-        {
-          "$ref": "file://busstop.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://busstation.json"
+        },
+        {
+          "$ref": "file://busstop.json"
         }
       ],
       "description": "The stop or station from which the bus departs."
     },
     "provider": {
-      "anyOf": [
-        {
-          "$ref": "file://person.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://organization.json"
+        },
+        {
+          "$ref": "file://person.json"
         }
       ],
       "description": "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller."
@@ -90,12 +90,12 @@
       "description": "An alias for the item."
     },
     "arrivalBusStop": {
-      "anyOf": [
-        {
-          "$ref": "file://busstation.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://busstop.json"
+        },
+        {
+          "$ref": "file://busstation.json"
         }
       ],
       "description": "The stop or station from which the bus arrives."

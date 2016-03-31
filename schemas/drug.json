@@ -18,7 +18,7 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -93,12 +93,12 @@
       "description": "True if the drug is available in a generic form (regardless of name)."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -204,7 +204,7 @@
       "description": "Any precaution, guidance, contraindication, etc. related to this drug's use by breastfeeding mothers."
     },
     "warning": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },

@@ -10,7 +10,7 @@
       "description": "The purpose of a work in the context of education; for example, 'assignment', 'group work'."
     },
     "producer": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -61,7 +61,7 @@
       "description": "Link to page describing the editorial principles of the organization primarily responsible for the creation of the CreativeWork."
     },
     "dateCreated": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -104,7 +104,7 @@
       "description": "The year during which the claimed copyright for the CreativeWork was first asserted."
     },
     "creator": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -155,12 +155,12 @@
       "$ref": "file://place.json"
     },
     "provider": {
-      "anyOf": [
-        {
-          "$ref": "file://person.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://organization.json"
+        },
+        {
+          "$ref": "file://person.json"
         }
       ],
       "description": "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller."
@@ -190,7 +190,7 @@
       "description": "Awards won by or for this item."
     },
     "genre": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -201,12 +201,12 @@
       "description": "Genre of the creative work or group."
     },
     "publisher": {
-      "anyOf": [
-        {
-          "$ref": "file://person.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://organization.json"
+        },
+        {
+          "$ref": "file://person.json"
         }
       ],
       "description": "The publisher of the creative work."
@@ -216,12 +216,12 @@
       "$ref": "file://thing.json"
     },
     "license": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "A license document that applies to this content, typically indicated by URL."
@@ -259,7 +259,7 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -274,7 +274,7 @@
       "$ref": "file://mediaobject.json"
     },
     "contributor": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -293,7 +293,7 @@
       "$ref": "file://thing.json"
     },
     "schemaVersion": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -328,12 +328,12 @@
       "description": "The catalog number for the release."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -343,12 +343,12 @@
       "$ref": "file://event.json"
     },
     "citation": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc."
@@ -362,7 +362,7 @@
       "description": "An award won by or for this item."
     },
     "copyrightHolder": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -393,7 +393,7 @@
       "$ref": "file://organization.json"
     },
     "inLanguage": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -412,7 +412,7 @@
       "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "author": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -423,7 +423,7 @@
       "description": "The author of this content. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably."
     },
     "dateModified": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -442,23 +442,37 @@
       "description": "A short description of the item."
     },
     "track": {
-      "anyOf": [
-        {
-          "$ref": "file://itemlist.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://musicrecording.json"
+        },
+        {
+          "items": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "file://listitem.json"
+              },
+              {
+                "$ref": "file://thing.json"
+              }
+            ]
+          },
+          "type": "array",
+          "description": "This is a generated, and simplified, variant of https://schema.org/ItemList. I has been interpreted as a plain array, this behaviour is hard-coded to the itemList types and should be improved."
         }
       ],
       "description": "A music recording (track)&#x2014;usually a single song. If an ItemList is given, the list should contain items of type MusicRecording."
     },
     "creditedTo": {
-      "anyOf": [
-        {
-          "$ref": "file://organization.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://person.json"
+        },
+        {
+          "$ref": "file://organization.json"
         }
       ],
       "description": "The group the release is credited to if different than the byArtist. For example, Red and Blue is credited to \"Stefani Germanotta Band\", but by Lady Gaga."
@@ -468,7 +482,7 @@
       "$ref": "file://publicationevent.json"
     },
     "translator": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -505,12 +519,12 @@
       "description": "URL of the item."
     },
     "position": {
-      "anyOf": [
-        {
-          "type": "number"
-        },
+      "oneOf": [
         {
           "type": "string"
+        },
+        {
+          "type": "number"
         }
       ],
       "description": "The position of an item in a series or sequence of items."

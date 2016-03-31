@@ -10,7 +10,7 @@
       "description": "The purpose of a work in the context of education; for example, 'assignment', 'group work'."
     },
     "producer": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -25,12 +25,12 @@
       "description": "The textual content of this CreativeWork."
     },
     "subtitleLanguage": {
-      "anyOf": [
-        {
-          "$ref": "file://language.json"
-        },
+      "oneOf": [
         {
           "type": "string"
+        },
+        {
+          "$ref": "file://language.json"
         }
       ],
       "description": "Languages in which subtitles/captions are available, in <a href='http://tools.ietf.org/html/bcp47'>IETF BCP 47 standard format.</a>"
@@ -72,7 +72,7 @@
       "description": "Link to page describing the editorial principles of the organization primarily responsible for the creation of the CreativeWork."
     },
     "dateCreated": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -123,7 +123,7 @@
       "description": "The year during which the claimed copyright for the CreativeWork was first asserted."
     },
     "translator": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -140,7 +140,7 @@
       "description": "An agent responsible for rendering a translated work from a source work"
     },
     "creator": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -151,12 +151,12 @@
       "description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork."
     },
     "musicBy": {
-      "anyOf": [
-        {
-          "$ref": "file://person.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://musicgroup.json"
+        },
+        {
+          "$ref": "file://person.json"
         }
       ],
       "description": "The composer of the soundtrack."
@@ -178,7 +178,7 @@
       "description": "Media type (aka MIME format, see <a href=\"http://www.iana.org/assignments/media-types/media-types.xhtml\">IANA site</a>) of the content e.g. application/zip of a SoftwareApplication binary. In cases where a CreativeWork has several media type representations, 'encoding' can be used to indicate each MediaObject alongside particular fileFormat information."
     },
     "episodeNumber": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -213,12 +213,12 @@
       "$ref": "file://place.json"
     },
     "provider": {
-      "anyOf": [
-        {
-          "$ref": "file://person.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://organization.json"
+        },
+        {
+          "$ref": "file://person.json"
         }
       ],
       "description": "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller."
@@ -240,7 +240,7 @@
       "description": "Awards won by or for this item."
     },
     "genre": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -251,12 +251,12 @@
       "description": "Genre of the creative work or group."
     },
     "publisher": {
-      "anyOf": [
-        {
-          "$ref": "file://person.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://organization.json"
+        },
+        {
+          "$ref": "file://person.json"
         }
       ],
       "description": "The publisher of the creative work."
@@ -266,12 +266,12 @@
       "$ref": "file://thing.json"
     },
     "license": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "A license document that applies to this content, typically indicated by URL."
@@ -305,7 +305,7 @@
       "$ref": "file://person.json"
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -320,7 +320,7 @@
       "$ref": "file://aggregaterating.json"
     },
     "contributor": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -339,7 +339,7 @@
       "$ref": "file://thing.json"
     },
     "schemaVersion": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -370,12 +370,12 @@
       "$ref": "file://person.json"
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -397,7 +397,7 @@
       "description": "An award won by or for this item."
     },
     "copyrightHolder": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -428,7 +428,7 @@
       "$ref": "file://organization.json"
     },
     "inLanguage": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -439,12 +439,12 @@
       "description": "The language of the content or performance or used in an action. Please use one of the language codes from the <a href='http://tools.ietf.org/html/bcp47'>IETF BCP 47 standard</a>."
     },
     "citation": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc."
@@ -454,7 +454,7 @@
       "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "author": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -477,7 +477,7 @@
       "$ref": "file://person.json"
     },
     "dateModified": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -528,12 +528,12 @@
       "$ref": "file://person.json"
     },
     "position": {
-      "anyOf": [
-        {
-          "type": "number"
-        },
+      "oneOf": [
         {
           "type": "string"
+        },
+        {
+          "type": "number"
         }
       ],
       "description": "The position of an item in a series or sequence of items."

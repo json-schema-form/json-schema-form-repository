@@ -9,9 +9,9 @@
       "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
       "$ref": "file://action.json"
     },
-    "name": {
+    "description": {
       "type": "string",
-      "description": "The name of the item."
+      "description": "A short description of the item."
     },
     "sameAs": {
       "type": "string",
@@ -22,7 +22,7 @@
       "$ref": "file://warrantyscope.json"
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -36,32 +36,32 @@
       "type": "string",
       "description": "URL of the item."
     },
-    "additionalType": {
-      "type": "string",
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
+    "durationOfWarranty": {
+      "description": "The duration of the warranty promise. Common unitCode values are ANN for year, MON for months, or DAY for days.",
+      "$ref": "file://quantitativevalue.json"
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
     },
-    "durationOfWarranty": {
-      "description": "The duration of the warranty promise. Common unitCode values are ANN for year, MON for months, or DAY for days.",
-      "$ref": "file://quantitativevalue.json"
+    "additionalType": {
+      "type": "string",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "alternateName": {
       "type": "string",
       "description": "An alias for the item."
     },
-    "description": {
+    "name": {
       "type": "string",
-      "description": "A short description of the item."
+      "description": "The name of the item."
     }
   }
 }

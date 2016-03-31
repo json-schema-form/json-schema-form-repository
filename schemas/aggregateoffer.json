@@ -10,12 +10,12 @@
       "$ref": "file://warrantypromise.json"
     },
     "ineligibleRegion": {
-      "anyOf": [
-        {
-          "$ref": "file://geoshape.json"
-        },
+      "oneOf": [
         {
           "type": "string"
+        },
+        {
+          "$ref": "file://geoshape.json"
         },
         {
           "$ref": "file://place.json"
@@ -32,15 +32,15 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "eligibleRegion": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://place.json"
         },
         {
-          "type": "string"
+          "$ref": "file://geoshape.json"
         },
         {
-          "$ref": "file://geoshape.json"
+          "type": "string"
         }
       ],
       "description": "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid.\n      <br><br> See also <a href=\"/ineligibleRegion\">ineligibleRegion</a>.\n    "
@@ -70,12 +70,12 @@
       "$ref": "file://itemavailability.json"
     },
     "offeredBy": {
-      "anyOf": [
-        {
-          "$ref": "file://organization.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://person.json"
+        },
+        {
+          "$ref": "file://organization.json"
         }
       ],
       "description": "A pointer to the organization or person making the offer."
@@ -101,7 +101,7 @@
       "$ref": "file://offer.json"
     },
     "seller": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -124,18 +124,18 @@
       "$ref": "file://quantitativevalue.json"
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -146,7 +146,7 @@
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
     },
     "itemOffered": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://product.json"
         },
@@ -157,15 +157,15 @@
       "description": "The item being offered."
     },
     "category": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://physicalactivitycategory.json"
         },
         {
-          "type": "string"
+          "$ref": "file://thing.json"
         },
         {
-          "$ref": "file://thing.json"
+          "type": "string"
         }
       ],
       "description": "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy."
@@ -183,7 +183,7 @@
       "description": "The Manufacturer Part Number (MPN) of the product, or the product to which the offer refers."
     },
     "price": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -254,7 +254,7 @@
       "description": "URL of the item."
     },
     "lowPrice": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -281,9 +281,9 @@
       "$ref": "file://quantitativevalue.json"
     },
     "areaServed": {
-      "anyOf": [
+      "oneOf": [
         {
-          "$ref": "file://place.json"
+          "$ref": "file://geoshape.json"
         },
         {
           "type": "string"
@@ -292,7 +292,7 @@
           "$ref": "file://administrativearea.json"
         },
         {
-          "$ref": "file://geoshape.json"
+          "$ref": "file://place.json"
         }
       ],
       "description": "The geographic area where a service or offered item is provided."
@@ -306,7 +306,7 @@
       "description": "The date when the item becomes valid."
     },
     "highPrice": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "number"
         },

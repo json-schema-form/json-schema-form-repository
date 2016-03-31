@@ -10,7 +10,7 @@
       "$ref": "file://action.json"
     },
     "elevation": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "number"
         },
@@ -20,16 +20,16 @@
       ],
       "description": "The elevation of a location (<a href=\"https://en.wikipedia.org/wiki/World_Geodetic_System\">WGS 84</a>)."
     },
-    "name": {
+    "description": {
       "type": "string",
-      "description": "The name of the item."
+      "description": "A short description of the item."
     },
     "sameAs": {
       "type": "string",
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -40,7 +40,7 @@
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
     },
     "longitude": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -51,23 +51,23 @@
       "description": "The longitude of a location. For example <code>-122.08585</code> (<a href=\"https://en.wikipedia.org/wiki/World_Geodetic_System\">WGS 84</a>)."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
     },
     "addressCountry": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://country.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "The country. For example, USA. You can also provide the two-letter <a href='http://en.wikipedia.org/wiki/ISO_3166-1'>ISO 3166-1 alpha-2 country code</a>."
@@ -81,18 +81,18 @@
       "description": "URL of the item."
     },
     "address": {
-      "anyOf": [
-        {
-          "$ref": "file://postaladdress.json"
-        },
+      "oneOf": [
         {
           "type": "string"
+        },
+        {
+          "$ref": "file://postaladdress.json"
         }
       ],
       "description": "Physical address of the item."
     },
     "latitude": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "number"
         },
@@ -110,9 +110,9 @@
       "type": "string",
       "description": "An alias for the item."
     },
-    "description": {
+    "name": {
       "type": "string",
-      "description": "A short description of the item."
+      "description": "The name of the item."
     }
   }
 }

@@ -22,7 +22,7 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -31,6 +31,10 @@
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
+    },
+    "validFrom": {
+      "type": "string",
+      "description": "The date when the item becomes valid."
     },
     "url": {
       "type": "string",
@@ -44,21 +48,17 @@
       "description": "The time validity of the permit.",
       "$ref": "file://duration.json"
     },
-    "issuedThrough": {
-      "description": "The service through with the permit was granted.",
-      "$ref": "file://service.json"
-    },
     "permitAudience": {
       "description": "The target audience for this permit.",
       "$ref": "file://audience.json"
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -71,9 +71,9 @@
       "type": "string",
       "description": "An alias for the item."
     },
-    "validFrom": {
-      "type": "string",
-      "description": "The date when the item becomes valid."
+    "issuedThrough": {
+      "description": "The service through with the permit was granted.",
+      "$ref": "file://service.json"
     },
     "issuedBy": {
       "description": "The organization issuing the ticket or permit.",

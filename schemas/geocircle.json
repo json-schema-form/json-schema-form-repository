@@ -10,12 +10,12 @@
       "description": "An alias for the item."
     },
     "addressCountry": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://country.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "The country. For example, USA. You can also provide the two-letter <a href='http://en.wikipedia.org/wiki/ISO_3166-1'>ISO 3166-1 alpha-2 country code</a>."
@@ -25,7 +25,7 @@
       "$ref": "file://action.json"
     },
     "elevation": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "number"
         },
@@ -48,7 +48,7 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -67,15 +67,15 @@
       "description": "A box is the area enclosed by the rectangle formed by two points. The first point is the lower corner, the second point is the upper corner. A box is expressed as two points separated by a space character."
     },
     "geoRadius": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "type": "number"
         },
         {
           "$ref": "file://distance.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates the approximate radius of a GeoCircle (metres unless indicated otherwise via Distance notation)."
@@ -89,23 +89,23 @@
       "description": "URL of the item."
     },
     "address": {
-      "anyOf": [
-        {
-          "$ref": "file://postaladdress.json"
-        },
+      "oneOf": [
         {
           "type": "string"
+        },
+        {
+          "$ref": "file://postaladdress.json"
         }
       ],
       "description": "Physical address of the item."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "

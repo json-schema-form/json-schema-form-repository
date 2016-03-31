@@ -14,12 +14,12 @@
       "description": "The name of the item."
     },
     "worstRating": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "type": "number"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "The lowest value allowed in this rating system. If worstRating is omitted, 1 is assumed."
@@ -29,7 +29,7 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -40,7 +40,7 @@
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
     },
     "bestRating": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -59,12 +59,12 @@
       "description": "The rating for the content."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "

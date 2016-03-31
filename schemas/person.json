@@ -22,7 +22,7 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -45,7 +45,7 @@
       "description": "Date of birth."
     },
     "height": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://quantitativevalue.json"
         },
@@ -64,7 +64,7 @@
       "description": "An additional name for a Person, can be used for a middle name."
     },
     "workLocation": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://place.json"
         },
@@ -79,8 +79,21 @@
       "description": "Gender of the person."
     },
     "hasOfferCatalog": {
-      "description": "Indicates an OfferCatalog listing for this Organization, Person, or Service.",
-      "$ref": "file://offercatalog.json"
+      "items": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "$ref": "file://listitem.json"
+          },
+          {
+            "$ref": "file://thing.json"
+          }
+        ]
+      },
+      "type": "array",
+      "description": "This is a generated, and simplified, variant of https://schema.org/OfferCatalog. I has been interpreted as a plain array, this behaviour is hard-coded to the itemList types and should be improved."
     },
     "additionalType": {
       "type": "string",
@@ -127,12 +140,12 @@
       "$ref": "file://pricespecification.json"
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -142,12 +155,12 @@
       "$ref": "file://person.json"
     },
     "homeLocation": {
-      "anyOf": [
-        {
-          "$ref": "file://place.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://contactpoint.json"
+        },
+        {
+          "$ref": "file://place.json"
         }
       ],
       "description": "A contact location for a person's residence."
@@ -181,12 +194,12 @@
       "$ref": "file://person.json"
     },
     "memberOf": {
-      "anyOf": [
-        {
-          "$ref": "file://organization.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://programmembership.json"
+        },
+        {
+          "$ref": "file://organization.json"
         }
       ],
       "description": "An Organization (or ProgramMembership) to which this Person or Organization belongs."
@@ -196,7 +209,7 @@
       "description": "The job title of the person (for example, Financial Manager)."
     },
     "brand": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -219,12 +232,12 @@
       "description": "Awards won by or for this item."
     },
     "address": {
-      "anyOf": [
-        {
-          "$ref": "file://postaladdress.json"
-        },
+      "oneOf": [
         {
           "type": "string"
+        },
+        {
+          "$ref": "file://postaladdress.json"
         }
       ],
       "description": "Physical address of the item."
@@ -290,12 +303,12 @@
       "$ref": "file://place.json"
     },
     "owns": {
-      "anyOf": [
-        {
-          "$ref": "file://ownershipinfo.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://product.json"
+        },
+        {
+          "$ref": "file://ownershipinfo.json"
         }
       ],
       "description": "Products owned by the organization or person."
@@ -309,7 +322,7 @@
       "$ref": "file://contactpoint.json"
     },
     "alumniOf": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://educationalorganization.json"
         },

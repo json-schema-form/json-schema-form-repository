@@ -10,7 +10,7 @@
       "description": "The start date and time of the item (in <a href='http://en.wikipedia.org/wiki/ISO_8601'>ISO 8601 date format</a>)."
     },
     "performer": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -25,7 +25,7 @@
       "$ref": "file://creativework.json"
     },
     "inLanguage": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -40,7 +40,7 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -71,7 +71,7 @@
       "description": "The end date and time of the item (in <a href='http://en.wikipedia.org/wiki/ISO_8601'>ISO 8601 date format</a>)."
     },
     "organizer": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -86,12 +86,12 @@
       "description": "The time admission will commence."
     },
     "attendees": {
-      "anyOf": [
-        {
-          "$ref": "file://organization.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://person.json"
+        },
+        {
+          "$ref": "file://organization.json"
         }
       ],
       "description": "A person attending the event."
@@ -109,7 +109,7 @@
       "$ref": "file://offer.json"
     },
     "location": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://postaladdress.json"
         },
@@ -123,12 +123,12 @@
       "description": "The location of for example where the event is happening, an organization is located, or where an action takes place."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -138,12 +138,12 @@
       "$ref": "file://creativework.json"
     },
     "attendee": {
-      "anyOf": [
-        {
-          "$ref": "file://organization.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://person.json"
+        },
+        {
+          "$ref": "file://organization.json"
         }
       ],
       "description": "A person or organization attending the event."
@@ -177,7 +177,7 @@
       "description": "The name of the item."
     },
     "performers": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },

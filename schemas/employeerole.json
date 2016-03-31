@@ -26,7 +26,7 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -49,7 +49,7 @@
       "description": "URL of the item."
     },
     "namedPosition": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -60,7 +60,7 @@
       "description": "A position played, performed or filled by a person or organization, as part of an organization. For example, an athlete in a SportsTeam might play in the position named 'Quarterback'."
     },
     "roleName": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -71,12 +71,12 @@
       "description": "A role played, performed or filled by a person or organization. For example, the team of creators for a comic book might fill the roles named 'inker', 'penciller', and 'letterer'; or an athlete in a SportsTeam might play in the position named 'Quarterback'."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -90,7 +90,7 @@
       "description": "An alias for the item."
     },
     "baseSalary": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "number"
         },

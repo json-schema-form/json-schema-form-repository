@@ -14,7 +14,7 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -33,15 +33,15 @@
       "$ref": "file://organization.json"
     },
     "associatedAnatomy": {
-      "anyOf": [
-        {
-          "$ref": "file://anatomicalstructure.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://anatomicalsystem.json"
         },
         {
           "$ref": "file://superficialanatomy.json"
+        },
+        {
+          "$ref": "file://anatomicalstructure.json"
         }
       ],
       "description": "The anatomy of the underlying organ system or structures associated with this entity."
@@ -51,15 +51,15 @@
       "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "category": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://physicalactivitycategory.json"
         },
         {
-          "type": "string"
+          "$ref": "file://thing.json"
         },
         {
-          "$ref": "file://thing.json"
+          "type": "string"
         }
       ],
       "description": "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy."
@@ -81,12 +81,12 @@
       "$ref": "file://medicalguideline.json"
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "

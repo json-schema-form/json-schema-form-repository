@@ -30,7 +30,7 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -45,12 +45,12 @@
       "description": "URL of the item."
     },
     "relatedAnatomy": {
-      "anyOf": [
-        {
-          "$ref": "file://anatomicalsystem.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://anatomicalstructure.json"
+        },
+        {
+          "$ref": "file://anatomicalsystem.json"
         }
       ],
       "description": "Anatomical systems or structures that relate to the superficial anatomy."
@@ -80,12 +80,12 @@
       "description": "The significance associated with the superficial anatomy; as an example, how characteristics of the superficial anatomy can suggest underlying medical conditions or courses of treatment."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "

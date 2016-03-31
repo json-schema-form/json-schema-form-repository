@@ -10,9 +10,12 @@
       "$ref": "file://action.json"
     },
     "valueReference": {
-      "anyOf": [
+      "oneOf": [
         {
-          "$ref": "file://propertyvalue.json"
+          "$ref": "file://structuredvalue.json"
+        },
+        {
+          "$ref": "file://qualitativevalue.json"
         },
         {
           "$ref": "file://enumeration.json"
@@ -21,10 +24,7 @@
           "$ref": "file://quantitativevalue.json"
         },
         {
-          "$ref": "file://qualitativevalue.json"
-        },
-        {
-          "$ref": "file://structuredvalue.json"
+          "$ref": "file://propertyvalue.json"
         }
       ],
       "description": "A pointer to a secondary value that provides additional information on the original value, e.g. a reference temperature."
@@ -38,7 +38,7 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -53,15 +53,15 @@
       "description": "The upper value of some characteristic or property."
     },
     "value": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "boolean"
         },
         {
-          "$ref": "file://structuredvalue.json"
+          "type": "string"
         },
         {
-          "type": "string"
+          "$ref": "file://structuredvalue.json"
         },
         {
           "type": "number"
@@ -86,18 +86,18 @@
       "description": "A string or text indicating the unit of measurement. Useful if you cannot provide a standard unit code for\n<a href='unitCode'>unitCode</a>."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
     },
     "unitCode": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -112,7 +112,7 @@
       "description": "An alias for the item."
     },
     "propertyID": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },

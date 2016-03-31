@@ -9,16 +9,16 @@
       "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
       "$ref": "file://action.json"
     },
-    "name": {
+    "description": {
       "type": "string",
-      "description": "The name of the item."
+      "description": "A short description of the item."
     },
     "url": {
       "type": "string",
       "description": "URL of the item."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -29,12 +29,12 @@
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
     },
     "acquiredFrom": {
-      "anyOf": [
-        {
-          "$ref": "file://person.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://organization.json"
+        },
+        {
+          "$ref": "file://person.json"
         }
       ],
       "description": "The organization or person from which the product was acquired."
@@ -48,12 +48,12 @@
       "description": "The date and time of giving up ownership on the product."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -74,9 +74,9 @@
       "description": "The product that this structured value is referring to.",
       "$ref": "file://product.json"
     },
-    "description": {
+    "name": {
       "type": "string",
-      "description": "A short description of the item."
+      "description": "The name of the item."
     }
   }
 }

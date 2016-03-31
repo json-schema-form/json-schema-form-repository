@@ -9,17 +9,28 @@
       "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
       "$ref": "file://action.json"
     },
-    "name": {
+    "description": {
       "type": "string",
-      "description": "The name of the item."
+      "description": "A short description of the item."
     },
     "sameAs": {
       "type": "string",
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
-    "description": {
+    "image": {
+      "oneOf": [
+        {
+          "$ref": "file://imageobject.json"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
+    },
+    "name": {
       "type": "string",
-      "description": "A short description of the item."
+      "description": "The name of the item."
     },
     "url": {
       "type": "string",
@@ -30,12 +41,12 @@
       "description": "The number of interactions for the CreativeWork using the WebSite or SoftwareApplication."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -49,26 +60,15 @@
       "description": "An alias for the item."
     },
     "interactionService": {
-      "anyOf": [
-        {
-          "$ref": "file://website.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://softwareapplication.json"
+        },
+        {
+          "$ref": "file://website.json"
         }
       ],
       "description": "The WebSite or SoftwareApplication where the interactions took place."
-    },
-    "image": {
-      "anyOf": [
-        {
-          "$ref": "file://imageobject.json"
-        },
-        {
-          "type": "string"
-        }
-      ],
-      "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
     },
     "interactionType": {
       "description": "The Action representing the type of interaction. For up votes, +1s, etc. use <a href=\"/LikeAction\";>LikeAction</a>. For down votes use <a href=\"/DislikeAction\">DislikeAction</a>. Otherwise, use the most specific Action.",

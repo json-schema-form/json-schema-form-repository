@@ -10,7 +10,7 @@
       "description": "The purpose of a work in the context of education; for example, 'assignment', 'group work'."
     },
     "producer": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -25,7 +25,7 @@
       "description": "The textual content of this CreativeWork."
     },
     "memoryRequirements": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -72,7 +72,7 @@
       "description": "Official rating of a piece of content&#x2014;for example,'MPAA PG-13'."
     },
     "applicationCategory": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -95,7 +95,7 @@
       "$ref": "file://organization.json"
     },
     "releaseNotes": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -106,7 +106,7 @@
       "description": "Description of what changed in this version."
     },
     "dateCreated": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -132,9 +132,9 @@
       "type": "string",
       "description": "The name of the item."
     },
-    "aggregateRating": {
-      "description": "The overall rating, based on a collection of reviews or ratings, of the item.",
-      "$ref": "file://aggregaterating.json"
+    "associatedMedia": {
+      "description": "A media object that encodes this CreativeWork. This property is a synonym for encoding.",
+      "$ref": "file://mediaobject.json"
     },
     "audience": {
       "description": "An intended audience, i.e. a group for whom something was created.",
@@ -161,7 +161,7 @@
       "description": "URL at which the app may be installed, if different from the URL of the item."
     },
     "creator": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -216,12 +216,12 @@
       "$ref": "file://place.json"
     },
     "provider": {
-      "anyOf": [
-        {
-          "$ref": "file://person.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://organization.json"
+        },
+        {
+          "$ref": "file://person.json"
         }
       ],
       "description": "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller."
@@ -235,7 +235,7 @@
       "description": "A characteristic of the described resource that is physiologically dangerous to some users. Related to WCAG 2.0 guideline 2.3 (<a href=\"http://www.w3.org/wiki/WebSchemas/Accessibility\">WebSchemas wiki lists possible values</a>)."
     },
     "softwareRequirements": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -258,7 +258,7 @@
       "description": "Size of the application / package (e.g. 18MB). In the absence of a unit (MB, KB etc.), KB will be assumed."
     },
     "genre": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -269,12 +269,12 @@
       "description": "Genre of the creative work or group."
     },
     "publisher": {
-      "anyOf": [
-        {
-          "$ref": "file://person.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://organization.json"
+        },
+        {
+          "$ref": "file://person.json"
         }
       ],
       "description": "The publisher of the creative work."
@@ -284,12 +284,12 @@
       "$ref": "file://thing.json"
     },
     "license": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "A license document that applies to this content, typically indicated by URL."
@@ -319,7 +319,7 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -329,12 +329,12 @@
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
     },
-    "associatedMedia": {
-      "description": "A media object that encodes this CreativeWork. This property is a synonym for encoding.",
-      "$ref": "file://mediaobject.json"
+    "aggregateRating": {
+      "description": "The overall rating, based on a collection of reviews or ratings, of the item.",
+      "$ref": "file://aggregaterating.json"
     },
     "featureList": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -345,7 +345,7 @@
       "description": "Features or modules provided by this application (and possibly required by other applications)."
     },
     "contributor": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -364,7 +364,7 @@
       "$ref": "file://thing.json"
     },
     "schemaVersion": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -395,12 +395,12 @@
       "$ref": "file://person.json"
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -414,12 +414,12 @@
       "description": "Version of the software instance."
     },
     "citation": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc."
@@ -433,7 +433,7 @@
       "description": "An award won by or for this item."
     },
     "copyrightHolder": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -464,7 +464,7 @@
       "description": "Operating systems supported (Windows 7, OSX 10.6, Android 1.6)."
     },
     "inLanguage": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -491,7 +491,7 @@
       "description": "Device required to run the application. Used in cases where a specific make/model is required to run the application."
     },
     "applicationSubCategory": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -506,7 +506,7 @@
       "$ref": "file://creativework.json"
     },
     "requirements": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -517,7 +517,7 @@
       "description": "Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (Examples: DirectX, Java or .NET runtime)."
     },
     "author": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },
@@ -528,7 +528,7 @@
       "description": "The author of this content. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably."
     },
     "dateModified": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -547,12 +547,12 @@
       "description": "A short description of the item."
     },
     "screenshot": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "A link to a screenshot image of the app."
@@ -562,7 +562,7 @@
       "$ref": "file://publicationevent.json"
     },
     "translator": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -583,7 +583,7 @@
       "$ref": "file://softwareapplication.json"
     },
     "storageRequirements": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -618,12 +618,12 @@
       "description": "URL of the item."
     },
     "position": {
-      "anyOf": [
-        {
-          "type": "number"
-        },
+      "oneOf": [
         {
           "type": "string"
+        },
+        {
+          "type": "number"
         }
       ],
       "description": "The position of an item in a series or sequence of items."

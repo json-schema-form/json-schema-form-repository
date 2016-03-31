@@ -10,7 +10,7 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -49,7 +49,7 @@
       "description": "The post office box number for PO box addresses."
     },
     "productSupported": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://product.json"
         },
@@ -64,12 +64,12 @@
       "$ref": "file://contactpointoption.json"
     },
     "addressCountry": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://country.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "The country. For example, USA. You can also provide the two-letter <a href='http://en.wikipedia.org/wiki/ISO_3166-1'>ISO 3166-1 alpha-2 country code</a>."
@@ -91,12 +91,12 @@
       "description": "A short description of the item."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -110,15 +110,15 @@
       "description": "An alias for the item."
     },
     "serviceArea": {
-      "anyOf": [
-        {
-          "$ref": "file://place.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://geoshape.json"
         },
         {
           "$ref": "file://administrativearea.json"
+        },
+        {
+          "$ref": "file://place.json"
         }
       ],
       "description": "The geographic area where the service is provided."
@@ -140,9 +140,9 @@
       "description": "The region. For example, CA."
     },
     "areaServed": {
-      "anyOf": [
+      "oneOf": [
         {
-          "$ref": "file://place.json"
+          "$ref": "file://geoshape.json"
         },
         {
           "type": "string"
@@ -151,7 +151,7 @@
           "$ref": "file://administrativearea.json"
         },
         {
-          "$ref": "file://geoshape.json"
+          "$ref": "file://place.json"
         }
       ],
       "description": "The geographic area where a service or offered item is provided."

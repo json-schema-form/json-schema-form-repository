@@ -26,7 +26,7 @@
       "description": "A short description of the item."
     },
     "bestRating": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -41,12 +41,12 @@
       "description": "URL of the item."
     },
     "worstRating": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "type": "number"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "The lowest value allowed in this rating system. If worstRating is omitted, 1 is assumed."
@@ -56,12 +56,12 @@
       "description": "The count of total number of ratings."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -75,7 +75,7 @@
       "description": "An alias for the item."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },

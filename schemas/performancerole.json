@@ -30,7 +30,7 @@
       "description": "The name of a character played in some acting or performing role, i.e. in a PerformanceRole."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -45,7 +45,7 @@
       "description": "URL of the item."
     },
     "namedPosition": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },
@@ -60,18 +60,18 @@
       "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
     },
     "roleName": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "string"
         },

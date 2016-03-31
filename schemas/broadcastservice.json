@@ -18,7 +18,7 @@
       "$ref": "file://organization.json"
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -37,23 +37,36 @@
       "$ref": "file://thing.json"
     },
     "hasOfferCatalog": {
-      "description": "Indicates an OfferCatalog listing for this Organization, Person, or Service.",
-      "$ref": "file://offercatalog.json"
+      "items": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "$ref": "file://listitem.json"
+          },
+          {
+            "$ref": "file://thing.json"
+          }
+        ]
+      },
+      "type": "array",
+      "description": "This is a generated, and simplified, variant of https://schema.org/OfferCatalog. I has been interpreted as a plain array, this behaviour is hard-coded to the itemList types and should be improved."
     },
     "additionalType": {
       "type": "string",
       "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "category": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://physicalactivitycategory.json"
         },
         {
-          "type": "string"
+          "$ref": "file://thing.json"
         },
         {
-          "$ref": "file://thing.json"
+          "type": "string"
         }
       ],
       "description": "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy."
@@ -79,23 +92,23 @@
       "$ref": "file://offer.json"
     },
     "provider": {
-      "anyOf": [
-        {
-          "$ref": "file://person.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://organization.json"
+        },
+        {
+          "$ref": "file://person.json"
         }
       ],
       "description": "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -137,15 +150,15 @@
       "description": "The timezone in <a href='http://en.wikipedia.org/wiki/ISO_8601'>ISO 8601 format</a> for which the service bases its broadcasts."
     },
     "serviceArea": {
-      "anyOf": [
-        {
-          "$ref": "file://place.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://geoshape.json"
         },
         {
           "$ref": "file://administrativearea.json"
+        },
+        {
+          "$ref": "file://place.json"
         }
       ],
       "description": "The geographic area where the service is provided."
@@ -171,9 +184,9 @@
       "description": "Indicates the mobility of a provided service (e.g. 'static', 'dynamic')."
     },
     "areaServed": {
-      "anyOf": [
+      "oneOf": [
         {
-          "$ref": "file://place.json"
+          "$ref": "file://geoshape.json"
         },
         {
           "type": "string"
@@ -182,7 +195,7 @@
           "$ref": "file://administrativearea.json"
         },
         {
-          "$ref": "file://geoshape.json"
+          "$ref": "file://place.json"
         }
       ],
       "description": "The geographic area where a service or offered item is provided."

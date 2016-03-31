@@ -6,15 +6,15 @@
   "type": "object",
   "properties": {
     "totalPrice": {
-      "anyOf": [
+      "oneOf": [
         {
-          "$ref": "file://pricespecification.json"
+          "type": "number"
         },
         {
           "type": "string"
         },
         {
-          "type": "number"
+          "$ref": "file://pricespecification.json"
         }
       ],
       "description": "The total price for the reservation or ticket, including applicable taxes, shipping, etc."
@@ -24,7 +24,7 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -43,7 +43,7 @@
       "description": "A unique identifier for the reservation."
     },
     "numChildren": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "number"
         },
@@ -62,7 +62,7 @@
       "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "numAdults": {
-      "anyOf": [
+      "oneOf": [
         {
           "type": "number"
         },
@@ -77,7 +77,7 @@
       "$ref": "file://reservationstatustype.json"
     },
     "underName": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -88,23 +88,23 @@
       "description": "The person or organization the reservation or ticket is for."
     },
     "provider": {
-      "anyOf": [
-        {
-          "$ref": "file://person.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://organization.json"
+        },
+        {
+          "$ref": "file://person.json"
         }
       ],
       "description": "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -122,12 +122,12 @@
       "description": "The date and time the reservation was modified."
     },
     "broker": {
-      "anyOf": [
-        {
-          "$ref": "file://organization.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://person.json"
+        },
+        {
+          "$ref": "file://organization.json"
         }
       ],
       "description": "An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred."
@@ -153,12 +153,12 @@
       "$ref": "file://action.json"
     },
     "lodgingUnitType": {
-      "anyOf": [
-        {
-          "$ref": "file://qualitativevalue.json"
-        },
+      "oneOf": [
         {
           "type": "string"
+        },
+        {
+          "$ref": "file://qualitativevalue.json"
         }
       ],
       "description": "Textual description of the unit type (including suite vs. room, size of bed, etc.)."
@@ -180,7 +180,7 @@
       "description": "A full description of the lodging unit."
     },
     "bookingAgent": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://organization.json"
         },

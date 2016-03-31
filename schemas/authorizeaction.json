@@ -10,7 +10,7 @@
       "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://imageobject.json"
         },
@@ -21,7 +21,7 @@
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
     },
     "agent": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -40,7 +40,7 @@
       "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "participant": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://person.json"
         },
@@ -55,7 +55,7 @@
       "$ref": "file://thing.json"
     },
     "location": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://postaladdress.json"
         },
@@ -69,12 +69,12 @@
       "description": "The location of for example where the event is happening, an organization is located, or where an action takes place."
     },
     "mainEntityOfPage": {
-      "anyOf": [
-        {
-          "type": "string"
-        },
+      "oneOf": [
         {
           "$ref": "file://creativework.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -88,7 +88,7 @@
       "$ref": "file://thing.json"
     },
     "purpose": {
-      "anyOf": [
+      "oneOf": [
         {
           "$ref": "file://medicaldevicepurpose.json"
         },
@@ -107,12 +107,12 @@
       "description": "An alias for the item."
     },
     "recipient": {
-      "anyOf": [
-        {
-          "$ref": "file://organization.json"
-        },
+      "oneOf": [
         {
           "$ref": "file://audience.json"
+        },
+        {
+          "$ref": "file://organization.json"
         },
         {
           "$ref": "file://person.json"
