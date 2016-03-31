@@ -12,16 +12,16 @@
     "valueReference": {
       "oneOf": [
         {
-          "$ref": "file://structuredvalue.json"
-        },
-        {
           "$ref": "file://qualitativevalue.json"
         },
         {
-          "$ref": "file://enumeration.json"
+          "$ref": "file://structuredvalue.json"
         },
         {
           "$ref": "file://quantitativevalue.json"
+        },
+        {
+          "$ref": "file://enumeration.json"
         },
         {
           "$ref": "file://propertyvalue.json"
@@ -35,7 +35,8 @@
     },
     "sameAs": {
       "type": "string",
-      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "format": "uri"
     },
     "image": {
       "oneOf": [
@@ -43,7 +44,8 @@
           "$ref": "file://imageobject.json"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
@@ -55,16 +57,16 @@
     "value": {
       "oneOf": [
         {
-          "type": "boolean"
+          "$ref": "file://structuredvalue.json"
         },
         {
           "type": "string"
         },
         {
-          "$ref": "file://structuredvalue.json"
+          "type": "number"
         },
         {
-          "type": "number"
+          "type": "boolean"
         }
       ],
       "description": "The value of the quantitative value or property value node. For QuantitativeValue, the recommended type for values is 'Number'. For PropertyValue, it can be 'Text;', 'Number', 'Boolean', or 'StructuredValue'."
@@ -75,11 +77,13 @@
     },
     "additionalType": {
       "type": "string",
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "format": "uri"
     },
     "url": {
       "type": "string",
-      "description": "URL of the item."
+      "description": "URL of the item.",
+      "format": "uri"
     },
     "additionalProperty": {
       "description": "A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org. <br /><br />\n\nNote: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.\n",
@@ -95,7 +99,8 @@
           "$ref": "file://creativework.json"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -103,7 +108,8 @@
     "unitCode": {
       "oneOf": [
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         {
           "type": "string"

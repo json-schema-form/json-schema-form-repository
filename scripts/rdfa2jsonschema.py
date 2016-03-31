@@ -101,9 +101,19 @@ if __name__ == '__main__':
             # Approximate primitive types and and $refs where needed
             for _curr_type in _curr_property["types"]:
                 _parsed_type = urlparse.urlparse(_curr_type)[2][1:]
-                if _parsed_type in ["Text", "Date", "DateTime", "Time", "URL"]:
+                if _parsed_type in ["Text", "Time"]:
                     _new_types.append({
                         "type": "string"
+                    })
+                elif _parsed_type in ["URL"]:
+                    _new_types.append({
+                        "type": "string",
+                        "format": "uri"
+                    })
+                elif _parsed_type in ["Date", "DateTime"]:
+                    _new_types.append({
+                        "type": "string",
+                        "format": "date-time"
                     })
                 elif _parsed_type in ["Boolean"]:
                     _new_types.append({

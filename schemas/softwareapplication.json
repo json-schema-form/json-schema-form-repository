@@ -30,7 +30,8 @@
           "type": "string"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "Minimum memory requirements."
@@ -73,7 +74,8 @@
           "type": "string"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "Type of software application, e.g. \"Game, Multimedia\"."
@@ -84,7 +86,8 @@
     },
     "publishingPrinciples": {
       "type": "string",
-      "description": "Link to page describing the editorial principles of the organization primarily responsible for the creation of the CreativeWork."
+      "description": "Link to page describing the editorial principles of the organization primarily responsible for the creation of the CreativeWork.",
+      "format": "uri"
     },
     "publisherImprint": {
       "description": "The publishing division which published the comic.",
@@ -96,7 +99,8 @@
           "type": "string"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "Description of what changed in this version."
@@ -104,17 +108,20 @@
     "dateCreated": {
       "oneOf": [
         {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         }
       ],
       "description": "The date on which the CreativeWork was created or the item was added to a DataFeed."
     },
     "datePublished": {
       "type": "string",
-      "description": "Date of first broadcast/publication."
+      "description": "Date of first broadcast/publication.",
+      "format": "date-time"
     },
     "permissions": {
       "type": "string",
@@ -128,9 +135,9 @@
       "type": "string",
       "description": "The name of the item."
     },
-    "associatedMedia": {
-      "description": "A media object that encodes this CreativeWork. This property is a synonym for encoding.",
-      "$ref": "file://mediaobject.json"
+    "aggregateRating": {
+      "description": "The overall rating, based on a collection of reviews or ratings, of the item.",
+      "$ref": "file://aggregaterating.json"
     },
     "audience": {
       "description": "An intended audience, i.e. a group for whom something was created.",
@@ -154,7 +161,8 @@
     },
     "installUrl": {
       "type": "string",
-      "description": "URL at which the app may be installed, if different from the URL of the item."
+      "description": "URL at which the app may be installed, if different from the URL of the item.",
+      "format": "uri"
     },
     "creator": {
       "oneOf": [
@@ -189,11 +197,13 @@
     },
     "downloadUrl": {
       "type": "string",
-      "description": "If the file can be downloaded, URL to download the binary."
+      "description": "If the file can be downloaded, URL to download the binary.",
+      "format": "uri"
     },
     "discussionUrl": {
       "type": "string",
-      "description": "A link to the page containing the comments of the CreativeWork."
+      "description": "A link to the page containing the comments of the CreativeWork.",
+      "format": "uri"
     },
     "review": {
       "description": "A review of the item.",
@@ -233,7 +243,8 @@
     "softwareRequirements": {
       "oneOf": [
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         {
           "type": "string"
@@ -256,7 +267,8 @@
     "genre": {
       "oneOf": [
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         {
           "type": "string"
@@ -267,10 +279,10 @@
     "publisher": {
       "oneOf": [
         {
-          "$ref": "file://organization.json"
+          "$ref": "file://person.json"
         },
         {
-          "$ref": "file://person.json"
+          "$ref": "file://organization.json"
         }
       ],
       "description": "The publisher of the creative work."
@@ -285,7 +297,8 @@
           "$ref": "file://creativework.json"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "A license document that applies to this content, typically indicated by URL."
@@ -304,7 +317,8 @@
     },
     "isBasedOnUrl": {
       "type": "string",
-      "description": "A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, http://example.com/great-multiplication-intro.html."
+      "description": "A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, http://example.com/great-multiplication-intro.html.",
+      "format": "uri"
     },
     "encoding": {
       "description": "A media object that encodes this CreativeWork. This property is a synonym for associatedMedia.",
@@ -312,7 +326,8 @@
     },
     "sameAs": {
       "type": "string",
-      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "format": "uri"
     },
     "image": {
       "oneOf": [
@@ -320,19 +335,21 @@
           "$ref": "file://imageobject.json"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
     },
-    "aggregateRating": {
-      "description": "The overall rating, based on a collection of reviews or ratings, of the item.",
-      "$ref": "file://aggregaterating.json"
+    "associatedMedia": {
+      "description": "A media object that encodes this CreativeWork. This property is a synonym for encoding.",
+      "$ref": "file://mediaobject.json"
     },
     "featureList": {
       "oneOf": [
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         {
           "type": "string"
@@ -353,7 +370,8 @@
     },
     "thumbnailUrl": {
       "type": "string",
-      "description": "A thumbnail image relevant to the Thing."
+      "description": "A thumbnail image relevant to the Thing.",
+      "format": "uri"
     },
     "mainEntity": {
       "description": "Indicates the primary entity described in some page or other CreativeWork.",
@@ -365,7 +383,8 @@
           "type": "string"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "Indicates (by URL or string) a particular version of a schema used in some CreativeWork. For example, a document could declare a schemaVersion using a URL such as http://schema.org/version/2.0/ if precise indication of schema version was required by some application. "
@@ -396,7 +415,8 @@
           "$ref": "file://creativework.json"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -447,10 +467,10 @@
     "inLanguage": {
       "oneOf": [
         {
-          "type": "string"
+          "$ref": "file://language.json"
         },
         {
-          "$ref": "file://language.json"
+          "type": "string"
         }
       ],
       "description": "The language of the content or performance or used in an action. Please use one of the language codes from the <a href='http://tools.ietf.org/html/bcp47'>IETF BCP 47 standard</a>."
@@ -472,7 +492,8 @@
     },
     "additionalType": {
       "type": "string",
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "format": "uri"
     },
     "availableOnDevice": {
       "type": "string",
@@ -481,7 +502,8 @@
     "applicationSubCategory": {
       "oneOf": [
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         {
           "type": "string"
@@ -499,7 +521,8 @@
           "type": "string"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (Examples: DirectX, Java or .NET runtime)."
@@ -507,10 +530,10 @@
     "author": {
       "oneOf": [
         {
-          "$ref": "file://organization.json"
+          "$ref": "file://person.json"
         },
         {
-          "$ref": "file://person.json"
+          "$ref": "file://organization.json"
         }
       ],
       "description": "The author of this content. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably."
@@ -518,10 +541,12 @@
     "dateModified": {
       "oneOf": [
         {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         }
       ],
       "description": "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed."
@@ -537,10 +562,11 @@
     "screenshot": {
       "oneOf": [
         {
-          "$ref": "file://imageobject.json"
+          "type": "string",
+          "format": "uri"
         },
         {
-          "type": "string"
+          "$ref": "file://imageobject.json"
         }
       ],
       "description": "A link to a screenshot image of the app."
@@ -558,10 +584,10 @@
           "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://organization.json"
+          "$ref": "file://person.json"
         },
         {
-          "$ref": "file://person.json"
+          "$ref": "file://organization.json"
         }
       ],
       "description": "An agent responsible for rendering a translated work from a source work"
@@ -576,7 +602,8 @@
           "type": "string"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "Storage requirements (free space required)."
@@ -603,7 +630,8 @@
     },
     "url": {
       "type": "string",
-      "description": "URL of the item."
+      "description": "URL of the item.",
+      "format": "uri"
     },
     "typicalAgeRange": {
       "type": "string",
@@ -616,10 +644,10 @@
     "position": {
       "oneOf": [
         {
-          "type": "string"
+          "type": "number"
         },
         {
-          "type": "number"
+          "type": "string"
         }
       ],
       "description": "The position of an item in a series or sequence of items."

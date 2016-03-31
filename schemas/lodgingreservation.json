@@ -11,17 +11,18 @@
           "type": "number"
         },
         {
-          "type": "string"
+          "$ref": "file://pricespecification.json"
         },
         {
-          "$ref": "file://pricespecification.json"
+          "type": "string"
         }
       ],
       "description": "The total price for the reservation or ticket, including applicable taxes, shipping, etc."
     },
     "sameAs": {
       "type": "string",
-      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "format": "uri"
     },
     "image": {
       "oneOf": [
@@ -29,7 +30,8 @@
           "$ref": "file://imageobject.json"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
@@ -45,21 +47,23 @@
     "numChildren": {
       "oneOf": [
         {
-          "type": "number"
+          "$ref": "file://quantitativevalue.json"
         },
         {
-          "$ref": "file://quantitativevalue.json"
+          "type": "number"
         }
       ],
       "description": "The number of children staying in the unit."
     },
     "checkinTime": {
       "type": "string",
-      "description": "The earliest someone may check into a lodging establishment."
+      "description": "The earliest someone may check into a lodging establishment.",
+      "format": "date-time"
     },
     "additionalType": {
       "type": "string",
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "format": "uri"
     },
     "numAdults": {
       "oneOf": [
@@ -79,10 +83,10 @@
     "underName": {
       "oneOf": [
         {
-          "$ref": "file://person.json"
+          "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://organization.json"
+          "$ref": "file://person.json"
         }
       ],
       "description": "The person or organization the reservation or ticket is for."
@@ -104,7 +108,8 @@
           "$ref": "file://creativework.json"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -119,7 +124,8 @@
     },
     "modifiedTime": {
       "type": "string",
-      "description": "The date and time the reservation was modified."
+      "description": "The date and time the reservation was modified.",
+      "format": "date-time"
     },
     "broker": {
       "oneOf": [
@@ -134,7 +140,8 @@
     },
     "checkoutTime": {
       "type": "string",
-      "description": "The latest someone may check out of a lodging establishment."
+      "description": "The latest someone may check out of a lodging establishment.",
+      "format": "date-time"
     },
     "alternateName": {
       "type": "string",
@@ -142,7 +149,8 @@
     },
     "bookingTime": {
       "type": "string",
-      "description": "The date and time the reservation was booked."
+      "description": "The date and time the reservation was booked.",
+      "format": "date-time"
     },
     "name": {
       "type": "string",
@@ -155,10 +163,10 @@
     "lodgingUnitType": {
       "oneOf": [
         {
-          "type": "string"
+          "$ref": "file://qualitativevalue.json"
         },
         {
-          "$ref": "file://qualitativevalue.json"
+          "type": "string"
         }
       ],
       "description": "Textual description of the unit type (including suite vs. room, size of bed, etc.)."
@@ -169,7 +177,8 @@
     },
     "url": {
       "type": "string",
-      "description": "URL of the item."
+      "description": "URL of the item.",
+      "format": "uri"
     },
     "programMembershipUsed": {
       "description": "Any membership in a frequent flyer, hotel loyalty program, etc. being applied to the reservation.",
@@ -182,10 +191,10 @@
     "bookingAgent": {
       "oneOf": [
         {
-          "$ref": "file://organization.json"
+          "$ref": "file://person.json"
         },
         {
-          "$ref": "file://person.json"
+          "$ref": "file://organization.json"
         }
       ],
       "description": "'bookingAgent' is an out-dated term indicating a 'broker' that serves as a booking agent."

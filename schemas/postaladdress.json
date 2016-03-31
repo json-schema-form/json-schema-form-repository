@@ -7,7 +7,8 @@
   "properties": {
     "sameAs": {
       "type": "string",
-      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "format": "uri"
     },
     "image": {
       "oneOf": [
@@ -15,7 +16,8 @@
           "$ref": "file://imageobject.json"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
@@ -38,7 +40,8 @@
     },
     "additionalType": {
       "type": "string",
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "format": "uri"
     },
     "availableLanguage": {
       "description": "A language someone may use with the item.",
@@ -51,10 +54,10 @@
     "productSupported": {
       "oneOf": [
         {
-          "$ref": "file://product.json"
+          "type": "string"
         },
         {
-          "type": "string"
+          "$ref": "file://product.json"
         }
       ],
       "description": "The product or service this support contact point is related to (such as product support for a particular product line). This can be a specific product or product line (e.g. \"iPhone\") or a general category of products or services (e.g. \"smartphones\")."
@@ -96,7 +99,8 @@
           "$ref": "file://creativework.json"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -112,10 +116,10 @@
     "serviceArea": {
       "oneOf": [
         {
-          "$ref": "file://geoshape.json"
+          "$ref": "file://administrativearea.json"
         },
         {
-          "$ref": "file://administrativearea.json"
+          "$ref": "file://geoshape.json"
         },
         {
           "$ref": "file://place.json"
@@ -133,7 +137,8 @@
     },
     "url": {
       "type": "string",
-      "description": "URL of the item."
+      "description": "URL of the item.",
+      "format": "uri"
     },
     "addressRegion": {
       "type": "string",
@@ -142,6 +147,9 @@
     "areaServed": {
       "oneOf": [
         {
+          "$ref": "file://place.json"
+        },
+        {
           "$ref": "file://geoshape.json"
         },
         {
@@ -149,9 +157,6 @@
         },
         {
           "$ref": "file://administrativearea.json"
-        },
-        {
-          "$ref": "file://place.json"
         }
       ],
       "description": "The geographic area where a service or offered item is provided."

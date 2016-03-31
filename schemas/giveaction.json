@@ -7,7 +7,8 @@
   "properties": {
     "sameAs": {
       "type": "string",
-      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "format": "uri"
     },
     "image": {
       "oneOf": [
@@ -15,7 +16,8 @@
           "$ref": "file://imageobject.json"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
@@ -41,15 +43,16 @@
     },
     "additionalType": {
       "type": "string",
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "format": "uri"
     },
     "participant": {
       "oneOf": [
         {
-          "$ref": "file://person.json"
+          "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://organization.json"
+          "$ref": "file://person.json"
         }
       ],
       "description": "Other co-agents that participated in the action indirectly. e.g. John wrote a book with *Steve*."
@@ -61,10 +64,10 @@
     "location": {
       "oneOf": [
         {
-          "$ref": "file://postaladdress.json"
+          "type": "string"
         },
         {
-          "type": "string"
+          "$ref": "file://postaladdress.json"
         },
         {
           "$ref": "file://place.json"
@@ -78,7 +81,8 @@
           "$ref": "file://creativework.json"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -93,7 +97,8 @@
     },
     "startTime": {
       "type": "string",
-      "description": "The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to start. For actions that span a period of time, when the action was performed. e.g. John wrote a book from *January* to December.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions."
+      "description": "The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to start. For actions that span a period of time, when the action was performed. e.g. John wrote a book from *January* to December.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.",
+      "format": "date-time"
     },
     "alternateName": {
       "type": "string",
@@ -102,13 +107,13 @@
     "recipient": {
       "oneOf": [
         {
-          "$ref": "file://audience.json"
+          "$ref": "file://person.json"
         },
         {
           "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://person.json"
+          "$ref": "file://audience.json"
         }
       ],
       "description": "A sub property of participant. The participant who is at the receiving end of the action."
@@ -127,7 +132,8 @@
     },
     "url": {
       "type": "string",
-      "description": "URL of the item."
+      "description": "URL of the item.",
+      "format": "uri"
     },
     "actionStatus": {
       "description": "Indicates the current disposition of the Action.",
@@ -143,7 +149,8 @@
     },
     "endTime": {
       "type": "string",
-      "description": "The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performed. e.g. John wrote a book from January to *December*.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions."
+      "description": "The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performed. e.g. John wrote a book from January to *December*.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.",
+      "format": "date-time"
     }
   }
 }

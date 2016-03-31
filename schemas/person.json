@@ -19,7 +19,8 @@
     },
     "sameAs": {
       "type": "string",
-      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "format": "uri"
     },
     "image": {
       "oneOf": [
@@ -27,7 +28,8 @@
           "$ref": "file://imageobject.json"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
@@ -42,15 +44,16 @@
     },
     "birthDate": {
       "type": "string",
-      "description": "Date of birth."
+      "description": "Date of birth.",
+      "format": "date-time"
     },
     "height": {
       "oneOf": [
         {
-          "$ref": "file://quantitativevalue.json"
+          "$ref": "file://distance.json"
         },
         {
-          "$ref": "file://distance.json"
+          "$ref": "file://quantitativevalue.json"
         }
       ],
       "description": "The height of the item."
@@ -66,10 +69,10 @@
     "workLocation": {
       "oneOf": [
         {
-          "$ref": "file://place.json"
+          "$ref": "file://contactpoint.json"
         },
         {
-          "$ref": "file://contactpoint.json"
+          "$ref": "file://place.json"
         }
       ],
       "description": "A contact location for a person's place of work."
@@ -97,11 +100,12 @@
     },
     "additionalType": {
       "type": "string",
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "format": "uri"
     },
-    "alternateName": {
-      "type": "string",
-      "description": "An alias for the item."
+    "contactPoint": {
+      "description": "A contact point for a person or organization.",
+      "$ref": "file://contactpoint.json"
     },
     "knows": {
       "description": "The most generic bi-directional social/work relation.",
@@ -111,9 +115,9 @@
       "description": "Event that this person is a performer or participant in.",
       "$ref": "file://event.json"
     },
-    "deathDate": {
-      "type": "string",
-      "description": "Date of death."
+    "spouse": {
+      "description": "The person's spouse.",
+      "$ref": "file://person.json"
     },
     "worksFor": {
       "description": "Organizations that the person works for.",
@@ -145,7 +149,8 @@
           "$ref": "file://creativework.json"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -196,10 +201,10 @@
     "memberOf": {
       "oneOf": [
         {
-          "$ref": "file://programmembership.json"
+          "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://organization.json"
+          "$ref": "file://programmembership.json"
         }
       ],
       "description": "An Organization (or ProgramMembership) to which this Person or Organization belongs."
@@ -234,10 +239,10 @@
     "address": {
       "oneOf": [
         {
-          "type": "string"
+          "$ref": "file://postaladdress.json"
         },
         {
-          "$ref": "file://postaladdress.json"
+          "type": "string"
         }
       ],
       "description": "Physical address of the item."
@@ -250,13 +255,14 @@
       "description": "Nationality of the person.",
       "$ref": "file://country.json"
     },
-    "contactPoint": {
-      "description": "A contact point for a person or organization.",
-      "$ref": "file://contactpoint.json"
+    "alternateName": {
+      "type": "string",
+      "description": "An alias for the item."
     },
-    "spouse": {
-      "description": "The person's spouse.",
-      "$ref": "file://person.json"
+    "deathDate": {
+      "type": "string",
+      "description": "Date of death.",
+      "format": "date-time"
     },
     "makesOffer": {
       "description": "A pointer to products or services offered by the organization or person.",
@@ -284,7 +290,8 @@
     },
     "url": {
       "type": "string",
-      "description": "URL of the item."
+      "description": "URL of the item.",
+      "format": "uri"
     },
     "follows": {
       "description": "The most generic uni-directional social relation.",

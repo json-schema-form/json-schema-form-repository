@@ -15,18 +15,20 @@
     },
     "sameAs": {
       "type": "string",
-      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "format": "uri"
     },
     "engineType": {
       "oneOf": [
         {
-          "type": "string"
-        },
-        {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         {
           "$ref": "file://qualitativevalue.json"
+        },
+        {
+          "type": "string"
         }
       ],
       "description": "The type of engine or engines powering the vehicle."
@@ -37,7 +39,8 @@
           "$ref": "file://imageobject.json"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
@@ -48,7 +51,8 @@
     },
     "url": {
       "type": "string",
-      "description": "URL of the item."
+      "description": "URL of the item.",
+      "format": "uri"
     },
     "engineDisplacement": {
       "description": "The volume swept by all of the pistons inside the cylinders of an internal combustion engine in a single movement. <br />\n    Typical unit code(s): CMQ for cubic centimeter, LTR for liters, INQ for cubic inches<br />\n\n    Note 1: You can link to information about how the given value has been determined using the <a href=\"valueReference\">valueReference</a> property.<br />\n    Note 2: You can use <a href=\"minValue\">minValue</a> and <a href=\"maxValue\">maxValue</a> to indicate ranges.",
@@ -60,14 +64,16 @@
           "$ref": "file://creativework.json"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
     },
     "additionalType": {
       "type": "string",
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "format": "uri"
     },
     "alternateName": {
       "type": "string",
@@ -76,13 +82,14 @@
     "fuelType": {
       "oneOf": [
         {
+          "type": "string"
+        },
+        {
+          "type": "string",
+          "format": "uri"
+        },
+        {
           "$ref": "file://qualitativevalue.json"
-        },
-        {
-          "type": "string"
-        },
-        {
-          "type": "string"
         }
       ],
       "description": "The type of fuel suitable for the engine or engines of the vehicle. If the vehicle has only one engine, this property can be attached directly to the vehicle."

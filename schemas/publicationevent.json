@@ -7,15 +7,16 @@
   "properties": {
     "startDate": {
       "type": "string",
-      "description": "The start date and time of the item (in <a href='http://en.wikipedia.org/wiki/ISO_8601'>ISO 8601 date format</a>)."
+      "description": "The start date and time of the item (in <a href='http://en.wikipedia.org/wiki/ISO_8601'>ISO 8601 date format</a>).",
+      "format": "date-time"
     },
     "performer": {
       "oneOf": [
         {
-          "$ref": "file://organization.json"
+          "$ref": "file://person.json"
         },
         {
-          "$ref": "file://person.json"
+          "$ref": "file://organization.json"
         }
       ],
       "description": "A performer at the event&#x2014;for example, a presenter, musician, musical group or actor."
@@ -27,17 +28,18 @@
     "inLanguage": {
       "oneOf": [
         {
-          "type": "string"
+          "$ref": "file://language.json"
         },
         {
-          "$ref": "file://language.json"
+          "type": "string"
         }
       ],
       "description": "The language of the content or performance or used in an action. Please use one of the language codes from the <a href='http://tools.ietf.org/html/bcp47'>IETF BCP 47 standard</a>."
     },
     "sameAs": {
       "type": "string",
-      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "format": "uri"
     },
     "image": {
       "oneOf": [
@@ -45,7 +47,8 @@
           "$ref": "file://imageobject.json"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
@@ -68,7 +71,8 @@
     },
     "additionalType": {
       "type": "string",
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "format": "uri"
     },
     "organizer": {
       "oneOf": [
@@ -83,7 +87,8 @@
     },
     "doorTime": {
       "type": "string",
-      "description": "The time admission will commence."
+      "description": "The time admission will commence.",
+      "format": "date-time"
     },
     "alternateName": {
       "type": "string",
@@ -92,17 +97,18 @@
     "attendees": {
       "oneOf": [
         {
-          "$ref": "file://person.json"
+          "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://organization.json"
+          "$ref": "file://person.json"
         }
       ],
       "description": "A person attending the event."
     },
     "previousStartDate": {
       "type": "string",
-      "description": "Used in conjunction with eventStatus for rescheduled or cancelled events. This property contains the previously scheduled start date. For rescheduled events, the startDate property should be used for the newly scheduled start date. In the (rare) case of an event that has been postponed and rescheduled multiple times, this field may be repeated."
+      "description": "Used in conjunction with eventStatus for rescheduled or cancelled events. This property contains the previously scheduled start date. For rescheduled events, the startDate property should be used for the newly scheduled start date. In the (rare) case of an event that has been postponed and rescheduled multiple times, this field may be repeated.",
+      "format": "date-time"
     },
     "review": {
       "description": "A review of the item.",
@@ -115,10 +121,10 @@
     "location": {
       "oneOf": [
         {
-          "$ref": "file://postaladdress.json"
+          "type": "string"
         },
         {
-          "type": "string"
+          "$ref": "file://postaladdress.json"
         },
         {
           "$ref": "file://place.json"
@@ -132,7 +138,8 @@
           "$ref": "file://creativework.json"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -179,10 +186,10 @@
     "publishedBy": {
       "oneOf": [
         {
-          "$ref": "file://organization.json"
+          "$ref": "file://person.json"
         },
         {
-          "$ref": "file://person.json"
+          "$ref": "file://organization.json"
         }
       ],
       "description": "An agent associated with the publication event."
@@ -208,11 +215,13 @@
     },
     "url": {
       "type": "string",
-      "description": "URL of the item."
+      "description": "URL of the item.",
+      "format": "uri"
     },
     "endDate": {
       "type": "string",
-      "description": "The end date and time of the item (in <a href='http://en.wikipedia.org/wiki/ISO_8601'>ISO 8601 date format</a>)."
+      "description": "The end date and time of the item (in <a href='http://en.wikipedia.org/wiki/ISO_8601'>ISO 8601 date format</a>).",
+      "format": "date-time"
     },
     "subEvents": {
       "description": "Events that are a part of this event. For example, a conference event includes many presentations, each subEvents of the conference.",

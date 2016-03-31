@@ -26,7 +26,8 @@
     },
     "datePublished": {
       "type": "string",
-      "description": "Date of first broadcast/publication."
+      "description": "Date of first broadcast/publication.",
+      "format": "date-time"
     },
     "alternativeHeadline": {
       "type": "string",
@@ -62,7 +63,8 @@
     },
     "publishingPrinciples": {
       "type": "string",
-      "description": "Link to page describing the editorial principles of the organization primarily responsible for the creation of the CreativeWork."
+      "description": "Link to page describing the editorial principles of the organization primarily responsible for the creation of the CreativeWork.",
+      "format": "uri"
     },
     "mainContentOfPage": {
       "description": "Indicates if this web page element is the main subject of the page.",
@@ -71,10 +73,12 @@
     "dateCreated": {
       "oneOf": [
         {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         }
       ],
       "description": "The date on which the CreativeWork was created or the item was added to a DataFeed."
@@ -124,7 +128,8 @@
     },
     "lastReviewed": {
       "type": "string",
-      "description": "Date on which the content on this web page was last reviewed for accuracy and/or completeness."
+      "description": "Date on which the content on this web page was last reviewed for accuracy and/or completeness.",
+      "format": "date-time"
     },
     "commentCount": {
       "type": "number",
@@ -144,7 +149,8 @@
     },
     "discussionUrl": {
       "type": "string",
-      "description": "A link to the page containing the comments of the CreativeWork."
+      "description": "A link to the page containing the comments of the CreativeWork.",
+      "format": "uri"
     },
     "review": {
       "description": "A review of the item.",
@@ -156,7 +162,8 @@
     },
     "significantLinks": {
       "type": "string",
-      "description": "The most significant URLs on the page. Typically, these are the non-navigation links that are clicked on the most."
+      "description": "The most significant URLs on the page. Typically, these are the non-navigation links that are clicked on the most.",
+      "format": "uri"
     },
     "version": {
       "type": "number",
@@ -168,7 +175,8 @@
     },
     "relatedLink": {
       "type": "string",
-      "description": "A link related to this web page, for example to other related web pages."
+      "description": "A link related to this web page, for example to other related web pages.",
+      "format": "uri"
     },
     "provider": {
       "oneOf": [
@@ -204,7 +212,8 @@
     "genre": {
       "oneOf": [
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         {
           "type": "string"
@@ -215,10 +224,10 @@
     "publisher": {
       "oneOf": [
         {
-          "$ref": "file://organization.json"
+          "$ref": "file://person.json"
         },
         {
-          "$ref": "file://person.json"
+          "$ref": "file://organization.json"
         }
       ],
       "description": "The publisher of the creative work."
@@ -233,7 +242,8 @@
           "$ref": "file://creativework.json"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "A license document that applies to this content, typically indicated by URL."
@@ -263,7 +273,8 @@
     },
     "isBasedOnUrl": {
       "type": "string",
-      "description": "A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, http://example.com/great-multiplication-intro.html."
+      "description": "A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, http://example.com/great-multiplication-intro.html.",
+      "format": "uri"
     },
     "encoding": {
       "description": "A media object that encodes this CreativeWork. This property is a synonym for associatedMedia.",
@@ -271,7 +282,8 @@
     },
     "sameAs": {
       "type": "string",
-      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
+      "format": "uri"
     },
     "image": {
       "oneOf": [
@@ -279,7 +291,8 @@
           "$ref": "file://imageobject.json"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
@@ -301,7 +314,8 @@
     },
     "thumbnailUrl": {
       "type": "string",
-      "description": "A thumbnail image relevant to the Thing."
+      "description": "A thumbnail image relevant to the Thing.",
+      "format": "uri"
     },
     "mainEntity": {
       "description": "Indicates the primary entity described in some page or other CreativeWork.",
@@ -313,7 +327,8 @@
           "type": "string"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "Indicates (by URL or string) a particular version of a schema used in some CreativeWork. For example, a document could declare a schemaVersion using a URL such as http://schema.org/version/2.0/ if precise indication of schema version was required by some application. "
@@ -344,7 +359,8 @@
           "$ref": "file://creativework.json"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -401,7 +417,8 @@
     },
     "significantLink": {
       "type": "string",
-      "description": "One of the more significant URLs on the page. Typically, these are the non-navigation links that are clicked on the most."
+      "description": "One of the more significant URLs on the page. Typically, these are the non-navigation links that are clicked on the most.",
+      "format": "uri"
     },
     "sourceOrganization": {
       "description": "The Organization on whose behalf the creator was working.",
@@ -410,10 +427,10 @@
     "inLanguage": {
       "oneOf": [
         {
-          "type": "string"
+          "$ref": "file://language.json"
         },
         {
-          "$ref": "file://language.json"
+          "type": "string"
         }
       ],
       "description": "The language of the content or performance or used in an action. Please use one of the language codes from the <a href='http://tools.ietf.org/html/bcp47'>IETF BCP 47 standard</a>."
@@ -424,15 +441,16 @@
     },
     "additionalType": {
       "type": "string",
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "format": "uri"
     },
     "author": {
       "oneOf": [
         {
-          "$ref": "file://organization.json"
+          "$ref": "file://person.json"
         },
         {
-          "$ref": "file://person.json"
+          "$ref": "file://organization.json"
         }
       ],
       "description": "The author of this content. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably."
@@ -440,10 +458,12 @@
     "dateModified": {
       "oneOf": [
         {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         }
       ],
       "description": "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed."
@@ -469,10 +489,10 @@
           "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://organization.json"
+          "$ref": "file://person.json"
         },
         {
-          "$ref": "file://person.json"
+          "$ref": "file://organization.json"
         }
       ],
       "description": "An agent responsible for rendering a translated work from a source work"
@@ -520,15 +540,16 @@
     },
     "url": {
       "type": "string",
-      "description": "URL of the item."
+      "description": "URL of the item.",
+      "format": "uri"
     },
     "position": {
       "oneOf": [
         {
-          "type": "string"
+          "type": "number"
         },
         {
-          "type": "number"
+          "type": "string"
         }
       ],
       "description": "The position of an item in a series or sequence of items."

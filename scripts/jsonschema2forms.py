@@ -108,8 +108,8 @@ def resolveSchema( _schema, _resolver):
     except Exception as e:
         raise Exception("schemaTools.resolveSchema: Error resolving schema:" + str(e) + "Schema " + json.dumps(_schema, indent=4))
 
-    with open(os.path.join(script_dir, "..", "schemas", "resolved", _result["title"].lower() + ".json"), "w") as _f:
-        json.dump(_result, _f)
+    #with open(os.path.join(script_dir, "..", "schemas", "resolved", _result["title"].lower() + ".json"), "w") as _f:
+    #    json.dump(_result, _f)
 
     # Make top allOf into properties
     if "allOf" in _result:
@@ -131,19 +131,56 @@ def resolveSchema( _schema, _resolver):
 
     return _result
 
+def property2form(_property_name, _property):
 
+    if isinstance(_property, dict):
 
-def schema2form(_schema):
-    for _curr_property in _schema:
-        if "type" in _curr_property:
-            _curr_type = _curr_property["type"]
+        if "description" not in _property:
+            if _property_name == "items":
+                _description = "An array item. (generated name)"
+            else:
+                _description = "Not available"
+        else:
+            _description = _property["description"]
 
-            if _curr_type in ["Tec"]:
-                pass
-        if "properties" in _curr_property:
-            pass
+        if "type" in _property:
+            _curr_key = {"key": _property_name, "description": _description}
+            _curr_type = _property["type"]
+            if _curr_type in ["string"]:
+                _curr_key["type"] = "text"
+            elif _curr_type in ["number", "integer"]:
+                _curr_key["type"] = "number"
+            elif _curr_type in ["boolean"]:
+                _curr_key["type"] = "checkbox"
+            elif _curr_type in ["array"]:
+                _curr_key["type"] = "array"
+                _curr_key["items"] = properties2form(_property["items"], _property_name + "[].")
+            elif _curr_type in ["object"]:
+                _curr_key["type"] = "fieldset"
+                _curr_key["items"] = properties2form(_property["properties"], _property_name + ".")
 
+            return _curr_key
 
+        elif "oneOf" in _property:
+
+            return {"key": _property_name, "type": "text",
+                          "description": "Set to a plain text input as oneOf isn't currently implemented in the standard."
+                                         " Description: " + _description}
+
+        elif "$ref" in _property:
+            return {"key": _property_name, "type": "text",
+                    "description": "Set to a plain text input as $ref:ed type(" + _property["$ref"] + ") isn't resolved."
+                                   " Description: " + _description}
+
+    return {}
+
+def properties2form(_properties, _prefix = ""):
+    _form = []
+
+    for _curr_property_name, _curr_property in _properties.items():
+        _form.append(property2form(_prefix + _curr_property_name, _curr_property))
+
+    return _form
 
 
 if __name__ == '__main__':
@@ -160,10 +197,10 @@ if __name__ == '__main__':
                 _curr_schema = json.load(_f_def)
 
             _resolved_schema = resolveSchema(_curr_schema, _resolver)
-            #_new_form = schema2form(_resolved_schema)
-            #with open(os.path.join(script_dir, "..", "schemas", "resolved", "forms", _resolved_schema["title"].lower() + "-form.json"),
-            #          "w") as _f:
-            #    json.dump(_new_form, _f)
+            _new_form = properties2form(_resolved_schema["properties"])
+            with open(os.path.join(script_dir, "..", "schemas", "resolved", "forms", _resolved_schema["title"].lower() + "-form.json"),
+                      "w") as _f:
+                json.dump(_new_form, _f)
 
             print(_curr_schema["title"] + " checked out ok.")
             #_form = []
