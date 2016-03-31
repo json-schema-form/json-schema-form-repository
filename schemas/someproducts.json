@@ -7,19 +7,19 @@
   "properties": {
     "isConsumableFor": {
       "description": "A pointer to another product (or multiple products) for which this product is a consumable.",
-      "$ref": "file://product.json#properties"
+      "$ref": "file://product.json"
     },
     "weight": {
       "description": "The weight of the product or person.",
-      "$ref": "file://quantitativevalue.json#properties"
+      "$ref": "file://quantitativevalue.json"
     },
     "isAccessoryOrSparePartFor": {
       "description": "A pointer to another product (or multiple products) for which this product is an accessory or spare part.",
-      "$ref": "file://product.json#properties"
+      "$ref": "file://product.json"
     },
     "sameAs": {
-      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "purchaseDate": {
       "type": "string",
@@ -28,10 +28,10 @@
     "image": {
       "anyOf": [
         {
-          "$ref": "file://imageobject.json#properties"
+          "$ref": "file://imageobject.json"
         },
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
@@ -43,10 +43,10 @@
     "height": {
       "anyOf": [
         {
-          "$ref": "file://quantitativevalue.json#properties"
+          "$ref": "file://quantitativevalue.json"
         },
         {
-          "$ref": "file://distance.json#properties"
+          "$ref": "file://distance.json"
         }
       ],
       "description": "The height of the item."
@@ -57,19 +57,19 @@
     },
     "isRelatedTo": {
       "description": "A pointer to another, somehow related product (or multiple products).",
-      "$ref": "file://product.json#properties"
+      "$ref": "file://product.json"
     },
     "additionalType": {
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "logo": {
       "anyOf": [
         {
-          "$ref": "file://imageobject.json#properties"
+          "type": "string"
         },
         {
-          "$ref": "file://url.json#properties"
+          "$ref": "file://imageobject.json"
         }
       ],
       "description": "An associated logo."
@@ -80,30 +80,30 @@
     },
     "inventoryLevel": {
       "description": "The current approximate inventory level for the item or items.",
-      "$ref": "file://quantitativevalue.json#properties"
+      "$ref": "file://quantitativevalue.json"
     },
     "isSimilarTo": {
       "description": "A pointer to another, functionally similar product (or multiple products).",
-      "$ref": "file://product.json#properties"
+      "$ref": "file://product.json"
     },
     "width": {
       "anyOf": [
         {
-          "$ref": "file://distance.json#properties"
+          "$ref": "file://quantitativevalue.json"
         },
         {
-          "$ref": "file://quantitativevalue.json#properties"
+          "$ref": "file://distance.json"
         }
       ],
       "description": "The width of the item."
     },
     "review": {
       "description": "A review of the item.",
-      "$ref": "file://review.json#properties"
+      "$ref": "file://review.json"
     },
     "audience": {
       "description": "An intended audience, i.e. a group for whom something was created.",
-      "$ref": "file://audience.json#properties"
+      "$ref": "file://audience.json"
     },
     "color": {
       "type": "string",
@@ -111,11 +111,11 @@
     },
     "additionalProperty": {
       "description": "A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org. <br /><br />\n\nNote: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.\n",
-      "$ref": "file://propertyvalue.json#properties"
+      "$ref": "file://propertyvalue.json"
     },
     "offers": {
       "description": "An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event.",
-      "$ref": "file://offer.json#properties"
+      "$ref": "file://offer.json"
     },
     "sku": {
       "type": "string",
@@ -124,10 +124,10 @@
     "mainEntityOfPage": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
-          "$ref": "file://creativework.json#properties"
+          "$ref": "file://creativework.json"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -139,13 +139,13 @@
     "category": {
       "anyOf": [
         {
-          "$ref": "file://physicalactivitycategory.json#properties"
-        },
-        {
-          "$ref": "file://thing.json#properties"
+          "$ref": "file://physicalactivitycategory.json"
         },
         {
           "type": "string"
+        },
+        {
+          "$ref": "file://thing.json"
         }
       ],
       "description": "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy."
@@ -161,10 +161,10 @@
     "brand": {
       "anyOf": [
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://brand.json#properties"
+          "$ref": "file://brand.json"
         }
       ],
       "description": "The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person."
@@ -179,7 +179,7 @@
     },
     "itemCondition": {
       "description": "A predefined value from OfferItemCondition or a textual description of the condition of the product or service, or the products or services included in the offer.",
-      "$ref": "file://offeritemcondition.json#properties"
+      "$ref": "file://offeritemcondition.json"
     },
     "alternateName": {
       "type": "string",
@@ -187,11 +187,11 @@
     },
     "manufacturer": {
       "description": "The manufacturer of the product.",
-      "$ref": "file://organization.json#properties"
+      "$ref": "file://organization.json"
     },
     "potentialAction": {
       "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
-      "$ref": "file://action.json#properties"
+      "$ref": "file://action.json"
     },
     "name": {
       "type": "string",
@@ -199,15 +199,15 @@
     },
     "aggregateRating": {
       "description": "The overall rating, based on a collection of reviews or ratings, of the item.",
-      "$ref": "file://aggregaterating.json#properties"
+      "$ref": "file://aggregaterating.json"
     },
     "url": {
-      "description": "URL of the item.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of the item."
     },
     "reviews": {
       "description": "Review of the item.",
-      "$ref": "file://review.json#properties"
+      "$ref": "file://review.json"
     },
     "gtin14": {
       "type": "string",
@@ -216,10 +216,10 @@
     "depth": {
       "anyOf": [
         {
-          "$ref": "file://distance.json#properties"
+          "$ref": "file://distance.json"
         },
         {
-          "$ref": "file://quantitativevalue.json#properties"
+          "$ref": "file://quantitativevalue.json"
         }
       ],
       "description": "The depth of the item."
@@ -238,7 +238,7 @@
           "type": "string"
         },
         {
-          "$ref": "file://productmodel.json#properties"
+          "$ref": "file://productmodel.json"
         }
       ],
       "description": "The model of the product. Use with the URL of a ProductModel or a textual representation of the model identifier. The URL of the ProductModel can be from an external source. It is recommended to additionally provide strong product identifiers via the gtin8/gtin13/gtin14 and mpn properties."

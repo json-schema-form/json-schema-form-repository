@@ -7,18 +7,18 @@
   "properties": {
     "warranty": {
       "description": "The warranty promise(s) included in the offer.",
-      "$ref": "file://warrantypromise.json#properties"
+      "$ref": "file://warrantypromise.json"
     },
     "ineligibleRegion": {
       "anyOf": [
         {
+          "$ref": "file://geoshape.json"
+        },
+        {
           "type": "string"
         },
         {
-          "$ref": "file://geoshape.json#properties"
-        },
-        {
-          "$ref": "file://place.json#properties"
+          "$ref": "file://place.json"
         }
       ],
       "description": "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid, e.g. a region where the transaction is not allowed.\n      <br><br> See also <a href=\"/eligibleRegion\">eligibleRegion</a>.\n      "
@@ -28,19 +28,19 @@
       "description": "The date after which the price is no longer available."
     },
     "sameAs": {
-      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "eligibleRegion": {
       "anyOf": [
         {
+          "$ref": "file://place.json"
+        },
+        {
           "type": "string"
         },
         {
-          "$ref": "file://place.json#properties"
-        },
-        {
-          "$ref": "file://geoshape.json#properties"
+          "$ref": "file://geoshape.json"
         }
       ],
       "description": "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid.\n      <br><br> See also <a href=\"/ineligibleRegion\">ineligibleRegion</a>.\n    "
@@ -48,10 +48,10 @@
     "image": {
       "anyOf": [
         {
-          "$ref": "file://imageobject.json#properties"
+          "$ref": "file://imageobject.json"
         },
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
@@ -62,58 +62,58 @@
     },
     "aggregateRating": {
       "description": "The overall rating, based on a collection of reviews or ratings, of the item.",
-      "$ref": "file://aggregaterating.json#properties"
+      "$ref": "file://aggregaterating.json"
     },
     "sku": {
       "type": "string",
       "description": "The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers."
     },
     "additionalType": {
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "availability": {
       "description": "The availability of this item&#x2014;for example In stock, Out of stock, Pre-order, etc.",
-      "$ref": "file://itemavailability.json#properties"
+      "$ref": "file://itemavailability.json"
     },
     "offeredBy": {
       "anyOf": [
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://person.json"
         }
       ],
       "description": "A pointer to the organization or person making the offer."
     },
     "inventoryLevel": {
       "description": "The current approximate inventory level for the item or items.",
-      "$ref": "file://quantitativevalue.json#properties"
+      "$ref": "file://quantitativevalue.json"
     },
     "includesObject": {
       "description": "This links to a node or nodes indicating the exact quantity of the products included in the offer.",
-      "$ref": "file://typeandquantitynode.json#properties"
+      "$ref": "file://typeandquantitynode.json"
     },
     "availableDeliveryMethod": {
       "description": "The delivery method(s) available for this offer.",
-      "$ref": "file://deliverymethod.json#properties"
+      "$ref": "file://deliverymethod.json"
     },
     "review": {
       "description": "A review of the item.",
-      "$ref": "file://review.json#properties"
+      "$ref": "file://review.json"
     },
     "addOn": {
       "description": "An additional offer that can only be obtained in combination with the first base offer (e.g. supplements and extensions that are available for a surcharge).",
-      "$ref": "file://offer.json#properties"
+      "$ref": "file://offer.json"
     },
     "seller": {
       "anyOf": [
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://person.json"
         }
       ],
       "description": "An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider."
@@ -124,44 +124,44 @@
     },
     "eligibleDuration": {
       "description": "The duration for which the given offer is valid.",
-      "$ref": "file://quantitativevalue.json#properties"
+      "$ref": "file://quantitativevalue.json"
     },
     "mainEntityOfPage": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
-          "$ref": "file://creativework.json#properties"
+          "$ref": "file://creativework.json"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
     },
     "businessFunction": {
       "description": "The business function (e.g. sell, lease, repair, dispose) of the offer or component of a bundle (TypeAndQuantityNode). The default is http://purl.org/goodrelations/v1#Sell.",
-      "$ref": "file://businessfunction.json#properties"
+      "$ref": "file://businessfunction.json"
     },
     "advanceBookingRequirement": {
       "description": "The amount of time that is required between accepting the offer and the actual usage of the resource or service.",
-      "$ref": "file://quantitativevalue.json#properties"
+      "$ref": "file://quantitativevalue.json"
     },
     "category": {
       "anyOf": [
         {
-          "$ref": "file://physicalactivitycategory.json#properties"
-        },
-        {
-          "$ref": "file://thing.json#properties"
+          "$ref": "file://physicalactivitycategory.json"
         },
         {
           "type": "string"
+        },
+        {
+          "$ref": "file://thing.json"
         }
       ],
       "description": "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy."
     },
     "availableAtOrFrom": {
       "description": "The place(s) from which the offer can be obtained (e.g. store locations).",
-      "$ref": "file://place.json#properties"
+      "$ref": "file://place.json"
     },
     "description": {
       "type": "string",
@@ -184,27 +184,27 @@
     },
     "eligibleCustomerType": {
       "description": "The type(s) of customers for which the given offer is valid.",
-      "$ref": "file://businessentitytype.json#properties"
+      "$ref": "file://businessentitytype.json"
     },
     "priceSpecification": {
       "description": "One or more detailed price specifications, indicating the unit price and delivery or payment charges.",
-      "$ref": "file://pricespecification.json#properties"
+      "$ref": "file://pricespecification.json"
     },
     "acceptedPaymentMethod": {
       "description": "The payment method(s) accepted by seller for this offer.",
-      "$ref": "file://paymentmethod.json#properties"
+      "$ref": "file://paymentmethod.json"
     },
     "eligibleTransactionVolume": {
       "description": "The transaction volume, in a monetary unit, for which the offer or price specification is valid, e.g. for indicating a minimal purchasing volume, to express free shipping above a certain order volume, or to limit the acceptance of credit cards to purchases to a certain minimal amount.",
-      "$ref": "file://pricespecification.json#properties"
+      "$ref": "file://pricespecification.json"
     },
     "deliveryLeadTime": {
       "description": "The typical delay between the receipt of the order and the goods leaving the warehouse.",
-      "$ref": "file://quantitativevalue.json#properties"
+      "$ref": "file://quantitativevalue.json"
     },
     "eligibleQuantity": {
       "description": "The interval and unit of measurement of ordering quantities for which the offer or price specification is valid. This allows e.g. specifying that a certain freight charge is valid only for a certain quantity.",
-      "$ref": "file://quantitativevalue.json#properties"
+      "$ref": "file://quantitativevalue.json"
     },
     "gtin13": {
       "type": "string",
@@ -224,7 +224,7 @@
     },
     "potentialAction": {
       "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
-      "$ref": "file://action.json#properties"
+      "$ref": "file://action.json"
     },
     "name": {
       "type": "string",
@@ -235,8 +235,8 @@
       "description": "The currency (in 3-letter ISO 4217 format) of the price or a price component, when attached to PriceSpecification and its subtypes."
     },
     "url": {
-      "description": "URL of the item.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of the item."
     },
     "serialNumber": {
       "type": "string",
@@ -244,7 +244,7 @@
     },
     "reviews": {
       "description": "Review of the item.",
-      "$ref": "file://review.json#properties"
+      "$ref": "file://review.json"
     },
     "gtin14": {
       "type": "string",
@@ -253,10 +253,10 @@
     "itemOffered": {
       "anyOf": [
         {
-          "$ref": "file://product.json#properties"
+          "$ref": "file://product.json"
         },
         {
-          "$ref": "file://service.json#properties"
+          "$ref": "file://service.json"
         }
       ],
       "description": "The item being offered."
@@ -264,16 +264,16 @@
     "areaServed": {
       "anyOf": [
         {
-          "$ref": "file://geoshape.json#properties"
+          "$ref": "file://place.json"
         },
         {
           "type": "string"
         },
         {
-          "$ref": "file://administrativearea.json#properties"
+          "$ref": "file://administrativearea.json"
         },
         {
-          "$ref": "file://place.json#properties"
+          "$ref": "file://geoshape.json"
         }
       ],
       "description": "The geographic area where a service or offered item is provided."
@@ -288,7 +288,7 @@
     },
     "itemCondition": {
       "description": "A predefined value from OfferItemCondition or a textual description of the condition of the product or service, or the products or services included in the offer.",
-      "$ref": "file://offeritemcondition.json#properties"
+      "$ref": "file://offeritemcondition.json"
     }
   }
 }

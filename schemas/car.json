@@ -7,15 +7,15 @@
   "properties": {
     "tongueWeight": {
       "description": "The permitted vertical load (TWR) of a trailer attached to the vehicle. Also referred to as Tongue Load Rating (TLR) or Vertical Load Rating (VLR).<br />\n        Typical unit code(s): KGM for kilogram, LBR for pound<br />\n\n    Note 1: You can indicate additional information in the <a href=\"name\">name</a> of the <a href=\"QuantitativeValue\">QuantitativeValue</a> node.<br />\n    Note 2: You may also link to a <a href=\"QualitativeValue\">QualitativeValue</a> node that provides additional information using <a href=\"valueReference\">valueReference</a>.<br />\n    Note 3: Note that you can use <a href=\"minValue\">minValue</a> and <a href=\"maxValue\">maxValue</a> to indicate ranges.",
-      "$ref": "file://quantitativevalue.json#properties"
+      "$ref": "file://quantitativevalue.json"
     },
     "numberOfDoors": {
       "anyOf": [
         {
-          "$ref": "file://quantitativevalue.json#properties"
+          "type": "number"
         },
         {
-          "type": "number"
+          "$ref": "file://quantitativevalue.json"
         }
       ],
       "description": "The number of doors.<br />\nTypical unit code(s): C62"
@@ -30,15 +30,15 @@
     },
     "weight": {
       "description": "The weight of the product or person.",
-      "$ref": "file://quantitativevalue.json#properties"
+      "$ref": "file://quantitativevalue.json"
     },
     "isAccessoryOrSparePartFor": {
       "description": "A pointer to another product (or multiple products) for which this product is an accessory or spare part.",
-      "$ref": "file://product.json#properties"
+      "$ref": "file://product.json"
     },
     "sameAs": {
-      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "purchaseDate": {
       "type": "string",
@@ -47,10 +47,10 @@
     "image": {
       "anyOf": [
         {
-          "$ref": "file://imageobject.json#properties"
+          "$ref": "file://imageobject.json"
         },
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
@@ -61,10 +61,10 @@
           "type": "string"
         },
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
-          "$ref": "file://qualitativevalue.json#properties"
+          "$ref": "file://qualitativevalue.json"
         }
       ],
       "description": "Indicates that the vehicle meets the respective emission standard."
@@ -76,10 +76,10 @@
     "vehicleSeatingCapacity": {
       "anyOf": [
         {
-          "type": "number"
+          "$ref": "file://quantitativevalue.json"
         },
         {
-          "$ref": "file://quantitativevalue.json#properties"
+          "type": "number"
         }
       ],
       "description": "The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.<br />\nTypical unit code(s): C62 for persons "
@@ -90,7 +90,7 @@
     },
     "aggregateRating": {
       "description": "The overall rating, based on a collection of reviews or ratings, of the item.",
-      "$ref": "file://aggregaterating.json#properties"
+      "$ref": "file://aggregaterating.json"
     },
     "modelDate": {
       "type": "string",
@@ -98,19 +98,19 @@
     },
     "cargoVolume": {
       "description": "The available volume for cargo or luggage. For automobiles, this is usually the trunk volume.<br />\nTypical unit code(s): LTR for liters, FTQ for cubic foot/feet<br />\n\nNote: You can use <a href=\"minValue\">minValue</a> and <a href=\"maxValue\">maxValue</a> to indicate ranges.",
-      "$ref": "file://quantitativevalue.json#properties"
+      "$ref": "file://quantitativevalue.json"
     },
     "additionalType": {
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "logo": {
       "anyOf": [
         {
-          "$ref": "file://imageobject.json#properties"
+          "type": "string"
         },
         {
-          "$ref": "file://url.json#properties"
+          "$ref": "file://imageobject.json"
         }
       ],
       "description": "An associated logo."
@@ -118,7 +118,7 @@
     "driveWheelConfiguration": {
       "anyOf": [
         {
-          "$ref": "file://drivewheelconfigurationvalue.json#properties"
+          "$ref": "file://drivewheelconfigurationvalue.json"
         },
         {
           "type": "string"
@@ -128,15 +128,15 @@
     },
     "vehicleEngine": {
       "description": "Information about the engine or engines of the vehicle.",
-      "$ref": "file://enginespecification.json#properties"
+      "$ref": "file://enginespecification.json"
     },
     "fuelType": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
-          "$ref": "file://qualitativevalue.json#properties"
+          "$ref": "file://qualitativevalue.json"
         },
         {
           "type": "string"
@@ -146,7 +146,7 @@
     },
     "payload": {
       "description": "The permitted weight of passengers and cargo, EXCLUDING the weight of the empty vehicle. <br />\n    Typical unit code(s): KGM for kilogram, LBR for pound<br />\n\n    Note 1: Many databases specify the permitted TOTAL weight instead, which is the sum of <a href=\"weight\">weight</a> and <a href=\"payload\">payload</a>.<br />\n    Note 2: You can indicate additional information in the <a href=\"name\">name</a> of the <a href=\"QuantitativeValue\">QuantitativeValue</a> node.<br />\n    Note 3: You may also link to a <a href=\"QualitativeValue\">QualitativeValue</a> node that provides additional information using <a href=\"valueReference\">valueReference</a>.<br />\n    Note 4: Note that you can use <a href=\"minValue\">minValue</a> and <a href=\"maxValue\">maxValue</a> to indicate ranges.",
-      "$ref": "file://quantitativevalue.json#properties"
+      "$ref": "file://quantitativevalue.json"
     },
     "productID": {
       "type": "string",
@@ -159,32 +159,32 @@
     "depth": {
       "anyOf": [
         {
-          "$ref": "file://distance.json#properties"
+          "$ref": "file://distance.json"
         },
         {
-          "$ref": "file://quantitativevalue.json#properties"
+          "$ref": "file://quantitativevalue.json"
         }
       ],
       "description": "The depth of the item."
     },
     "isSimilarTo": {
       "description": "A pointer to another, functionally similar product (or multiple products).",
-      "$ref": "file://product.json#properties"
+      "$ref": "file://product.json"
     },
     "width": {
       "anyOf": [
         {
-          "$ref": "file://distance.json#properties"
+          "$ref": "file://quantitativevalue.json"
         },
         {
-          "$ref": "file://quantitativevalue.json#properties"
+          "$ref": "file://distance.json"
         }
       ],
       "description": "The width of the item."
     },
     "speed": {
       "description": "The speed range of the vehicle. If the vehicle is powered by an engine, the upper limit of the speed range (indicated by <a href=\"maxValue\">maxValue</a>) should be the maximum speed achievable under regular conditions.<br />\n    Typical unit code(s): KMH for km/h, HM for mile per hour (0.447 04 m/s), KNT for knot<br />\n\n    Note 1: Use <a href=\"minValue\">minValue</a> and <a href=\"maxValue\">maxValue</a> to indicate the range. Typically, the minimal value is zero.<br />\n    Note 2: There are many different ways of measuring the speed range. You can link to information about how the given value has been determined using the <a href=\"valueReference\">valueReference</a> property.",
-      "$ref": "file://quantitativevalue.json#properties"
+      "$ref": "file://quantitativevalue.json"
     },
     "numberOfAirbags": {
       "anyOf": [
@@ -200,24 +200,24 @@
     "vehicleTransmission": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
           "type": "string"
         },
         {
-          "$ref": "file://qualitativevalue.json#properties"
+          "$ref": "file://qualitativevalue.json"
         }
       ],
       "description": "The type of component used for transmitting the power from a rotating power source to the wheels or other relevant component(s) (\"gearbox\" for cars)."
     },
     "audience": {
       "description": "An intended audience, i.e. a group for whom something was created.",
-      "$ref": "file://audience.json#properties"
+      "$ref": "file://audience.json"
     },
     "additionalProperty": {
       "description": "A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org. <br /><br />\n\nNote: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.\n",
-      "$ref": "file://propertyvalue.json#properties"
+      "$ref": "file://propertyvalue.json"
     },
     "color": {
       "type": "string",
@@ -229,7 +229,7 @@
     },
     "offers": {
       "description": "An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event.",
-      "$ref": "file://offer.json#properties"
+      "$ref": "file://offer.json"
     },
     "dateVehicleFirstRegistered": {
       "type": "string",
@@ -238,7 +238,7 @@
     "numberOfPreviousOwners": {
       "anyOf": [
         {
-          "$ref": "file://quantitativevalue.json#properties"
+          "$ref": "file://quantitativevalue.json"
         },
         {
           "type": "number"
@@ -248,15 +248,15 @@
     },
     "isConsumableFor": {
       "description": "A pointer to another product (or multiple products) for which this product is a consumable.",
-      "$ref": "file://product.json#properties"
+      "$ref": "file://product.json"
     },
     "mainEntityOfPage": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
-          "$ref": "file://creativework.json#properties"
+          "$ref": "file://creativework.json"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -267,18 +267,18 @@
     },
     "trailerWeight": {
       "description": "The permitted weight of a trailer attached to the vehicle.<br />\n    Typical unit code(s): KGM for kilogram, LBR for pound<br />\n\n    Note 1: You can indicate additional information in the <a href=\"name\">name</a> of the <a href=\"QuantitativeValue\">QuantitativeValue</a> node.<br />\n    Note 2: You may also link to a <a href=\"QualitativeValue\">QualitativeValue</a> node that provides additional information using <a href=\"valueReference\">valueReference</a>.<br />\n    Note 3: Note that you can use <a href=\"minValue\">minValue</a> and <a href=\"maxValue\">maxValue</a> to indicate ranges.",
-      "$ref": "file://quantitativevalue.json#properties"
+      "$ref": "file://quantitativevalue.json"
     },
     "category": {
       "anyOf": [
         {
-          "$ref": "file://physicalactivitycategory.json#properties"
-        },
-        {
-          "$ref": "file://thing.json#properties"
+          "$ref": "file://physicalactivitycategory.json"
         },
         {
           "type": "string"
+        },
+        {
+          "$ref": "file://thing.json"
         }
       ],
       "description": "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy."
@@ -289,10 +289,10 @@
           "type": "string"
         },
         {
-          "$ref": "file://qualitativevalue.json#properties"
+          "$ref": "file://qualitativevalue.json"
         },
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         }
       ],
       "description": "Indicates the design and body style of the vehicle (e.g. station wagon, hatchback, etc.)."
@@ -307,14 +307,14 @@
           "type": "number"
         },
         {
-          "$ref": "file://quantitativevalue.json#properties"
+          "$ref": "file://quantitativevalue.json"
         }
       ],
       "description": "The number of persons that can be seated (e.g. in a vehicle), both in terms of the physical space available, and in terms of limitations set by law.<br />\n    Typical unit code(s): C62 for persons "
     },
     "accelerationTime": {
       "description": "The time needed to accelerate the vehicle from a given start velocity to a given target velocity.<br />\n    Typical unit code(s): SEC for seconds<br />\n\n    Note: There are unfortunately no standard unit codes for seconds/0..100 km/h or seconds/0..60 mph. Simply use \"SEC\" for seconds and indicate the velocities in the <a href=\"name\">name</a> of the <a href=\"QuantitativeValue\">QuantitativeValue</a>, or use <a href=\"valueReference\">valueReference</a> with a <a href=\"QuantitativeValue\">QuantitativeValue</a> of 0..60 mph or 0..100 km/h to specify the reference speeds.",
-      "$ref": "file://quantitativevalue.json#properties"
+      "$ref": "file://quantitativevalue.json"
     },
     "knownVehicleDamages": {
       "type": "string",
@@ -323,10 +323,10 @@
     "brand": {
       "anyOf": [
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://brand.json#properties"
+          "$ref": "file://brand.json"
         }
       ],
       "description": "The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person."
@@ -341,7 +341,7 @@
           "type": "string"
         },
         {
-          "$ref": "file://carusagetype.json#properties"
+          "$ref": "file://carusagetype.json"
         }
       ],
       "description": "Indicates whether the object has been used for special purposes, like vehicles that have been used for commercial rental, driving school, or as a taxi. The legislation in some countries may require this information to be revealed when offering the item for sale.\n    "
@@ -353,21 +353,21 @@
     "numberOfForwardGears": {
       "anyOf": [
         {
-          "$ref": "file://quantitativevalue.json#properties"
+          "type": "number"
         },
         {
-          "type": "number"
+          "$ref": "file://quantitativevalue.json"
         }
       ],
       "description": "The total number of forward gears available for the transmission system of the vehicle.<br />\nTypical unit code(s): C62"
     },
     "fuelConsumption": {
       "description": "The amount of fuel consumed for traveling a particular distance or temporal duration with the given vehicle (e.g. liters per 100 km).<br />\nNote 1: There are unfortunately no standard unit codes for liters per 100 km.<br />\nUse <a href=\"unitText\">unitText</a> to indicate the unit of measurement, e.g. L/100 km.\nNote 2: There are two ways of indicating the fuel consumption, <a href=\"fuelConsumption\">fuelConsumption</a> (e.g. 8 liters per 100 km) and <a href=\"fuelEfficiency\">fuelEfficiency</a> (e.g. 30 miles per gallon). They are reciprocal.<br />\nNote 3: Often, the absolute value is useful only when related to driving speed (\"at 80 km/h\") or usage pattern (\"city traffic\"). You can use <a href=\"valueReference\">valueReference</a> to link the value for the fuel consumption to another value.",
-      "$ref": "file://quantitativevalue.json#properties"
+      "$ref": "file://quantitativevalue.json"
     },
     "fuelEfficiency": {
       "description": "The distance traveled per unit of fuel used; most commonly miles per gallon (mpg) or kilometers per liter (km/L).<br />\nNote 1: There are unfortunately no standard unit codes for miles per gallon or kilometers per liter.<br />\nUse <a href=\"unitText\">unitText</a> to indicate the unit of measurement, e.g. mpg or km/L.\nNote 2: There are two ways of indicating the fuel consumption, <a href=\"fuelConsumption\">fuelConsumption</a> (e.g. 8 liters per 100 km) and <a href=\"fuelEfficiency\">fuelEfficiency</a> (e.g. 30 miles per gallon). They are reciprocal.<br />\nNote 3: Often, the absolute value is useful only when related to driving speed (\"at 80 km/h\") or usage pattern (\"city traffic\"). You can use <a href=\"valueReference\">valueReference</a> to link the value for the fuel economy to another value.",
-      "$ref": "file://quantitativevalue.json#properties"
+      "$ref": "file://quantitativevalue.json"
     },
     "vehicleInteriorColor": {
       "type": "string",
@@ -380,21 +380,21 @@
     "height": {
       "anyOf": [
         {
-          "$ref": "file://quantitativevalue.json#properties"
+          "$ref": "file://quantitativevalue.json"
         },
         {
-          "$ref": "file://distance.json#properties"
+          "$ref": "file://distance.json"
         }
       ],
       "description": "The height of the item."
     },
     "manufacturer": {
       "description": "The manufacturer of the product.",
-      "$ref": "file://organization.json#properties"
+      "$ref": "file://organization.json"
     },
     "potentialAction": {
       "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
-      "$ref": "file://action.json#properties"
+      "$ref": "file://action.json"
     },
     "name": {
       "type": "string",
@@ -402,11 +402,11 @@
     },
     "isRelatedTo": {
       "description": "A pointer to another, somehow related product (or multiple products).",
-      "$ref": "file://product.json#properties"
+      "$ref": "file://product.json"
     },
     "url": {
-      "description": "URL of the item.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of the item."
     },
     "vehicleInteriorType": {
       "type": "string",
@@ -422,11 +422,11 @@
     },
     "wheelbase": {
       "description": "The distance between the centers of the front and rear wheels. <br />\n    Typical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet",
-      "$ref": "file://quantitativevalue.json#properties"
+      "$ref": "file://quantitativevalue.json"
     },
     "reviews": {
       "description": "Review of the item.",
-      "$ref": "file://review.json#properties"
+      "$ref": "file://review.json"
     },
     "gtin14": {
       "type": "string",
@@ -434,22 +434,22 @@
     },
     "roofLoad": {
       "description": "The permitted total weight of cargo and installations (e.g. a roof rack) on top of the vehicle.<br />\n    Typical unit code(s): KGM for kilogram, LBR for pound<br />\n\n    Note 1: You can indicate additional information in the <a href=\"name\">name</a> of the <a href=\"QuantitativeValue\">QuantitativeValue</a> node.<br />\n    Note 2: You may also link to a <a href=\"QualitativeValue\">QualitativeValue</a> node that provides additional information using <a href=\"valueReference\">valueReference</a>.<br />\n    Note 3: Note that you can use <a href=\"minValue\">minValue</a> and <a href=\"maxValue\">maxValue</a> to indicate ranges.",
-      "$ref": "file://quantitativevalue.json#properties"
+      "$ref": "file://quantitativevalue.json"
     },
     "numberOfAxles": {
       "anyOf": [
         {
-          "type": "number"
+          "$ref": "file://quantitativevalue.json"
         },
         {
-          "$ref": "file://quantitativevalue.json#properties"
+          "type": "number"
         }
       ],
       "description": "The number of axles.<br />\nTypical unit code(s): C62"
     },
     "weightTotal": {
       "description": "The permitted total weight of the loaded vehicle, including passengers and cargo and the weight of the empty vehicle.<br />\n    Typical unit code(s): KGM for kilogram, LBR for pound<br />\n\n    Note 1: You can indicate additional information in the <a href=\"name\">name</a> of the <a href=\"QuantitativeValue\">QuantitativeValue</a> node.<br />\n    Note 2: You may also link to a <a href=\"QualitativeValue\">QualitativeValue</a> node that provides additional information using <a href=\"valueReference\">valueReference</a>.<br />\n    Note 3: Note that you can use <a href=\"minValue\">minValue</a> and <a href=\"maxValue\">maxValue</a> to indicate ranges.",
-      "$ref": "file://quantitativevalue.json#properties"
+      "$ref": "file://quantitativevalue.json"
     },
     "gtin13": {
       "type": "string",
@@ -461,11 +461,11 @@
     },
     "mileageFromOdometer": {
       "description": "The total distance travelled by the particular vehicle since its initial production, as read from its odometer.<br />\nTypical unit code(s): KMT for kilometers, SMI for statute miles",
-      "$ref": "file://quantitativevalue.json#properties"
+      "$ref": "file://quantitativevalue.json"
     },
     "steeringPosition": {
       "description": "The position of the steering wheel or similar device (mostly for cars).",
-      "$ref": "file://steeringpositionvalue.json#properties"
+      "$ref": "file://steeringpositionvalue.json"
     },
     "model": {
       "anyOf": [
@@ -473,7 +473,7 @@
           "type": "string"
         },
         {
-          "$ref": "file://productmodel.json#properties"
+          "$ref": "file://productmodel.json"
         }
       ],
       "description": "The model of the product. Use with the URL of a ProductModel or a textual representation of the model identifier. The URL of the ProductModel can be from an external source. It is recommended to additionally provide strong product identifiers via the gtin8/gtin13/gtin14 and mpn properties."
@@ -484,15 +484,15 @@
     },
     "fuelCapacity": {
       "description": "The capacity of the fuel tank or in the case of electric cars, the battery. If there are multiple components for storage, this should indicate the total of all storage of the same type.<br />\n    Typical unit code(s): LTR for liters, GLL of US gallons, GLI for UK / imperial gallons, AMH for ampere-hours (for electrical vehicles)\n    ",
-      "$ref": "file://quantitativevalue.json#properties"
+      "$ref": "file://quantitativevalue.json"
     },
     "review": {
       "description": "A review of the item.",
-      "$ref": "file://review.json#properties"
+      "$ref": "file://review.json"
     },
     "itemCondition": {
       "description": "A predefined value from OfferItemCondition or a textual description of the condition of the product or service, or the products or services included in the offer.",
-      "$ref": "file://offeritemcondition.json#properties"
+      "$ref": "file://offeritemcondition.json"
     }
   }
 }

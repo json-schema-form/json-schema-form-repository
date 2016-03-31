@@ -11,23 +11,23 @@
     },
     "potentialAction": {
       "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
-      "$ref": "file://action.json#properties"
+      "$ref": "file://action.json"
     },
     "description": {
       "type": "string",
       "description": "A short description of the item."
     },
     "sameAs": {
-      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
       "anyOf": [
         {
-          "$ref": "file://imageobject.json#properties"
+          "$ref": "file://imageobject.json"
         },
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
@@ -35,25 +35,25 @@
     "provider": {
       "anyOf": [
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://person.json"
         },
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://organization.json"
         }
       ],
       "description": "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller."
     },
     "arrivalStation": {
       "description": "The station where the train trip ends.",
-      "$ref": "file://trainstation.json#properties"
+      "$ref": "file://trainstation.json"
     },
     "departureStation": {
       "description": "The station from which the train departs.",
-      "$ref": "file://trainstation.json#properties"
+      "$ref": "file://trainstation.json"
     },
     "url": {
-      "description": "URL of the item.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of the item."
     },
     "arrivalPlatform": {
       "type": "string",
@@ -70,17 +70,17 @@
     "mainEntityOfPage": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
-          "$ref": "file://creativework.json#properties"
+          "$ref": "file://creativework.json"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
     },
     "additionalType": {
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "alternateName": {
       "type": "string",

@@ -12,47 +12,47 @@
     "performer": {
       "anyOf": [
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://person.json"
         }
       ],
       "description": "A performer at the event&#x2014;for example, a presenter, musician, musical group or actor."
     },
     "workPerformed": {
       "description": "A work performed in some event, for example a play performed in a TheaterEvent.",
-      "$ref": "file://creativework.json#properties"
+      "$ref": "file://creativework.json"
     },
     "inLanguage": {
       "anyOf": [
         {
-          "$ref": "file://language.json#properties"
+          "type": "string"
         },
         {
-          "type": "string"
+          "$ref": "file://language.json"
         }
       ],
       "description": "The language of the content or performance or used in an action. Please use one of the language codes from the <a href='http://tools.ietf.org/html/bcp47'>IETF BCP 47 standard</a>."
     },
     "sameAs": {
-      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
       "anyOf": [
         {
-          "$ref": "file://imageobject.json#properties"
+          "$ref": "file://imageobject.json"
         },
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
     },
     "aggregateRating": {
       "description": "The overall rating, based on a collection of reviews or ratings, of the item.",
-      "$ref": "file://aggregaterating.json#properties"
+      "$ref": "file://aggregaterating.json"
     },
     "typicalAgeRange": {
       "type": "string",
@@ -60,19 +60,19 @@
     },
     "duration": {
       "description": "The duration of the item (movie, audio recording, event, etc.) in <a href='http://en.wikipedia.org/wiki/ISO_8601'>ISO 8601 date format</a>.",
-      "$ref": "file://duration.json#properties"
+      "$ref": "file://duration.json"
     },
     "additionalType": {
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "organizer": {
       "anyOf": [
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://person.json"
         }
       ],
       "description": "An organizer of an Event."
@@ -84,10 +84,10 @@
     "attendees": {
       "anyOf": [
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://person.json"
         }
       ],
       "description": "A person attending the event."
@@ -98,22 +98,22 @@
     },
     "review": {
       "description": "A review of the item.",
-      "$ref": "file://review.json#properties"
+      "$ref": "file://review.json"
     },
     "offers": {
       "description": "An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event.",
-      "$ref": "file://offer.json#properties"
+      "$ref": "file://offer.json"
     },
     "location": {
       "anyOf": [
         {
+          "$ref": "file://postaladdress.json"
+        },
+        {
           "type": "string"
         },
         {
-          "$ref": "file://place.json#properties"
-        },
-        {
-          "$ref": "file://postaladdress.json#properties"
+          "$ref": "file://place.json"
         }
       ],
       "description": "The location of for example where the event is happening, an organization is located, or where an action takes place."
@@ -121,25 +121,25 @@
     "mainEntityOfPage": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
-          "$ref": "file://creativework.json#properties"
+          "$ref": "file://creativework.json"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
     },
     "workFeatured": {
       "description": "A work featured in some event, e.g. exhibited in an ExhibitionEvent.\n       Specific subproperties are available for workPerformed (e.g. a play), or a workPresented (a Movie at a ScreeningEvent).",
-      "$ref": "file://creativework.json#properties"
+      "$ref": "file://creativework.json"
     },
     "attendee": {
       "anyOf": [
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://person.json"
         }
       ],
       "description": "A person or organization attending the event."
@@ -150,15 +150,15 @@
     },
     "superEvent": {
       "description": "An event that this event is a part of. For example, a collection of individual music performances might each have a music festival as their superEvent.",
-      "$ref": "file://event.json#properties"
+      "$ref": "file://event.json"
     },
     "recordedIn": {
       "description": "The CreativeWork that captured all or part of this Event.",
-      "$ref": "file://creativework.json#properties"
+      "$ref": "file://creativework.json"
     },
     "subEvent": {
       "description": "An Event that is part of this event. For example, a conference event includes many presentations, each of which is a subEvent of the conference.",
-      "$ref": "file://event.json#properties"
+      "$ref": "file://event.json"
     },
     "alternateName": {
       "type": "string",
@@ -166,7 +166,7 @@
     },
     "potentialAction": {
       "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
-      "$ref": "file://action.json#properties"
+      "$ref": "file://action.json"
     },
     "name": {
       "type": "string",
@@ -175,17 +175,17 @@
     "performers": {
       "anyOf": [
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://person.json"
         },
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://organization.json"
         }
       ],
       "description": "The main performer or performers of the event&#x2014;for example, a presenter, musician, or actor."
     },
     "url": {
-      "description": "URL of the item.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of the item."
     },
     "endDate": {
       "type": "string",
@@ -193,11 +193,11 @@
     },
     "subEvents": {
       "description": "Events that are a part of this event. For example, a conference event includes many presentations, each subEvents of the conference.",
-      "$ref": "file://event.json#properties"
+      "$ref": "file://event.json"
     },
     "eventStatus": {
       "description": "An eventStatus of an event represents its status; particularly useful when an event is cancelled or rescheduled.",
-      "$ref": "file://eventstatustype.json#properties"
+      "$ref": "file://eventstatustype.json"
     }
   }
 }

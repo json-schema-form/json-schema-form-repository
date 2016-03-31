@@ -12,10 +12,10 @@
     "producer": {
       "anyOf": [
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://person.json"
         },
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://organization.json"
         }
       ],
       "description": "The person or organization who produced the work (e.g. music album, movie, tv/radio series etc.)."
@@ -30,7 +30,7 @@
           "type": "string"
         },
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         }
       ],
       "description": "Minimum memory requirements."
@@ -45,7 +45,7 @@
     },
     "accountablePerson": {
       "description": "Specifies the Person that is legally accountable for the CreativeWork.",
-      "$ref": "file://person.json#properties"
+      "$ref": "file://person.json"
     },
     "carrierRequirements": {
       "type": "string",
@@ -65,7 +65,7 @@
     },
     "character": {
       "description": "Fictional person connected with a creative work.",
-      "$ref": "file://person.json#properties"
+      "$ref": "file://person.json"
     },
     "contentRating": {
       "type": "string",
@@ -74,7 +74,7 @@
     "applicationCategory": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
           "type": "string"
@@ -84,20 +84,20 @@
     },
     "exampleOfWork": {
       "description": "A creative work that this work is an example/instance/realization/derivation of.",
-      "$ref": "file://creativework.json#properties"
+      "$ref": "file://creativework.json"
     },
     "publishingPrinciples": {
-      "description": "Link to page describing the editorial principles of the organization primarily responsible for the creation of the CreativeWork.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "Link to page describing the editorial principles of the organization primarily responsible for the creation of the CreativeWork."
     },
     "publisherImprint": {
       "description": "The publishing division which published the comic.",
-      "$ref": "file://organization.json#properties"
+      "$ref": "file://organization.json"
     },
     "releaseNotes": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
           "type": "string"
@@ -126,7 +126,7 @@
     },
     "potentialAction": {
       "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
-      "$ref": "file://action.json#properties"
+      "$ref": "file://action.json"
     },
     "name": {
       "type": "string",
@@ -134,11 +134,11 @@
     },
     "aggregateRating": {
       "description": "The overall rating, based on a collection of reviews or ratings, of the item.",
-      "$ref": "file://aggregaterating.json#properties"
+      "$ref": "file://aggregaterating.json"
     },
     "audience": {
       "description": "An intended audience, i.e. a group for whom something was created.",
-      "$ref": "file://audience.json#properties"
+      "$ref": "file://audience.json"
     },
     "accessibilityControl": {
       "type": "string",
@@ -146,38 +146,38 @@
     },
     "supportingData": {
       "description": "Supporting data for a SoftwareApplication.",
-      "$ref": "file://datafeed.json#properties"
+      "$ref": "file://datafeed.json"
     },
     "translationOfWork": {
       "description": "The work that this work has been translated from. e.g. \u7269\u79cd\u8d77\u6e90 is a translationOf \u201cOn the Origin of Species\u201d",
-      "$ref": "file://creativework.json#properties"
+      "$ref": "file://creativework.json"
     },
     "copyrightYear": {
       "type": "number",
       "description": "The year during which the claimed copyright for the CreativeWork was first asserted."
     },
     "installUrl": {
-      "description": "URL at which the app may be installed, if different from the URL of the item.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL at which the app may be installed, if different from the URL of the item."
     },
     "creator": {
       "anyOf": [
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://person.json"
         }
       ],
       "description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork."
     },
     "commentCount": {
-      "description": "The number of comments this CreativeWork (e.g. Article, Question or Answer) has received. This is most applicable to works published in Web sites with commenting system; additional comments may exist elsewhere.",
-      "$ref": "file://integer.json#properties"
+      "type": "number",
+      "description": "The number of comments this CreativeWork (e.g. Article, Question or Answer) has received. This is most applicable to works published in Web sites with commenting system; additional comments may exist elsewhere."
     },
     "video": {
       "description": "An embedded video object.",
-      "$ref": "file://videoobject.json#properties"
+      "$ref": "file://videoobject.json"
     },
     "typicalAgeRange": {
       "type": "string",
@@ -193,15 +193,15 @@
     },
     "reviews": {
       "description": "Review of the item.",
-      "$ref": "file://review.json#properties"
+      "$ref": "file://review.json"
     },
     "discussionUrl": {
-      "description": "A link to the page containing the comments of the CreativeWork.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "A link to the page containing the comments of the CreativeWork."
     },
     "review": {
       "description": "A review of the item.",
-      "$ref": "file://review.json#properties"
+      "$ref": "file://review.json"
     },
     "isFamilyFriendly": {
       "type": "boolean",
@@ -213,22 +213,22 @@
     },
     "locationCreated": {
       "description": "The location where the CreativeWork was created, which may not be the same as the location depicted in the CreativeWork.",
-      "$ref": "file://place.json#properties"
+      "$ref": "file://place.json"
     },
     "provider": {
       "anyOf": [
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://person.json"
         },
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://organization.json"
         }
       ],
       "description": "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller."
     },
     "isPartOf": {
       "description": "Indicates a CreativeWork that this CreativeWork is (in some sense) part of.",
-      "$ref": "file://creativework.json#properties"
+      "$ref": "file://creativework.json"
     },
     "accessibilityHazard": {
       "type": "string",
@@ -237,7 +237,7 @@
     "softwareRequirements": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
           "type": "string"
@@ -247,7 +247,7 @@
     },
     "educationalAlignment": {
       "description": "An alignment to an established educational framework.",
-      "$ref": "file://alignmentobject.json#properties"
+      "$ref": "file://alignmentobject.json"
     },
     "awards": {
       "type": "string",
@@ -263,7 +263,7 @@
           "type": "string"
         },
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         }
       ],
       "description": "Genre of the creative work or group."
@@ -271,72 +271,72 @@
     "publisher": {
       "anyOf": [
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://person.json"
         },
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://organization.json"
         }
       ],
       "description": "The publisher of the creative work."
     },
     "about": {
       "description": "The subject matter of the content.",
-      "$ref": "file://thing.json#properties"
+      "$ref": "file://thing.json"
     },
     "license": {
       "anyOf": [
         {
-          "$ref": "file://creativework.json#properties"
+          "type": "string"
         },
         {
-          "$ref": "file://url.json#properties"
+          "$ref": "file://creativework.json"
         }
       ],
       "description": "A license document that applies to this content, typically indicated by URL."
     },
     "workExample": {
       "description": "Example/instance/realization/derivation of the concept of this creative work. eg. The paperback edition, first edition, or eBook.",
-      "$ref": "file://creativework.json#properties"
+      "$ref": "file://creativework.json"
     },
     "mentions": {
       "description": "Indicates that the CreativeWork contains a reference to, but is not necessarily about a concept.",
-      "$ref": "file://thing.json#properties"
+      "$ref": "file://thing.json"
     },
     "comment": {
       "description": "Comments, typically from users.",
-      "$ref": "file://comment.json#properties"
+      "$ref": "file://comment.json"
     },
     "isBasedOnUrl": {
-      "description": "A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, http://example.com/great-multiplication-intro.html.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, http://example.com/great-multiplication-intro.html."
     },
     "encoding": {
       "description": "A media object that encodes this CreativeWork. This property is a synonym for associatedMedia.",
-      "$ref": "file://mediaobject.json#properties"
+      "$ref": "file://mediaobject.json"
     },
     "sameAs": {
-      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
       "anyOf": [
         {
-          "$ref": "file://imageobject.json#properties"
+          "$ref": "file://imageobject.json"
         },
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
     },
     "associatedMedia": {
       "description": "A media object that encodes this CreativeWork. This property is a synonym for encoding.",
-      "$ref": "file://mediaobject.json#properties"
+      "$ref": "file://mediaobject.json"
     },
     "featureList": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
           "type": "string"
@@ -347,26 +347,26 @@
     "contributor": {
       "anyOf": [
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://person.json"
         },
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://organization.json"
         }
       ],
       "description": "A secondary contributor to the CreativeWork."
     },
     "thumbnailUrl": {
-      "description": "A thumbnail image relevant to the Thing.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "A thumbnail image relevant to the Thing."
     },
     "mainEntity": {
       "description": "Indicates the primary entity described in some page or other CreativeWork.",
-      "$ref": "file://thing.json#properties"
+      "$ref": "file://thing.json"
     },
     "schemaVersion": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
           "type": "string"
@@ -384,30 +384,30 @@
     },
     "publication": {
       "description": "A publication event associated with the item.",
-      "$ref": "file://publicationevent.json#properties"
+      "$ref": "file://publicationevent.json"
     },
     "offers": {
       "description": "An offer to provide this item&#x2014;for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event.",
-      "$ref": "file://offer.json#properties"
+      "$ref": "file://offer.json"
     },
     "editor": {
       "description": "Specifies the Person who edited the CreativeWork.",
-      "$ref": "file://person.json#properties"
+      "$ref": "file://person.json"
     },
     "mainEntityOfPage": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
-          "$ref": "file://creativework.json#properties"
+          "$ref": "file://creativework.json"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
     },
     "recordedAt": {
       "description": "The Event where the CreativeWork was recorded. The CreativeWork may capture all or part of the event.",
-      "$ref": "file://event.json#properties"
+      "$ref": "file://event.json"
     },
     "softwareVersion": {
       "type": "string",
@@ -419,14 +419,14 @@
           "type": "string"
         },
         {
-          "$ref": "file://creativework.json#properties"
+          "$ref": "file://creativework.json"
         }
       ],
       "description": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc."
     },
     "hasPart": {
       "description": "Indicates a CreativeWork that is (in some sense) a part of this CreativeWork.",
-      "$ref": "file://creativework.json#properties"
+      "$ref": "file://creativework.json"
     },
     "award": {
       "type": "string",
@@ -435,10 +435,10 @@
     "copyrightHolder": {
       "anyOf": [
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://person.json"
         }
       ],
       "description": "The party holding the legal copyright to the CreativeWork."
@@ -448,8 +448,8 @@
       "description": "Indicates that the resource is compatible with the referenced accessibility API (<a href=\"http://www.w3.org/wiki/WebSchemas/Accessibility\">WebSchemas wiki lists possible values</a>)."
     },
     "downloadUrl": {
-      "description": "If the file can be downloaded, URL to download the binary.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "If the file can be downloaded, URL to download the binary."
     },
     "learningResourceType": {
       "type": "string",
@@ -457,7 +457,7 @@
     },
     "sourceOrganization": {
       "description": "The Organization on whose behalf the creator was working.",
-      "$ref": "file://organization.json#properties"
+      "$ref": "file://organization.json"
     },
     "operatingSystem": {
       "type": "string",
@@ -466,25 +466,25 @@
     "inLanguage": {
       "anyOf": [
         {
-          "$ref": "file://language.json#properties"
+          "type": "string"
         },
         {
-          "type": "string"
+          "$ref": "file://language.json"
         }
       ],
       "description": "The language of the content or performance or used in an action. Please use one of the language codes from the <a href='http://tools.ietf.org/html/bcp47'>IETF BCP 47 standard</a>."
     },
     "encodings": {
       "description": "A media object that encodes this CreativeWork.",
-      "$ref": "file://mediaobject.json#properties"
+      "$ref": "file://mediaobject.json"
     },
     "countriesSupported": {
       "type": "string",
       "description": "Countries for which the application is supported. You can also provide the two-letter ISO 3166-1 alpha-2 country code."
     },
     "additionalType": {
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "availableOnDevice": {
       "type": "string",
@@ -496,14 +496,14 @@
           "type": "string"
         },
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         }
       ],
       "description": "Subcategory of the application, e.g. \"Arcade Game\"."
     },
     "softwareHelp": {
       "description": "Software application help.",
-      "$ref": "file://creativework.json#properties"
+      "$ref": "file://creativework.json"
     },
     "requirements": {
       "anyOf": [
@@ -511,7 +511,7 @@
           "type": "string"
         },
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         }
       ],
       "description": "Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (Examples: DirectX, Java or .NET runtime)."
@@ -519,10 +519,10 @@
     "author": {
       "anyOf": [
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://person.json"
         }
       ],
       "description": "The author of this content. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably."
@@ -540,7 +540,7 @@
     },
     "interactionStatistic": {
       "description": "The number of interactions for the CreativeWork using the WebSite or SoftwareApplication. The most specific child type of InteractionCounter should be used.",
-      "$ref": "file://interactioncounter.json#properties"
+      "$ref": "file://interactioncounter.json"
     },
     "description": {
       "type": "string",
@@ -549,38 +549,38 @@
     "screenshot": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
-          "$ref": "file://imageobject.json#properties"
+          "$ref": "file://imageobject.json"
         }
       ],
       "description": "A link to a screenshot image of the app."
     },
     "releasedEvent": {
       "description": "The place and time the release was issued, expressed as a PublicationEvent.",
-      "$ref": "file://publicationevent.json#properties"
+      "$ref": "file://publicationevent.json"
     },
     "translator": {
       "anyOf": [
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://person.json"
         },
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://person.json"
         }
       ],
       "description": "An agent responsible for rendering a translated work from a source work"
     },
     "softwareAddOn": {
       "description": "Additional content for a software application.",
-      "$ref": "file://softwareapplication.json#properties"
+      "$ref": "file://softwareapplication.json"
     },
     "storageRequirements": {
       "anyOf": [
@@ -588,7 +588,7 @@
           "type": "string"
         },
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         }
       ],
       "description": "Storage requirements (free space required)."
@@ -603,34 +603,34 @@
     },
     "contentLocation": {
       "description": "The location depicted or described in the content. For example, the location in a photograph or painting.",
-      "$ref": "file://place.json#properties"
+      "$ref": "file://place.json"
     },
     "timeRequired": {
       "description": "Approximate or typical time it takes to work with or through this learning resource for the typical intended target audience, e.g. 'P30M', 'P1H25M'.",
-      "$ref": "file://duration.json#properties"
+      "$ref": "file://duration.json"
     },
     "workTranslation": {
       "description": "A work that is a translation of the content of this work. e.g. \u897f\u904a\u8a18 has an English workTranslation \u201cJourney to the West\u201d,a German workTranslation \u201cMonkeys Pilgerfahrt\u201d and a Vietnamese  translation T\u00e2y du k\u00fd b\u00ecnh kh\u1ea3o.",
-      "$ref": "file://creativework.json#properties"
+      "$ref": "file://creativework.json"
     },
     "url": {
-      "description": "URL of the item.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of the item."
     },
     "position": {
       "anyOf": [
         {
-          "type": "string"
+          "type": "number"
         },
         {
-          "$ref": "file://integer.json#properties"
+          "type": "string"
         }
       ],
       "description": "The position of an item in a series or sequence of items."
     },
     "audio": {
       "description": "An embedded audio object.",
-      "$ref": "file://audioobject.json#properties"
+      "$ref": "file://audioobject.json"
     }
   }
 }

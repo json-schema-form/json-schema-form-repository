@@ -7,42 +7,42 @@
   "properties": {
     "code": {
       "description": "A medical code for the entity, taken from a controlled vocabulary or ontology such as ICD-9, DiseasesDB, MeSH, SNOMED-CT, RxNorm, etc.",
-      "$ref": "file://medicalcode.json#properties"
+      "$ref": "file://medicalcode.json"
     },
     "cost": {
       "description": "Cost per unit of the drug, as reported by the source being tagged.",
-      "$ref": "file://drugcost.json#properties"
+      "$ref": "file://drugcost.json"
     },
     "sameAs": {
-      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
       "anyOf": [
         {
-          "$ref": "file://imageobject.json#properties"
+          "$ref": "file://imageobject.json"
         },
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
     },
     "adverseOutcome": {
       "description": "A possible complication and/or side effect of this therapy. If it is known that an adverse outcome is serious (resulting in death, disability, or permanent damage; requiring hospitalization; or is otherwise life-threatening or requires immediate medical attention), tag it as a seriouseAdverseOutcome instead.",
-      "$ref": "file://medicalentity.json#properties"
+      "$ref": "file://medicalentity.json"
     },
     "additionalType": {
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "drugClass": {
       "description": "The class of drug this belongs to (e.g., statins).",
-      "$ref": "file://drugclass.json#properties"
+      "$ref": "file://drugclass.json"
     },
     "recognizingAuthority": {
       "description": "If applicable, the organization that officially recognizes this entity as part of its endorsed system of medicine.",
-      "$ref": "file://organization.json#properties"
+      "$ref": "file://organization.json"
     },
     "pregnancyWarning": {
       "type": "string",
@@ -50,27 +50,27 @@
     },
     "relatedDrug": {
       "description": "Any other drug related to this one, for example commonly-prescribed alternatives.",
-      "$ref": "file://drug.json#properties"
+      "$ref": "file://drug.json"
     },
     "legalStatus": {
       "description": "The drug or supplement's legal status, including any controlled substance schedules that apply.",
-      "$ref": "file://druglegalstatus.json#properties"
+      "$ref": "file://druglegalstatus.json"
     },
     "doseSchedule": {
       "description": "A dosing schedule for the drug for a given population, either observed, recommended, or maximum dose based on the type used.",
-      "$ref": "file://doseschedule.json#properties"
+      "$ref": "file://doseschedule.json"
     },
     "interactingDrug": {
       "description": "Another drug that is known to interact with this drug in a way that impacts the effect of this drug or causes a risk to the patient. Note: disease interactions are typically captured as contraindications.",
-      "$ref": "file://drug.json#properties"
+      "$ref": "file://drug.json"
     },
     "contraindication": {
       "description": "A contraindication for this therapy.",
-      "$ref": "file://medicalcontraindication.json#properties"
+      "$ref": "file://medicalcontraindication.json"
     },
     "potentialAction": {
       "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
-      "$ref": "file://action.json#properties"
+      "$ref": "file://action.json"
     },
     "mechanismOfAction": {
       "type": "string",
@@ -78,15 +78,15 @@
     },
     "relevantSpecialty": {
       "description": "If applicable, a medical specialty in which this entity is relevant.",
-      "$ref": "file://medicalspecialty.json#properties"
+      "$ref": "file://medicalspecialty.json"
     },
     "seriousAdverseOutcome": {
       "description": "A possible serious complication and/or serious side effect of this therapy. Serious adverse outcomes include those that are life-threatening; result in death, disability, or permanent damage; require hospitalization or prolong existing hospitalization; cause congenital anomalies or birth defects; or jeopardize the patient and may require medical or surgical intervention to prevent one of the outcomes in this definition.",
-      "$ref": "file://medicalentity.json#properties"
+      "$ref": "file://medicalentity.json"
     },
     "guideline": {
       "description": "A medical guideline related to this entity.",
-      "$ref": "file://medicalguideline.json#properties"
+      "$ref": "file://medicalguideline.json"
     },
     "isAvailableGenerically": {
       "type": "boolean",
@@ -95,10 +95,10 @@
     "mainEntityOfPage": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
-          "$ref": "file://creativework.json#properties"
+          "$ref": "file://creativework.json"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -109,11 +109,11 @@
     },
     "prescriptionStatus": {
       "description": "Indicates whether this drug is available by prescription or over-the-counter.",
-      "$ref": "file://drugprescriptionstatus.json#properties"
+      "$ref": "file://drugprescriptionstatus.json"
     },
     "medicineSystem": {
       "description": "The system of medicine that includes this MedicalEntity, for example 'evidence-based', 'homeopathic', 'chiropractic', etc.",
-      "$ref": "file://medicinesystem.json#properties"
+      "$ref": "file://medicinesystem.json"
     },
     "alcoholWarning": {
       "type": "string",
@@ -125,15 +125,15 @@
     },
     "duplicateTherapy": {
       "description": "A therapy that duplicates or overlaps this one.",
-      "$ref": "file://medicaltherapy.json#properties"
+      "$ref": "file://medicaltherapy.json"
     },
     "pregnancyCategory": {
       "description": "Pregnancy category of this drug.",
-      "$ref": "file://drugpregnancycategory.json#properties"
+      "$ref": "file://drugpregnancycategory.json"
     },
     "prescribingInfo": {
-      "description": "Link to prescribing information for the drug.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "Link to prescribing information for the drug."
     },
     "clincalPharmacology": {
       "type": "string",
@@ -145,15 +145,15 @@
     },
     "availableStrength": {
       "description": "An available dosage strength for the drug.",
-      "$ref": "file://drugstrength.json#properties"
+      "$ref": "file://drugstrength.json"
     },
     "manufacturer": {
       "description": "The manufacturer of the product.",
-      "$ref": "file://organization.json#properties"
+      "$ref": "file://organization.json"
     },
     "labelDetails": {
-      "description": "Link to the drug's label details.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "Link to the drug's label details."
     },
     "dosageForm": {
       "type": "string",
@@ -172,12 +172,12 @@
       "description": "The generic name of this drug or supplement."
     },
     "url": {
-      "description": "URL of the item.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of the item."
     },
     "study": {
       "description": "A medical study or trial related to this entity.",
-      "$ref": "file://medicalstudy.json#properties"
+      "$ref": "file://medicalstudy.json"
     },
     "overdosage": {
       "type": "string",
@@ -189,7 +189,7 @@
     },
     "indication": {
       "description": "A factor that indicates use of this therapy for treatment and/or prevention of a condition, symptom, etc. For therapies such as drugs, indications can include both officially-approved indications as well as off-label uses. These can be distinguished by using the ApprovedIndication subtype of MedicalIndication.",
-      "$ref": "file://medicalindication.json#properties"
+      "$ref": "file://medicalindication.json"
     },
     "clinicalPharmacology": {
       "type": "string",
@@ -209,7 +209,7 @@
           "type": "string"
         },
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         }
       ],
       "description": "Any FDA or other warnings about the drug (text or URL)."

@@ -8,31 +8,31 @@
     "ineligibleRegion": {
       "anyOf": [
         {
+          "$ref": "file://geoshape.json"
+        },
+        {
           "type": "string"
         },
         {
-          "$ref": "file://geoshape.json#properties"
-        },
-        {
-          "$ref": "file://place.json#properties"
+          "$ref": "file://place.json"
         }
       ],
       "description": "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is not valid, e.g. a region where the transaction is not allowed.\n      <br><br> See also <a href=\"/eligibleRegion\">eligibleRegion</a>.\n      "
     },
     "sameAs": {
-      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "eligibleRegion": {
       "anyOf": [
         {
+          "$ref": "file://place.json"
+        },
+        {
           "type": "string"
         },
         {
-          "$ref": "file://place.json#properties"
-        },
-        {
-          "$ref": "file://geoshape.json#properties"
+          "$ref": "file://geoshape.json"
         }
       ],
       "description": "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid.\n      <br><br> See also <a href=\"/ineligibleRegion\">ineligibleRegion</a>.\n    "
@@ -40,21 +40,21 @@
     "image": {
       "anyOf": [
         {
-          "$ref": "file://imageobject.json#properties"
+          "$ref": "file://imageobject.json"
         },
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
     },
     "appliesToDeliveryMethod": {
       "description": "The delivery method(s) to which the delivery charge or payment charge specification applies.",
-      "$ref": "file://deliverymethod.json#properties"
+      "$ref": "file://deliverymethod.json"
     },
     "additionalType": {
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "valueAddedTaxIncluded": {
       "type": "boolean",
@@ -63,10 +63,10 @@
     "mainEntityOfPage": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
-          "$ref": "file://creativework.json#properties"
+          "$ref": "file://creativework.json"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -88,11 +88,11 @@
     },
     "eligibleTransactionVolume": {
       "description": "The transaction volume, in a monetary unit, for which the offer or price specification is valid, e.g. for indicating a minimal purchasing volume, to express free shipping above a certain order volume, or to limit the acceptance of credit cards to purchases to a certain minimal amount.",
-      "$ref": "file://pricespecification.json#properties"
+      "$ref": "file://pricespecification.json"
     },
     "eligibleQuantity": {
       "description": "The interval and unit of measurement of ordering quantities for which the offer or price specification is valid. This allows e.g. specifying that a certain freight charge is valid only for a certain quantity.",
-      "$ref": "file://quantitativevalue.json#properties"
+      "$ref": "file://quantitativevalue.json"
     },
     "validThrough": {
       "type": "string",
@@ -108,7 +108,7 @@
     },
     "potentialAction": {
       "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
-      "$ref": "file://action.json#properties"
+      "$ref": "file://action.json"
     },
     "name": {
       "type": "string",
@@ -119,8 +119,8 @@
       "description": "The currency (in 3-letter ISO 4217 format) of the price or a price component, when attached to PriceSpecification and its subtypes."
     },
     "url": {
-      "description": "URL of the item.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of the item."
     },
     "maxPrice": {
       "type": "number",
@@ -129,16 +129,16 @@
     "areaServed": {
       "anyOf": [
         {
-          "$ref": "file://geoshape.json#properties"
+          "$ref": "file://place.json"
         },
         {
           "type": "string"
         },
         {
-          "$ref": "file://administrativearea.json#properties"
+          "$ref": "file://administrativearea.json"
         },
         {
-          "$ref": "file://place.json#properties"
+          "$ref": "file://geoshape.json"
         }
       ],
       "description": "The geographic area where a service or offered item is provided."

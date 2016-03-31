@@ -7,7 +7,7 @@
   "properties": {
     "potentialAction": {
       "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
-      "$ref": "file://action.json#properties"
+      "$ref": "file://action.json"
     },
     "name": {
       "type": "string",
@@ -15,11 +15,11 @@
     },
     "servicePhone": {
       "description": "The phone number to use to access the service.",
-      "$ref": "file://contactpoint.json#properties"
+      "$ref": "file://contactpoint.json"
     },
     "url": {
-      "description": "URL of the item.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of the item."
     },
     "description": {
       "type": "string",
@@ -27,42 +27,42 @@
     },
     "providesService": {
       "description": "The service provided by this channel.",
-      "$ref": "file://service.json#properties"
+      "$ref": "file://service.json"
     },
     "processingTime": {
       "description": "Estimated processing time for the service using this channel.",
-      "$ref": "file://duration.json#properties"
+      "$ref": "file://duration.json"
     },
     "sameAs": {
-      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "serviceLocation": {
       "description": "The location (e.g. civic structure, local business, etc.) where a person can go to access the service.",
-      "$ref": "file://place.json#properties"
+      "$ref": "file://place.json"
     },
     "servicePostalAddress": {
       "description": "The address for accessing the service by mail.",
-      "$ref": "file://postaladdress.json#properties"
+      "$ref": "file://postaladdress.json"
     },
     "serviceUrl": {
-      "description": "The website to access the service.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "The website to access the service."
     },
     "mainEntityOfPage": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
-          "$ref": "file://creativework.json#properties"
+          "$ref": "file://creativework.json"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
     },
     "additionalType": {
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "alternateName": {
       "type": "string",
@@ -71,21 +71,21 @@
     "image": {
       "anyOf": [
         {
-          "$ref": "file://imageobject.json#properties"
+          "$ref": "file://imageobject.json"
         },
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
     },
     "availableLanguage": {
       "description": "A language someone may use with the item.",
-      "$ref": "file://language.json#properties"
+      "$ref": "file://language.json"
     },
     "serviceSmsNumber": {
       "description": "The number to access the service by text message.",
-      "$ref": "file://contactpoint.json#properties"
+      "$ref": "file://contactpoint.json"
     }
   }
 }

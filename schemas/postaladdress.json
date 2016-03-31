@@ -6,16 +6,16 @@
   "type": "object",
   "properties": {
     "sameAs": {
-      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
       "anyOf": [
         {
-          "$ref": "file://imageobject.json#properties"
+          "$ref": "file://imageobject.json"
         },
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
@@ -37,12 +37,12 @@
       "description": "A person or organization can have different contact points, for different purposes. For example, a sales contact point, a PR contact point and so on. This property is used to specify the kind of contact point."
     },
     "additionalType": {
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "availableLanguage": {
       "description": "A language someone may use with the item.",
-      "$ref": "file://language.json#properties"
+      "$ref": "file://language.json"
     },
     "postOfficeBoxNumber": {
       "type": "string",
@@ -51,7 +51,7 @@
     "productSupported": {
       "anyOf": [
         {
-          "$ref": "file://product.json#properties"
+          "$ref": "file://product.json"
         },
         {
           "type": "string"
@@ -61,15 +61,15 @@
     },
     "contactOption": {
       "description": "An option available on this contact point (e.g. a toll-free number or support for hearing-impaired callers).",
-      "$ref": "file://contactpointoption.json#properties"
+      "$ref": "file://contactpointoption.json"
     },
     "addressCountry": {
       "anyOf": [
         {
-          "$ref": "file://country.json#properties"
+          "type": "string"
         },
         {
-          "type": "string"
+          "$ref": "file://country.json"
         }
       ],
       "description": "The country. For example, USA. You can also provide the two-letter <a href='http://en.wikipedia.org/wiki/ISO_3166-1'>ISO 3166-1 alpha-2 country code</a>."
@@ -93,17 +93,17 @@
     "mainEntityOfPage": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
-          "$ref": "file://creativework.json#properties"
+          "$ref": "file://creativework.json"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
     },
     "hoursAvailable": {
       "description": "The hours during which this service or contact is available.",
-      "$ref": "file://openinghoursspecification.json#properties"
+      "$ref": "file://openinghoursspecification.json"
     },
     "alternateName": {
       "type": "string",
@@ -112,28 +112,28 @@
     "serviceArea": {
       "anyOf": [
         {
-          "$ref": "file://place.json#properties"
+          "$ref": "file://place.json"
         },
         {
-          "$ref": "file://geoshape.json#properties"
+          "$ref": "file://geoshape.json"
         },
         {
-          "$ref": "file://administrativearea.json#properties"
+          "$ref": "file://administrativearea.json"
         }
       ],
       "description": "The geographic area where the service is provided."
     },
     "potentialAction": {
       "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
-      "$ref": "file://action.json#properties"
+      "$ref": "file://action.json"
     },
     "name": {
       "type": "string",
       "description": "The name of the item."
     },
     "url": {
-      "description": "URL of the item.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of the item."
     },
     "addressRegion": {
       "type": "string",
@@ -142,16 +142,16 @@
     "areaServed": {
       "anyOf": [
         {
-          "$ref": "file://geoshape.json#properties"
+          "$ref": "file://place.json"
         },
         {
           "type": "string"
         },
         {
-          "$ref": "file://administrativearea.json#properties"
+          "$ref": "file://administrativearea.json"
         },
         {
-          "$ref": "file://place.json#properties"
+          "$ref": "file://geoshape.json"
         }
       ],
       "description": "The geographic area where a service or offered item is provided."

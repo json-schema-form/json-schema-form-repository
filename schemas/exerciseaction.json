@@ -10,80 +10,80 @@
       "description": "The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to start. For actions that span a period of time, when the action was performed. e.g. John wrote a book from *January* to December.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions."
     },
     "sameAs": {
-      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
       "anyOf": [
         {
-          "$ref": "file://imageobject.json#properties"
+          "$ref": "file://imageobject.json"
         },
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
     },
     "toLocation": {
       "description": "A sub property of location. The final location of the object or the agent after the action.",
-      "$ref": "file://place.json#properties"
+      "$ref": "file://place.json"
     },
     "agent": {
       "anyOf": [
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://person.json"
         },
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://organization.json"
         }
       ],
       "description": "The direct performer or driver of the action (animate or inanimate). e.g. *John* wrote a book."
     },
     "course": {
       "description": "A sub property of location. The course where this action was taken.",
-      "$ref": "file://place.json#properties"
+      "$ref": "file://place.json"
     },
     "result": {
       "description": "The result produced in the action. e.g. John wrote *a book*.",
-      "$ref": "file://thing.json#properties"
+      "$ref": "file://thing.json"
     },
     "additionalType": {
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "event": {
       "description": "Upcoming or past event associated with this place, organization, or action.",
-      "$ref": "file://event.json#properties"
+      "$ref": "file://event.json"
     },
     "participant": {
       "anyOf": [
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://person.json"
         },
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://organization.json"
         }
       ],
       "description": "Other co-agents that participated in the action indirectly. e.g. John wrote a book with *Steve*."
     },
     "sportsTeam": {
       "description": "A sub property of participant. The sports team that participated on this action.",
-      "$ref": "file://sportsteam.json#properties"
+      "$ref": "file://sportsteam.json"
     },
     "instrument": {
       "description": "The object that helped the agent perform the action. e.g. John wrote a book with *a pen*.",
-      "$ref": "file://thing.json#properties"
+      "$ref": "file://thing.json"
     },
     "location": {
       "anyOf": [
         {
+          "$ref": "file://postaladdress.json"
+        },
+        {
           "type": "string"
         },
         {
-          "$ref": "file://place.json#properties"
-        },
-        {
-          "$ref": "file://postaladdress.json#properties"
+          "$ref": "file://place.json"
         }
       ],
       "description": "The location of for example where the event is happening, an organization is located, or where an action takes place."
@@ -91,17 +91,17 @@
     "mainEntityOfPage": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
-          "$ref": "file://creativework.json#properties"
+          "$ref": "file://creativework.json"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
     },
     "exerciseCourse": {
       "description": "A sub property of location. The course where this action was taken.",
-      "$ref": "file://place.json#properties"
+      "$ref": "file://place.json"
     },
     "exerciseType": {
       "type": "string",
@@ -109,7 +109,7 @@
     },
     "opponent": {
       "description": "A sub property of participant. The opponent on this action.",
-      "$ref": "file://person.json#properties"
+      "$ref": "file://person.json"
     },
     "description": {
       "type": "string",
@@ -117,23 +117,23 @@
     },
     "object": {
       "description": "The object upon the action is carried out, whose state is kept intact or changed. Also known as the semantic roles patient, affected or undergoer (which change their state) or theme (which doesn't). e.g. John read *a book*.",
-      "$ref": "file://thing.json#properties"
+      "$ref": "file://thing.json"
     },
     "sportsActivityLocation": {
       "description": "A sub property of location. The sports activity location where this action occurred.",
-      "$ref": "file://sportsactivitylocation.json#properties"
+      "$ref": "file://sportsactivitylocation.json"
     },
     "diet": {
       "description": "A sub property of instrument. The diet used in this action.",
-      "$ref": "file://diet.json#properties"
+      "$ref": "file://diet.json"
     },
     "exercisePlan": {
       "description": "A sub property of instrument. The exercise plan used on this action.",
-      "$ref": "file://exerciseplan.json#properties"
+      "$ref": "file://exerciseplan.json"
     },
     "exerciseRelatedDiet": {
       "description": "A sub property of instrument. The diet used in this action.",
-      "$ref": "file://diet.json#properties"
+      "$ref": "file://diet.json"
     },
     "alternateName": {
       "type": "string",
@@ -145,39 +145,39 @@
     },
     "distance": {
       "description": "The distance travelled, e.g. exercising or travelling.",
-      "$ref": "file://distance.json#properties"
+      "$ref": "file://distance.json"
     },
     "potentialAction": {
       "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
-      "$ref": "file://action.json#properties"
+      "$ref": "file://action.json"
     },
     "target": {
       "description": "Indicates a target EntryPoint for an Action.",
-      "$ref": "file://entrypoint.json#properties"
+      "$ref": "file://entrypoint.json"
     },
     "url": {
-      "description": "URL of the item.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of the item."
     },
     "actionStatus": {
       "description": "Indicates the current disposition of the Action.",
-      "$ref": "file://actionstatustype.json#properties"
+      "$ref": "file://actionstatustype.json"
     },
     "fromLocation": {
       "description": "A sub property of location. The original location of the object or the agent before the action.",
-      "$ref": "file://place.json#properties"
+      "$ref": "file://place.json"
     },
     "audience": {
       "description": "An intended audience, i.e. a group for whom something was created.",
-      "$ref": "file://audience.json#properties"
+      "$ref": "file://audience.json"
     },
     "error": {
       "description": "For failed actions, more information on the cause of the failure.",
-      "$ref": "file://thing.json#properties"
+      "$ref": "file://thing.json"
     },
     "sportsEvent": {
       "description": "A sub property of location. The sports event where this action occurred.",
-      "$ref": "file://sportsevent.json#properties"
+      "$ref": "file://sportsevent.json"
     },
     "endTime": {
       "type": "string",

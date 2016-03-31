@@ -7,27 +7,27 @@
   "properties": {
     "openingHoursSpecification": {
       "description": "The opening hours of a certain place.",
-      "$ref": "file://openinghoursspecification.json#properties"
+      "$ref": "file://openinghoursspecification.json"
     },
     "founder": {
       "description": "A person who founded this organization.",
-      "$ref": "file://person.json#properties"
+      "$ref": "file://person.json"
     },
     "parentOrganization": {
       "description": "The larger organization that this organization is a branch of, if any.",
-      "$ref": "file://organization.json#properties"
+      "$ref": "file://organization.json"
     },
     "sameAs": {
-      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "photo": {
       "anyOf": [
         {
-          "$ref": "file://photograph.json#properties"
+          "$ref": "file://photograph.json"
         },
         {
-          "$ref": "file://imageobject.json#properties"
+          "$ref": "file://imageobject.json"
         }
       ],
       "description": "A photograph of this place."
@@ -35,10 +35,10 @@
     "image": {
       "anyOf": [
         {
-          "$ref": "file://imageobject.json#properties"
+          "$ref": "file://imageobject.json"
         },
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
@@ -57,15 +57,15 @@
     },
     "aggregateRating": {
       "description": "The overall rating, based on a collection of reviews or ratings, of the item.",
-      "$ref": "file://aggregaterating.json#properties"
+      "$ref": "file://aggregaterating.json"
     },
     "containsPlace": {
       "description": "The basic containment relation between a place and another that it contains.",
-      "$ref": "file://place.json#properties"
+      "$ref": "file://place.json"
     },
     "additionalType": {
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "currenciesAccepted": {
       "type": "string",
@@ -74,10 +74,10 @@
     "logo": {
       "anyOf": [
         {
-          "$ref": "file://imageobject.json#properties"
+          "type": "string"
         },
         {
-          "$ref": "file://url.json#properties"
+          "$ref": "file://imageobject.json"
         }
       ],
       "description": "An associated logo."
@@ -95,23 +95,23 @@
       "description": "The cuisine of the restaurant."
     },
     "maps": {
-      "description": "A URL to a map of the place.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "A URL to a map of the place."
     },
     "geo": {
       "anyOf": [
         {
-          "$ref": "file://geoshape.json#properties"
+          "$ref": "file://geocoordinates.json"
         },
         {
-          "$ref": "file://geocoordinates.json#properties"
+          "$ref": "file://geoshape.json"
         }
       ],
       "description": "The geo coordinates of the place."
     },
     "review": {
       "description": "A review of the item.",
-      "$ref": "file://review.json#properties"
+      "$ref": "file://review.json"
     },
     "taxID": {
       "type": "string",
@@ -119,30 +119,30 @@
     },
     "event": {
       "description": "Upcoming or past event associated with this place, organization, or action.",
-      "$ref": "file://event.json#properties"
+      "$ref": "file://event.json"
     },
     "member": {
       "anyOf": [
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://person.json"
         }
       ],
       "description": "A member of an Organization or a ProgramMembership. Organizations can be members of organizations; ProgramMembership is typically for individuals."
     },
     "foundingLocation": {
       "description": "The place where the Organization was founded.",
-      "$ref": "file://place.json#properties"
+      "$ref": "file://place.json"
     },
     "additionalProperty": {
       "description": "A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org. <br /><br />\n\nNote: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.\n",
-      "$ref": "file://propertyvalue.json#properties"
+      "$ref": "file://propertyvalue.json"
     },
     "branchOf": {
       "description": "The larger organization that this local business is a branch of, if any.",
-      "$ref": "file://organization.json#properties"
+      "$ref": "file://organization.json"
     },
     "priceRange": {
       "type": "string",
@@ -151,13 +151,13 @@
     "location": {
       "anyOf": [
         {
+          "$ref": "file://postaladdress.json"
+        },
+        {
           "type": "string"
         },
         {
-          "$ref": "file://place.json#properties"
-        },
-        {
-          "$ref": "file://postaladdress.json#properties"
+          "$ref": "file://place.json"
         }
       ],
       "description": "The location of for example where the event is happening, an organization is located, or where an action takes place."
@@ -165,29 +165,29 @@
     "mainEntityOfPage": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
-          "$ref": "file://creativework.json#properties"
+          "$ref": "file://creativework.json"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
     },
     "events": {
       "description": "Upcoming or past events associated with this place or organization.",
-      "$ref": "file://event.json#properties"
+      "$ref": "file://event.json"
     },
     "seeks": {
       "description": "A pointer to products or services sought by the organization or person (demand).",
-      "$ref": "file://demand.json#properties"
+      "$ref": "file://demand.json"
     },
     "map": {
-      "description": "A URL to a map of the place.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "A URL to a map of the place."
     },
     "employee": {
       "description": "Someone working for this organization.",
-      "$ref": "file://person.json#properties"
+      "$ref": "file://person.json"
     },
     "description": {
       "type": "string",
@@ -195,19 +195,19 @@
     },
     "numberOfEmployees": {
       "description": "The number of employees in an organization e.g. business.",
-      "$ref": "file://quantitativevalue.json#properties"
+      "$ref": "file://quantitativevalue.json"
     },
     "subOrganization": {
       "description": "A relationship between two organizations where the first includes the second, e.g., as a subsidiary. See also: the more specific 'department' property.",
-      "$ref": "file://organization.json#properties"
+      "$ref": "file://organization.json"
     },
     "brand": {
       "anyOf": [
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://brand.json#properties"
+          "$ref": "file://brand.json"
         }
       ],
       "description": "The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person."
@@ -215,17 +215,17 @@
     "owns": {
       "anyOf": [
         {
-          "$ref": "file://ownershipinfo.json#properties"
+          "$ref": "file://ownershipinfo.json"
         },
         {
-          "$ref": "file://product.json#properties"
+          "$ref": "file://product.json"
         }
       ],
       "description": "Products owned by the organization or person."
     },
     "containedIn": {
       "description": "The basic containment relation between a place and one that contains it.",
-      "$ref": "file://place.json#properties"
+      "$ref": "file://place.json"
     },
     "award": {
       "type": "string",
@@ -233,19 +233,19 @@
     },
     "containedInPlace": {
       "description": "The basic containment relation between a place and one that contains it.",
-      "$ref": "file://place.json#properties"
+      "$ref": "file://place.json"
     },
     "founders": {
       "description": "A person who founded this organization.",
-      "$ref": "file://person.json#properties"
+      "$ref": "file://person.json"
     },
     "photos": {
       "anyOf": [
         {
-          "$ref": "file://photograph.json#properties"
+          "$ref": "file://photograph.json"
         },
         {
-          "$ref": "file://imageobject.json#properties"
+          "$ref": "file://imageobject.json"
         }
       ],
       "description": "Photographs of this place."
@@ -256,7 +256,7 @@
     },
     "department": {
       "description": "A relationship between an organization and a department of that organization, also described as an organization (allowing different urls, logos, opening hours). For example: a store with a pharmacy, or a bakery with a cafe.",
-      "$ref": "file://organization.json#properties"
+      "$ref": "file://organization.json"
     },
     "awards": {
       "type": "string",
@@ -265,10 +265,10 @@
     "members": {
       "anyOf": [
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://person.json"
         }
       ],
       "description": "A member of this organization."
@@ -276,10 +276,10 @@
     "address": {
       "anyOf": [
         {
-          "type": "string"
+          "$ref": "file://postaladdress.json"
         },
         {
-          "$ref": "file://postaladdress.json#properties"
+          "type": "string"
         }
       ],
       "description": "Physical address of the item."
@@ -290,15 +290,15 @@
     },
     "contactPoint": {
       "description": "A contact point for a person or organization.",
-      "$ref": "file://contactpoint.json#properties"
+      "$ref": "file://contactpoint.json"
     },
     "hasMap": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "$ref": "file://map.json"
         },
         {
-          "$ref": "file://map.json#properties"
+          "type": "string"
         }
       ],
       "description": "A URL to a map of the place."
@@ -309,29 +309,29 @@
     },
     "makesOffer": {
       "description": "A pointer to products or services offered by the organization or person.",
-      "$ref": "file://offer.json#properties"
+      "$ref": "file://offer.json"
     },
     "hasPOS": {
       "description": "Points-of-Sales operated by the organization or person.",
-      "$ref": "file://place.json#properties"
+      "$ref": "file://place.json"
     },
     "serviceArea": {
       "anyOf": [
         {
-          "$ref": "file://place.json#properties"
+          "$ref": "file://place.json"
         },
         {
-          "$ref": "file://geoshape.json#properties"
+          "$ref": "file://geoshape.json"
         },
         {
-          "$ref": "file://administrativearea.json#properties"
+          "$ref": "file://administrativearea.json"
         }
       ],
       "description": "The geographic area where the service is provided."
     },
     "potentialAction": {
       "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
-      "$ref": "file://action.json#properties"
+      "$ref": "file://action.json"
     },
     "name": {
       "type": "string",
@@ -342,31 +342,31 @@
       "description": "The North American Industry Classification System (NAICS) code for a particular organization or business person."
     },
     "url": {
-      "description": "URL of the item.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of the item."
     },
     "memberOf": {
       "anyOf": [
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://programmembership.json#properties"
+          "$ref": "file://programmembership.json"
         }
       ],
       "description": "An Organization (or ProgramMembership) to which this Person or Organization belongs."
     },
     "employees": {
       "description": "People working for this organization.",
-      "$ref": "file://person.json#properties"
+      "$ref": "file://person.json"
     },
     "alumni": {
       "description": "Alumni of an organization.",
-      "$ref": "file://person.json#properties"
+      "$ref": "file://person.json"
     },
     "hasOfferCatalog": {
       "description": "Indicates an OfferCatalog listing for this Organization, Person, or Service.",
-      "$ref": "file://offercatalog.json#properties"
+      "$ref": "file://offercatalog.json"
     },
     "email": {
       "type": "string",
@@ -374,12 +374,12 @@
     },
     "reviews": {
       "description": "Review of the item.",
-      "$ref": "file://review.json#properties"
+      "$ref": "file://review.json"
     },
     "menu": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
           "type": "string"
@@ -390,16 +390,16 @@
     "areaServed": {
       "anyOf": [
         {
-          "$ref": "file://geoshape.json#properties"
+          "$ref": "file://place.json"
         },
         {
           "type": "string"
         },
         {
-          "$ref": "file://administrativearea.json#properties"
+          "$ref": "file://administrativearea.json"
         },
         {
-          "$ref": "file://place.json#properties"
+          "$ref": "file://geoshape.json"
         }
       ],
       "description": "The geographic area where a service or offered item is provided."
@@ -422,12 +422,12 @@
     },
     "contactPoints": {
       "description": "A contact point for a person or organization.",
-      "$ref": "file://contactpoint.json#properties"
+      "$ref": "file://contactpoint.json"
     },
     "acceptsReservations": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
           "type": "string"

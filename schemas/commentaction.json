@@ -8,25 +8,25 @@
     "inLanguage": {
       "anyOf": [
         {
-          "$ref": "file://language.json#properties"
+          "type": "string"
         },
         {
-          "type": "string"
+          "$ref": "file://language.json"
         }
       ],
       "description": "The language of the content or performance or used in an action. Please use one of the language codes from the <a href='http://tools.ietf.org/html/bcp47'>IETF BCP 47 standard</a>."
     },
     "sameAs": {
-      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
       "anyOf": [
         {
-          "$ref": "file://imageobject.json#properties"
+          "$ref": "file://imageobject.json"
         },
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
@@ -34,51 +34,51 @@
     "agent": {
       "anyOf": [
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://person.json"
         },
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://organization.json"
         }
       ],
       "description": "The direct performer or driver of the action (animate or inanimate). e.g. *John* wrote a book."
     },
     "result": {
       "description": "The result produced in the action. e.g. John wrote *a book*.",
-      "$ref": "file://thing.json#properties"
+      "$ref": "file://thing.json"
     },
     "additionalType": {
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "resultComment": {
       "description": "A sub property of result. The Comment created or sent as a result of this action.",
-      "$ref": "file://comment.json#properties"
+      "$ref": "file://comment.json"
     },
     "participant": {
       "anyOf": [
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://person.json"
         },
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://organization.json"
         }
       ],
       "description": "Other co-agents that participated in the action indirectly. e.g. John wrote a book with *Steve*."
     },
     "instrument": {
       "description": "The object that helped the agent perform the action. e.g. John wrote a book with *a pen*.",
-      "$ref": "file://thing.json#properties"
+      "$ref": "file://thing.json"
     },
     "location": {
       "anyOf": [
         {
+          "$ref": "file://postaladdress.json"
+        },
+        {
           "type": "string"
         },
         {
-          "$ref": "file://place.json#properties"
-        },
-        {
-          "$ref": "file://postaladdress.json#properties"
+          "$ref": "file://place.json"
         }
       ],
       "description": "The location of for example where the event is happening, an organization is located, or where an action takes place."
@@ -86,10 +86,10 @@
     "mainEntityOfPage": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
-          "$ref": "file://creativework.json#properties"
+          "$ref": "file://creativework.json"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -100,7 +100,7 @@
     },
     "object": {
       "description": "The object upon the action is carried out, whose state is kept intact or changed. Also known as the semantic roles patient, affected or undergoer (which change their state) or theme (which doesn't). e.g. John read *a book*.",
-      "$ref": "file://thing.json#properties"
+      "$ref": "file://thing.json"
     },
     "startTime": {
       "type": "string",
@@ -113,28 +113,28 @@
     "recipient": {
       "anyOf": [
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://audience.json"
         },
         {
-          "$ref": "file://audience.json#properties"
+          "$ref": "file://person.json"
         }
       ],
       "description": "A sub property of participant. The participant who is at the receiving end of the action."
     },
     "target": {
       "description": "Indicates a target EntryPoint for an Action.",
-      "$ref": "file://entrypoint.json#properties"
+      "$ref": "file://entrypoint.json"
     },
     "about": {
       "description": "The subject matter of the content.",
-      "$ref": "file://thing.json#properties"
+      "$ref": "file://thing.json"
     },
     "potentialAction": {
       "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
-      "$ref": "file://action.json#properties"
+      "$ref": "file://action.json"
     },
     "name": {
       "type": "string",
@@ -142,19 +142,19 @@
     },
     "language": {
       "description": "A sub property of instrument. The language used on this action.",
-      "$ref": "file://language.json#properties"
+      "$ref": "file://language.json"
     },
     "url": {
-      "description": "URL of the item.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of the item."
     },
     "actionStatus": {
       "description": "Indicates the current disposition of the Action.",
-      "$ref": "file://actionstatustype.json#properties"
+      "$ref": "file://actionstatustype.json"
     },
     "error": {
       "description": "For failed actions, more information on the cause of the failure.",
-      "$ref": "file://thing.json#properties"
+      "$ref": "file://thing.json"
     },
     "endTime": {
       "type": "string",

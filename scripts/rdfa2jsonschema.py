@@ -98,10 +98,10 @@ if __name__ == '__main__':
 
             _new_types = []
 
-            # Approximate primitive types and ad $refs where needed
+            # Approximate primitive types and and $refs where needed
             for _curr_type in _curr_property["types"]:
                 _parsed_type = urlparse.urlparse(_curr_type)[2][1:]
-                if _parsed_type in ["Text", "Date", "DateTime", "Time"]:
+                if _parsed_type in ["Text", "Date", "DateTime", "Time", "URL"]:
                     _new_types.append({
                         "type": "string"
                     })
@@ -109,14 +109,14 @@ if __name__ == '__main__':
                     _new_types.append({
                         "type": "boolean"
                     })
-                elif _parsed_type in ["Number"]:
+                elif _parsed_type in ["Number", "Integer"]:
                     _new_types.append({
                         "type": "number"
                     })
 
                 else:
                     _new_types.append({
-                        "$ref": "file://" + _parsed_type.lower() + ".json#properties"
+                        "$ref": "file://" + _parsed_type.lower() + ".json"
                     })
             _new_property = {"description" : _curr_property["description"]}
             if len(_new_types) > 1:

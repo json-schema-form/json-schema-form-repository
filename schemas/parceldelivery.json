@@ -7,11 +7,11 @@
   "properties": {
     "itemShipped": {
       "description": "Item(s) being shipped.",
-      "$ref": "file://product.json#properties"
+      "$ref": "file://product.json"
     },
     "potentialAction": {
       "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
-      "$ref": "file://action.json#properties"
+      "$ref": "file://action.json"
     },
     "expectedArrivalFrom": {
       "type": "string",
@@ -22,35 +22,35 @@
       "description": "The name of the item."
     },
     "url": {
-      "description": "URL of the item.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of the item."
     },
     "image": {
       "anyOf": [
         {
-          "$ref": "file://imageobject.json#properties"
+          "$ref": "file://imageobject.json"
         },
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
     },
     "deliveryAddress": {
       "description": "Destination address.",
-      "$ref": "file://postaladdress.json#properties"
+      "$ref": "file://postaladdress.json"
     },
     "trackingUrl": {
-      "description": "Tracking url for the parcel delivery.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "Tracking url for the parcel delivery."
     },
     "sameAs": {
-      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "deliveryStatus": {
       "description": "New entry added as the package passes through each leg of its journey (from shipment to final delivery).",
-      "$ref": "file://deliveryevent.json#properties"
+      "$ref": "file://deliveryevent.json"
     },
     "expectedArrivalUntil": {
       "type": "string",
@@ -58,19 +58,19 @@
     },
     "carrier": {
       "description": "'carrier' is an out-dated term indicating the 'provider' for parcel delivery and flights.",
-      "$ref": "file://organization.json#properties"
+      "$ref": "file://organization.json"
     },
     "originAddress": {
       "description": "Shipper's address.",
-      "$ref": "file://postaladdress.json#properties"
+      "$ref": "file://postaladdress.json"
     },
     "provider": {
       "anyOf": [
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://person.json"
         },
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://organization.json"
         }
       ],
       "description": "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller."
@@ -78,17 +78,17 @@
     "mainEntityOfPage": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
-          "$ref": "file://creativework.json#properties"
+          "$ref": "file://creativework.json"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
     },
     "additionalType": {
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "alternateName": {
       "type": "string",
@@ -96,7 +96,7 @@
     },
     "partOfOrder": {
       "description": "The overall order the items in this delivery were included in.",
-      "$ref": "file://order.json#properties"
+      "$ref": "file://order.json"
     },
     "trackingNumber": {
       "type": "string",
@@ -104,7 +104,7 @@
     },
     "hasDeliveryMethod": {
       "description": "Method used for delivery or shipping.",
-      "$ref": "file://deliverymethod.json#properties"
+      "$ref": "file://deliverymethod.json"
     },
     "description": {
       "type": "string",

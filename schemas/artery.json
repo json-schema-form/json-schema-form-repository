@@ -7,38 +7,38 @@
   "properties": {
     "code": {
       "description": "A medical code for the entity, taken from a controlled vocabulary or ontology such as ICD-9, DiseasesDB, MeSH, SNOMED-CT, RxNorm, etc.",
-      "$ref": "file://medicalcode.json#properties"
+      "$ref": "file://medicalcode.json"
     },
     "associatedPathophysiology": {
       "type": "string",
       "description": "If applicable, a description of the pathophysiology associated with the anatomical system, including potential abnormal changes in the mechanical, physical, and biochemical functions of the system."
     },
     "sameAs": {
-      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
       "anyOf": [
         {
-          "$ref": "file://imageobject.json#properties"
+          "$ref": "file://imageobject.json"
         },
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
     },
     "partOfSystem": {
       "description": "The anatomical or organ system that this structure is part of.",
-      "$ref": "file://anatomicalsystem.json#properties"
+      "$ref": "file://anatomicalsystem.json"
     },
     "recognizingAuthority": {
       "description": "If applicable, the organization that officially recognizes this entity as part of its endorsed system of medicine.",
-      "$ref": "file://organization.json#properties"
+      "$ref": "file://organization.json"
     },
     "additionalType": {
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "description": {
       "type": "string",
@@ -46,31 +46,31 @@
     },
     "relevantSpecialty": {
       "description": "If applicable, a medical specialty in which this entity is relevant.",
-      "$ref": "file://medicalspecialty.json#properties"
+      "$ref": "file://medicalspecialty.json"
     },
     "connectedTo": {
       "description": "Other anatomical structures to which this structure is connected.",
-      "$ref": "file://anatomicalstructure.json#properties"
+      "$ref": "file://anatomicalstructure.json"
     },
     "guideline": {
       "description": "A medical guideline related to this entity.",
-      "$ref": "file://medicalguideline.json#properties"
+      "$ref": "file://medicalguideline.json"
     },
     "source": {
       "description": "The anatomical or organ system that the artery originates from.",
-      "$ref": "file://anatomicalstructure.json#properties"
+      "$ref": "file://anatomicalstructure.json"
     },
     "relatedCondition": {
       "description": "A medical condition associated with this anatomy.",
-      "$ref": "file://medicalcondition.json#properties"
+      "$ref": "file://medicalcondition.json"
     },
     "mainEntityOfPage": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
-          "$ref": "file://creativework.json#properties"
+          "$ref": "file://creativework.json"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
@@ -85,15 +85,15 @@
     },
     "relatedTherapy": {
       "description": "A medical therapy related to this anatomy.",
-      "$ref": "file://medicaltherapy.json#properties"
+      "$ref": "file://medicaltherapy.json"
     },
     "diagram": {
       "description": "An image containing a diagram that illustrates the structure and/or its component substructures and/or connections with other structures.",
-      "$ref": "file://imageobject.json#properties"
+      "$ref": "file://imageobject.json"
     },
     "arterialBranch": {
       "description": "The branches that comprise the arterial structure.",
-      "$ref": "file://anatomicalstructure.json#properties"
+      "$ref": "file://anatomicalstructure.json"
     },
     "alternateName": {
       "type": "string",
@@ -101,31 +101,31 @@
     },
     "subStructure": {
       "description": "Component (sub-)structure(s) that comprise this anatomical structure.",
-      "$ref": "file://anatomicalstructure.json#properties"
+      "$ref": "file://anatomicalstructure.json"
     },
     "supplyTo": {
       "description": "The area to which the artery supplies blood.",
-      "$ref": "file://anatomicalstructure.json#properties"
+      "$ref": "file://anatomicalstructure.json"
     },
     "potentialAction": {
       "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
-      "$ref": "file://action.json#properties"
+      "$ref": "file://action.json"
     },
     "name": {
       "type": "string",
       "description": "The name of the item."
     },
     "url": {
-      "description": "URL of the item.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of the item."
     },
     "study": {
       "description": "A medical study or trial related to this entity.",
-      "$ref": "file://medicalstudy.json#properties"
+      "$ref": "file://medicalstudy.json"
     },
     "medicineSystem": {
       "description": "The system of medicine that includes this MedicalEntity, for example 'evidence-based', 'homeopathic', 'chiropractic', etc.",
-      "$ref": "file://medicinesystem.json#properties"
+      "$ref": "file://medicinesystem.json"
     }
   }
 }

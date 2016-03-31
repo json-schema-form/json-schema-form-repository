@@ -7,19 +7,19 @@
   "properties": {
     "orderDelivery": {
       "description": "The delivery of the parcel related to this order or order item.",
-      "$ref": "file://parceldelivery.json#properties"
+      "$ref": "file://parceldelivery.json"
     },
     "sameAs": {
-      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website."
     },
     "image": {
       "anyOf": [
         {
-          "$ref": "file://imageobject.json#properties"
+          "$ref": "file://imageobject.json"
         },
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         }
       ],
       "description": "An image of the item. This can be a <a href=\"http://schema.org/URL\">URL</a> or a fully described <a href=\"http://schema.org/ImageObject\">ImageObject</a>."
@@ -27,33 +27,33 @@
     "orderedItem": {
       "anyOf": [
         {
-          "$ref": "file://orderitem.json#properties"
+          "$ref": "file://product.json"
         },
         {
-          "$ref": "file://product.json#properties"
+          "$ref": "file://orderitem.json"
         }
       ],
       "description": "The item ordered."
     },
     "partOfInvoice": {
       "description": "The order is being paid as part of the referenced Invoice.",
-      "$ref": "file://invoice.json#properties"
+      "$ref": "file://invoice.json"
     },
     "orderStatus": {
       "description": "The current status of the order.",
-      "$ref": "file://orderstatus.json#properties"
+      "$ref": "file://orderstatus.json"
     },
     "discountCurrency": {
       "type": "string",
       "description": "The currency (in 3-letter ISO 4217 format) of the discount."
     },
     "additionalType": {
-      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally."
     },
     "acceptedOffer": {
       "description": "The offer(s) -- e.g., product, quantity and price combinations -- included in the order.",
-      "$ref": "file://offer.json#properties"
+      "$ref": "file://offer.json"
     },
     "isGift": {
       "type": "boolean",
@@ -74,10 +74,10 @@
     "seller": {
       "anyOf": [
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://person.json"
         }
       ],
       "description": "An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider."
@@ -89,25 +89,25 @@
     "mainEntityOfPage": {
       "anyOf": [
         {
-          "$ref": "file://url.json#properties"
+          "type": "string"
         },
         {
-          "$ref": "file://creativework.json#properties"
+          "$ref": "file://creativework.json"
         }
       ],
       "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described.\n      <br /><br />\n      See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.\n      "
     },
     "paymentMethod": {
       "description": "The name of the credit card or other method of payment for the order.",
-      "$ref": "file://paymentmethod.json#properties"
+      "$ref": "file://paymentmethod.json"
     },
     "merchant": {
       "anyOf": [
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://person.json"
         }
       ],
       "description": "'merchant' is an out-dated term for 'seller'."
@@ -119,32 +119,32 @@
     "broker": {
       "anyOf": [
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://organization.json"
         },
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://person.json"
         }
       ],
       "description": "An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred."
     },
     "paymentUrl": {
-      "description": "The URL for sending a payment.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "The URL for sending a payment."
     },
     "discount": {
       "anyOf": [
         {
-          "type": "number"
+          "type": "string"
         },
         {
-          "type": "string"
+          "type": "number"
         }
       ],
       "description": "Any discount applied (to an Order)."
     },
     "billingAddress": {
       "description": "The billing address for the order.",
-      "$ref": "file://postaladdress.json#properties"
+      "$ref": "file://postaladdress.json"
     },
     "paymentDueDate": {
       "type": "string",
@@ -157,25 +157,25 @@
     "customer": {
       "anyOf": [
         {
-          "$ref": "file://organization.json#properties"
+          "$ref": "file://person.json"
         },
         {
-          "$ref": "file://person.json#properties"
+          "$ref": "file://organization.json"
         }
       ],
       "description": "Party placing the order or paying the invoice."
     },
     "potentialAction": {
       "description": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
-      "$ref": "file://action.json#properties"
+      "$ref": "file://action.json"
     },
     "name": {
       "type": "string",
       "description": "The name of the item."
     },
     "url": {
-      "description": "URL of the item.",
-      "$ref": "file://url.json#properties"
+      "type": "string",
+      "description": "URL of the item."
     },
     "discountCode": {
       "type": "string",
