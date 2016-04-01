@@ -5,8 +5,11 @@ from urllib.parse import urlparse
 import jsonschema
 
 from jsonschema.validators import RefResolver
+
 script_dir = os.path.dirname(__file__)
 resolve_cache = {}
+
+
 def general_uri_handler(_uri, _folder):
     """
     This function looks up a JSON schema that matches the URL in the given folder
@@ -23,11 +26,13 @@ def general_uri_handler(_uri, _folder):
 
     return _json
 
+
 def file_uri_handler(_uri):
     global script_dir
     return general_uri_handler(_uri=_uri, _folder=os.path.join(script_dir, "..", "schemas"))
 
-def resolveSchema( _schema, _resolver):
+
+def resolveSchema(_schema, _resolver):
     """
     Recursively resolve all I{$ref} JSON references in a JSON Schema. (taken from
     :param _schema: A L{dict} with a JSON Schema.
@@ -44,10 +49,8 @@ def resolveSchema( _schema, _resolver):
         """
         _indent = (str(_level) + " " * (_level * 2))
 
-
         if _level > 3:
             return
-
 
         if isinstance(_obj, list):
             # Loop any list
@@ -58,7 +61,7 @@ def resolveSchema( _schema, _resolver):
         if isinstance(_obj, dict):
 
             if "$ref" in _obj:
-                #print("$ref" + str(_obj))
+                # print("$ref" + str(_obj))
                 _curr_ref = _obj["$ref"]
 
                 # Do not resolve local references
@@ -67,15 +70,16 @@ def resolveSchema( _schema, _resolver):
 
                 # Do not resolve circular references
                 if _curr_ref in _ref_history:
-                    print(_indent + " Cyclical remote reference, will not resolve: " + str(_curr_ref) + ":  Formers " + str(_ref_history))
+                    print(_indent + " Cyclical remote reference, will not resolve: " + str(
+                        _curr_ref) + ":  Formers " + str(_ref_history))
                     return
 
                 # Cannot cache resolutions as we need circular reference checks every time
                 # TODO: Could a deepcopy make caching work?
-                #if _curr_ref in resolve_cache:
+                # if _curr_ref in resolve_cache:
                 #    print(_indent  + ": Using cached " + _curr_ref)
                 #    _obj.update(resolve_cache[_curr_ref])
-                #else:
+                # else:
                 _resolved = file_uri_handler(_curr_ref)
                 # Resolve the resolved schema
                 print(_indent + "Resolving " + _curr_ref)
@@ -99,16 +103,16 @@ def resolveSchema( _schema, _resolver):
                             # print("parsing an anyOf : " + _key + "=" + str(_value["anyOf"]))
                             for _item in _value["oneOf"]:
                                 if "$ref" in _item:
-                                    #print("Resolving anyOf item : " + str(_item))
+                                    # print("Resolving anyOf item : " + str(_item))
                                     local_resolve(_item, _ref_history, _level + 1)
-
 
     try:
         local_resolve(_result, [], 0)
     except Exception as e:
-        raise Exception("schemaTools.resolveSchema: Error resolving schema:" + str(e) + "Schema " + json.dumps(_schema, indent=4))
+        raise Exception(
+            "schemaTools.resolveSchema: Error resolving schema:" + str(e) + "Schema " + json.dumps(_schema, indent=4))
 
-    #with open(os.path.join(script_dir, "..", "schemas", "resolved", _result["title"].lower() + ".json"), "w") as _f:
+    # with open(os.path.join(script_dir, "..", "schemas", "resolved", _result["title"].lower() + ".json"), "w") as _f:
     #    json.dump(_result, _f)
 
     # Make top allOf into properties
@@ -122,19 +126,20 @@ def resolveSchema( _schema, _resolver):
 
     _result["$schema"] = "http://json-schema.org/draft-04/schema#"
 
-
     try:
         jsonschema.validators.Draft4Validator({}, resolver=_resolver).check_schema(_result)
         pass
     except Exception as e:
-        raise Exception("schemaTools.resolveSchema: error validating resolved schema:" + str(e) + "Schema " + json.dumps(_result, indent=4))
+        raise Exception(
+            "schemaTools.resolveSchema: error validating resolved schema:" + str(e) + "Schema " + json.dumps(_result,
+                                                                                                             indent=4))
 
     return _result
 
-def property2form(_property_name, _property):
 
-    def oneOf(_prefix = ""):
-        return {"key": _prefix + _property_name, "type": "text",
+def property2form(_property_name, _property):
+    def oneOf(_suffix=""):
+        return {"key": _property_name + _suffix, "type": "text",
                 "description": "Set to a plain text input as oneOf isn't currently implemented in the standard."
                                " Description: " + _description}
 
@@ -160,7 +165,7 @@ def property2form(_property_name, _property):
             elif _curr_type in ["array"]:
                 _curr_key["type"] = "array"
                 if "oneOf" in _property["items"]:
-                    _curr_key["items"] = oneOf()
+                    _curr_key["items"] = [oneOf("[].value")]
                 else:
                     _curr_key["items"] = properties2form(_property["items"], _property_name + "[].")
             elif _curr_type in ["object"]:
@@ -175,12 +180,14 @@ def property2form(_property_name, _property):
 
         elif "$ref" in _property:
             return {"key": _property_name, "type": "text",
-                    "description": "Set to a plain text input as $ref:ed type(" + _property["$ref"] + ") isn't resolved."
-                                   " Description: " + _description}
+                    "description": "Set to a plain text input as $ref:ed type(" + _property[
+                        "$ref"] + ") isn't resolved."
+                                  " Description: " + _description}
 
     return {}
 
-def properties2form(_properties, _prefix = ""):
+
+def properties2form(_properties, _prefix=""):
     _form = []
 
     for _curr_property_name, _curr_property in _properties.items():
@@ -195,7 +202,7 @@ if __name__ == '__main__':
     _schema_dir_list = os.listdir(_schema_dir)
 
     _resolver = RefResolver(base_uri="",
-                                handlers={"file": file_uri_handler}, referrer=None, cache_remote=False)
+                            handlers={"file": file_uri_handler}, referrer=None, cache_remote=False)
 
     for _curr_file in _schema_dir_list:
         if os.path.splitext(_curr_file)[1] == ".json":
@@ -204,12 +211,12 @@ if __name__ == '__main__':
 
             _resolved_schema = resolveSchema(_curr_schema, _resolver)
             _new_form = properties2form(_resolved_schema["properties"])
-            with open(os.path.join(script_dir, "..", "schemas", "resolved", "forms", _resolved_schema["title"].lower() + "-form.json"),
+            with open(os.path.join(script_dir, "..", "schemas", "resolved", "forms",
+                                   _resolved_schema["title"].lower() + "-form.json"),
                       "w") as _f:
                 json.dump(_new_form, _f)
 
             print(_curr_schema["title"] + " checked out ok.")
-            #_form = []
-            #for _curr_property in _curr_schema:
+            # _form = []
+            # for _curr_property in _curr_schema:
             #    pass
-
